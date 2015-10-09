@@ -1,0 +1,74 @@
+﻿/* ----------------------- *\
+    PLUGIN YOUTUBE VIDEO
+\* ----------------------- */
+.yv-link,
+.yv-img{
+    display:block;
+    text-align:left;
+}
+
+.yv-link{
+    .font-size(10);
+    font-family:Arial, sans-serif;
+
+    figure{
+        position:relative;
+    }
+
+    &:hover{
+        .yv-title{
+            text-decoration:underline;
+        }
+    }
+}
+
+.yv-img{
+    max-width:100%;
+    margin:0 auto;
+    display:block;
+}
+
+.yv-title,
+.yv-views{
+    margin:0;
+}
+
+.yv-title{
+    color:#167ac6;
+    margin:5px 0 5px;
+}
+
+.yv-views{
+    &:after{
+        content:' visualizações';
+    }
+}
+
+.yv-date{
+    float:right;
+}
+
+.yv-time{
+    position:absolute;
+    top:93px;
+    right:0;
+    background:rgba(0,0,0,.5);
+    padding:3px 6px;
+    color:#fff;
+}
+
+.wrapper-internal-movies{
+    .yv-time{
+        display:none;
+    }
+}
+
+@media screen{
+    @media (min-width:960px){
+        .wrapper-internal-movies{
+            .yv-time{
+                display:block;
+            }
+        }
+    }
+}

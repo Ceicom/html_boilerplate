@@ -1,0 +1,254 @@
+﻿// mantido import devido ao formee ser feito 1 arquivo separado
+@import '../mix/variables';
+@import '../mix/functions';
+@import 'grid';
+
+/* -------------------------------------------- *\
+    FORMEE CONFIG'S
+\* -------------------------------------------- */
+
+@formee--width: 100%;
+@formee--colunas-total: 12;
+
+
+/* -------------------------------------------- *\
+    INPUTS:not(submit,button,reset) CONFIG's
+\* -------------------------------------------- */
+
+//cor do texto dentro dos inputs
+@inputs--textcolor: #000; 
+ //tamanha da borda dos inputs
+@inputs--borderwidth: 1px;
+//cor da borda dos inputs
+@inputs--bordercolor: #d3d3d3; 
+//cor de fundo dos inputs
+@inputs--bgcolor: #fff; 
+//padding padrão em todo os inputs
+@inputs--padding: 12px 15px;
+//tipo de borda padrão em todo os inputs
+@inputs--borderstyle: solid;
+//tamanho do texto padrão dos inputs
+@inputs--textsize: 14px;
+//tamanho do border radius padrão dos inputs
+@inputs--radius: 0;
+
+    //INPUT's HOVER
+
+    //cor do texto dos input no hover
+    @inputs--textcolor-hover: @inputs--textcolor;
+    //cor background dos input no hover
+    @inputs--bgcolor-hover: @inputs--bgcolor;
+    //cor de borda dos input no hover
+    @inputs--bordercolor-hover: darken(@inputs--bordercolor,20%);
+
+    //INPUT's FOCUS
+
+    //cor do texto dos input no focus
+    @inputs--textcolor-focus: #666;
+    //cor background dos input no focus
+    @inputs--bgcolor-focus: @inputs--bgcolor;
+    //cor de borda dos input no focus
+    @inputs--bordercolor-focus: darken(@inputs--bordercolor,20%);
+
+
+/* -------------------------------------------- *\
+    INPUTS: submit button reset 
+\* -------------------------------------------- */
+
+//cor padrão do texto dos botõtes
+@inputs--buttons-textcolor: #fff; 
+//tamanho padrão de borda dos botõtes
+@inputs--buttons-borderwidth: 0;
+//cor padrão da borda dos botõtes
+@inputs--buttons-bordercolor: transparent; 
+//cor padrão do background dos botõtes
+@inputs--buttons-bgcolor: #003d92; 
+//padding padrão dos botõtes
+@inputs--buttons-padding: 0 50px;
+//tipo de borda padrão dos botõtes
+@inputs--buttons-borderstyle: solid;
+//tamanho de texto padrão dos botõtes
+@inputs--buttons-textsize: 16px;
+//border radius padrão dos botõtes
+@inputs--buttons-radius: 0;
+
+
+/* -------------------------------------------- *\
+    CORES DOS PLACEHOLDERS
+\* -------------------------------------------- */
+
+@input--placeholder: #d3d3d3;
+
+
+/* -------------------------------------------- *\
+    MENSAGENS
+\* -------------------------------------------- */
+
+//mensagens: campo obrigatório
+@msg-require--color: #d10000;
+
+
+/* -------------------------------------------- *\
+    TOOLTIP DAS VALIDAÇÕES
+\* -------------------------------------------- */
+
+@fontSize: 12px;
+@radius: 4px;
+@errorColor: #b34e4d;
+@errorShadow: #5a2626;
+
+
+.formee{
+    .clearfix();
+
+    &.is-contact-form{
+        .column(8,0);
+        position:relative;
+    }
+
+    .txt-align{ line-height: 45px;}
+
+    .box-captcha{
+
+        input{ max-width: 50%;}
+
+            input[type=number],
+            img{
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            input[type=number],
+            img,
+            div{
+                float: left;
+            }
+    }
+
+    [class^=g]:not(.g-recaptcha){
+        margin: 5px 0;
+        position: relative;
+        .clearfix();
+    }
+
+    .row > [class^=g]{
+
+        &:first-child{ margin-top: 0;}
+        &:last-child { margin-bottom: 0;}
+
+    }
+
+    label{
+        margin: 0 0 3px;
+        display: inline-block;
+    }
+
+    //mensagens: campo obrigatório
+    .req{
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        font-size: 10px;
+        color: @msg-require--color;
+        position: relative;
+        top: -10px; // ver
+    }
+
+    /* INPUTS GERAL */
+    input[type="url"],
+    input[type*="date"],
+    input[type="number"],
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"],
+    input[type="search"],
+    textarea,
+    select{
+        vertical-align: middle;
+        width: 100%;
+        color:          @inputs--textcolor;
+        padding:        @inputs--padding;
+        font-size:      @inputs--textsize; 
+        background:     @inputs--bgcolor;
+        border-style:   @inputs--borderstyle;
+        border-width:   @inputs--borderwidth;
+        border-color:   @inputs--bordercolor;
+        border-radius:  @inputs--radius;
+        transition:.3s;
+
+        //HOVER
+        &:hover{
+            color: @inputs--textcolor-hover;
+            background: @inputs--bgcolor-hover;
+            border-color: @inputs--bordercolor-hover;
+            outline: 0;
+        }
+
+        //FOCUS
+        &:focus{
+            color: @inputs--textcolor-focus;
+            background: @inputs--bgcolor-focus;
+            border-color: @inputs--bordercolor-focus;
+            outline: 0;
+        }
+    }
+
+    //TEXTAREA
+    textarea{
+        overflow: auto;
+        height: 11.1em;
+        resize: vertical;
+    }
+
+    /* CORES DOS PLACEHOLDERS */
+    input::-webkit-input-placeholder   { color: @input--placeholder;}
+    textarea::-webkit-input-placeholder{ color: @input--placeholder;}
+    input:-ms-input-placeholder        { color: @input--placeholder;}
+    textarea:-ms-input-placeholder     { color: @input--placeholder;}
+    input::-moz-placeholder            { color: @input--placeholder;}
+    textarea::-moz-placeholder         { color: @input--placeholder;}
+    input:-moz-placeholder             { color: @input--placeholder;}
+    textarea:-moz-placeholder          { color: @input--placeholder;}
+
+    .cFw2013_input-erro::-webkit-input-placeholder   { color: #b01717;}
+    .cFw2013_input-erro:-ms-input-placeholder        { color: #b01717;}
+    .cFw2013_input-erro::-moz-placeholder            { color: #b01717;}
+    .cFw2013_input-erro:-moz-placeholder             { color: #b01717;}
+
+    /* INPUTS SUBMIT, BUTTON, RESET */
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"]{
+        float:right;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        line-height: 45px;
+        font-weight: 400;
+
+        color: @inputs--buttons-textcolor; 
+        padding: @inputs--buttons-padding;
+        .font-size(@inputs--buttons-textsize);
+        border-width: @inputs--buttons-borderwidth;
+        border-color: @inputs--buttons-bordercolor;
+        border-style: @inputs--buttons-borderstyle;
+        border-radius: @inputs--buttons-radius;
+        background-color: @inputs--buttons-bgcolor;
+        
+        &[disabled]{ cursor: not-allowed;}
+
+    }
+
+    @media screen and (max-width: @quebraFormee){
+
+        [class^=g]:not(.g-recaptcha){
+            .column(12);
+        }
+
+        .box-captcha{
+            input{ max-width: 100%;}
+        }
+    }
+}

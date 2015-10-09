@@ -1,0 +1,113 @@
+modificações:
+
+3.2 melhorado :P
+
+3.0
+* mudança total na estrutura de arquivos
+* adicionada pasta dev/js (arquivos javascript)
+* adicionada pasta dev/less (arquivos less)
+* adicionada pasta dev/less/css (arquivos less compilados)
+* adicionada pasta dev/less/componentes (arquivos less especificos de componentes)
+* adicionada pasta dev/less/mix (arquivos less especificos de configurações e funções)
+* adiciionado pasta dev/vendor (plugins)
+* renomeada pasta img para images (google thing's)
+* adicionados modulos grunt: grunt-contrib-copy, grunt-contrib-uglify, grunt-browser-sync, load-grunt-tasks e time-grunt
+* correções nas metatags do twitter e facebook e solicitação do sitemap
+* robots.txt adicionado
+* correção Thumb.aspx para arquivos .gif
+//
+*mudado o caminho no mixins do less de "/img" para "/images" nos sprites
+
+2.7
+* adicionado robots.txt
+* adicionada tag que habilita cleartype nos celulares
+* atualizado código analytics
+* atualizado fechamento tags meta (removido /, mantido somente >)
+* removida solicitação chrome frame navegadores antigos
+* removidas imagens de exemplo
+* adicionadas classes de mensagens de aviso (error, success, warning, info)
+* alterações no arquivo uteis e geral.less
+
+2.6
+* atualizadas correções mimetype webconfig
+* removido print.css
+* atualizado gruntfile.js para melhor tratamento de css`s
+* removido opções do mix do content (mix e max) agora padrão é max
+* atualizada meta MobileOptimized para o valor 320
+* adicionada classe txt-left nos uteis
+* criado arquivo styles/[off]/extras.less como backup completo do arquivo uteis
+* removidas diversas classes com pouca utilização do arquivo uteis.less
+* repassado grid .g{}-12 para o arquivo formee.less
+* atualizado arquivo 404.html
+* atualizado arquivo index.html
+* adicionado suporte para woff2
+* removido favicon.ico e adicionado no default link para realfavicongenerator como referência para favicon completo (cross plataform) [09/12/2014]
+* atualizada versão jquery 1.11.2 [29/12/2014]
+* atualizado diagnosticss.css, validando alt vazio e link sem title
+
+2.5
+* movida src dos css para dentro da pasta styles
+* aviso de navegador antigo (ie8-) removido css do projeto, mantido online (http://api.ceicom.com.br/libs/cFw/css/ie8-/ie8.min.css)
+* atualizado gruntfile.js patchs para arquivos css
+* adicionado código para css sem cache (necessita de configuração em cada novo projeto)
+* adicionado cssRefresh.js (deve ser removido ao publicar site versão final)
+* atualizado html5Shiv versão antiga 3.7.0 nova versão 3.7.2
+* removidos elementos iniciais do html padrão
+* atualizadas imagens pasta tmp
+. diversas classes movidas do arquivo geral.less para uteis.less
+. msgs padrões do formee não necessitam mais da classe .formee, movidas para uteis
+. removidas classes .block e .align-center
+. atualizada classe .clear
+. atualizada classe .pagination.center para .pagination.is-centered
+. adicionada classe .txt-right
+// 14-10
+. adicionada metatag para remover Highlight do tap no mobile ie
+
+2.4
+* atualizado formee (adicionada classe box-captcha)
+* atualizado captcha para altura padrão dos forms do formee
+* adicionado ms-clear (remove x input type search ie)
+* alterada chamada rem no body para px (bug chrome)
+* removida tag keywords
+* adicionada tag HandheldFriendly (M-Business Sync Server baixa js, css e imagens)
+* adicionada tag MobileOptimized (ie mobile)
+* atualizada tag viewport (adicionado minimal-ui, ios7 top e bottom bar menores)
+* adicionado default analytics
+* adicionada twitter card (tags atualizadas)
+* removidas tags inutilizadas
+* atualizado favicon (substituido .png para .ico)
+* adicionado mymetypes arquivos css3, html5
+* renomeada pasta out dentro de styles para [off] (arquivos que geralmente não são usados)
+
+2.3
+* corrigido posicionamneto arquivos css (ie8-)
+* removidas classes menos utilizadas do arquivo uteis.less
+* correções de conteudo nos arquivos index.html e 404.html
+* adicionado correções mimetype webconfig
+* atualizada versão jquery para 1.11.1
+* atualizada versão cfw para 2.1
+* correções diversas no arquivos "default"
+* removido html5PrintShiv (utilizado somente para impressoras)
+
+2.2
+* adicionado plugin cssmin (minificação e concatenação de arquivos)
+* adicionado plugin autoprefixer e removido .js prefixfree
+* adicionada configurações dos plugins cssmin e autoprefixer no grunt
+* organizados arquivos css de referência dentro de css e demais dentro da pasta css/src
+* adicionado plugin respond como media queries no ie8
+* alterado normalize e print para versão normal desminificada
+* correções arquivo default_tmp para adequação com os novos itens acima
+
+2.1
+* adicionado suporte ao grunt
+* separado css compilado do source (/css e /styles)
+* adicionado arquivos gruntfile.js (default) e package.json (default)
+* adicionada pasta node_modules oculta devido ao publish do visual studio
+--
+* adicionado meta para iphone n estilizar telefones
+
+2.0
+* adicionada classe .row
+* atualizado normalize para versão 3.0
+* alterado padrão de grids do formee para g{}-12
+* atualizado index e 404.html
