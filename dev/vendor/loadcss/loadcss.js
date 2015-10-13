@@ -11,7 +11,6 @@ Licensed MIT
         // stop placing duplacated styleSheets
         var ss_loaded = document.styleSheets;
         for (var i = ss_loaded.length - 1; i >= 0; i--) {
-            console.info(href);
             if (ss_loaded[i].href.indexOf(href) > -1) return false;
         }
 
