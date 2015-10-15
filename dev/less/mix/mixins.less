@@ -365,7 +365,7 @@
      */
 
     input[type="search"] {
-      -webkit-appearance: textfield; /* 1 */
+      //-webkit-appearance: textfield; /* 1 */
       box-sizing: border-box; /* 2 */
     }
 
@@ -449,10 +449,12 @@
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
     }
+    
     // html
     html {
         .em-size(@font-base);
     }
+    
     // remove outline inputs padrão
     input:focus,
     textarea:focus,
@@ -460,19 +462,29 @@
     select:focus {
         outline: 0;
     }
+    
     // remove X dos inputs no IE
     ::-ms-clear {
         display: none;
     }
+    
     // reseta select em brownsers website
     // principalmente mobile
     select {
         -webkit-appearance: listbox;
     }
+    
     // remove margin figure
     figure {
         margin: 0;
     }
+
+    // remove bordas redondas safari e chorme mobile
+    input {
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+
     // display block devido aos svg's
     object{
         display:block;
