@@ -132,7 +132,7 @@
                 files: [{
                     expand: true,
                     cwd: 'dev/vendor/',
-                    src: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.cur', '**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff'],
+                    src: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.cur', '**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2'],
                     dest: 'vendor/'
                 }]
             }
