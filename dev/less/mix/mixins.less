@@ -488,7 +488,6 @@
     // display block devido aos svg's
     object{
         display:block;
-        //pointer-events:none;
     }
 }
 .default();
@@ -509,6 +508,7 @@
     .content {
         .content();
     }
+
     // setinhas select somente em webkit (chrome, etc)
     @media screen and (-webkit-min-device-pixel-ratio:0) {
         .select-seta {
@@ -529,14 +529,6 @@
                 width: 6px;
                 height: 6px;
                 transform: rotate(45deg) translateY(-1px);
-            }
-
-            &.white:after {
-                border-color: transparent white white transparent;
-            }
-
-            &.no-padd:after {
-                right: (@gutter-width+3px);
             }
         }
     }
@@ -560,42 +552,6 @@
 
 
 /* ----------------------- *\
-    TEXTO ALINHAMENTOS
-\* ----------------------- */
-.txt-align() when (@txt-align = true) {
-    .txt-center {
-        text-align: center;
-    }
-
-    .txt-left {
-        text-align: left;
-    }
-
-    .txt-right {
-        text-align: right;
-    }
-}
-.txt-align();
-
-
-/* ----------------------- *\
-        PADDING ITENS
-\* ----------------------- */
-.padding-itens() when (@padding-itens = true) {
-    .padd-side-def {
-        padding-left: @gutter-width*1px;
-        padding-right: @gutter-width*1px;
-    }
-
-    .no-padd-side {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-}
-.padding-itens();
-
-
-/* ----------------------- *\
         GRID CLASSES
 \* ----------------------- */
 .grid-class() when (@grid-class = true) {
@@ -611,9 +567,10 @@
     // content responsive
     .cont-resp {
         position: relative;
-        padding-bottom: 76.25%;
         height: 0;
         overflow: hidden;
+
+        padding-bottom: 76.25%;/**/
 
         iframe,
         object,
@@ -624,14 +581,6 @@
             width: 100%;
             height: 100%;
         }
-
-        &.wide {
-            padding-bottom: 56.25%;
-        }
-    }
-    //img resposivo
-    .resp-img {
-        max-width: 100%;
     }
 }
 .resp-itens();
@@ -661,10 +610,10 @@
                 'href sem TITLE \a'
                 'elementos vazios \a'
                 'img sem alt \a'
-                'img sem WIDTH ou HEIGHT  \a'
+                'button sem type  \a'
                 'form sem ACTION \a'
-                'input sem TYPE ou textarea sem ROW ou COLS \a'
-                'inputs sem NAME \a'
+                'input sem TYPE \a'
+                'inputs sem NAME ou ID \a'
                 'inputs submit sem VALUE \a'
                 'label sem FOR ou VAZIO \a'
                 'elementos antigos \a'
@@ -711,17 +660,21 @@
     }
 
     /* links */
-    a:not([href]), a[href=""], a[href="#"], a[href^="javascript"] {
+    a:not([href]),
+    a[href=""],
+    a[href="#"],
+    a[href^="javascript"] {
       outline: 5px solid #8a2be2;
     }
 
     /* images */
-    a:not([title]) {
+    a:not([title]),
+    a[title=""] {
       outline: 5px solid #a52a2a;
     }
 
     /* empty elements */
-    li:empty, p:empty, td:empty, th:empty {
+    *:empty {
       outline: 5px solid #7fff00;
     }
 
@@ -731,35 +684,51 @@
       outline: 5px solid #ff7f50;
     }
 
-    img:not([width]):not([height]) {
-      outline: 5px solid #6495ed;
-    }
-
     /* forms */
     form:not([action]) {
       outline: 5px solid #dc143c;
     }
 
-    input:not([type]), textarea:not([rows]):not([cols]) {
+    input:not([type]) {
       outline: 5px solid #00008b;
     }
 
-    input:not([name]), input[name=""],
-    select:not([name]), select[name=""],
-    textarea:not([name]), textarea[name=""],
-    input[type="submit"]:not([name]) {
+    input:not([name]),
+    input[name=""],
+    select:not([name]),
+    select[name=""],
+    textarea:not([name]),
+    textarea[name=""],
+    input[type="submit"]:not([name]),
+    input[type="submit"][name=""],
+    input:not([id]),
+    input[id=""],
+    select:not([id]),
+    select[id=""],
+    textarea:not([id]),
+    textarea[id=""],
+    input[type="submit"]:not([id]),
+    input[type="submit"][id=""] {
       outline: 5px solid #b8860b;
     }
 
-    input[type="submit"]:not([value]) {
+    button:not([type]),
+    button[type=""]{
+        outline:5px solid #6495ed;
+    }
+
+    input[type="submit"]:not([value]),
+    input[type="submit"][value=""] {
       outline: 5px solid #696969 ;
     }
 
-    time:not([datetime]){
+    time:not([datetime]),
+    time[datetime=""]{
         outline:4px solid #000;
     }
 
-    label:not([for]), label[for=""] {
+    label:not([for]),
+    label[for=""] {
       outline: 5px solid #ff1493;
     }
 
