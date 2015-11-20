@@ -6,23 +6,20 @@
     function () {
 
         var style = loadCSS('/vendor/sweetalert/sweet-alert.min.css');
-        onloadCSS(style, function () {
-            $('.btnSend').removeAttr('disabled');
-        });
-
+        $('.btnSend').removeAttr('disabled');
 
         // envia dados do formulário para enviar email
-        var ajaxForm = function ($form, $btn, contato) {
+        var ajaxForm = function ($form, $btn) {
 
-            var type = contato ? 'contato' : 'newsletter';
+            var type = $form.attr('id');
 
             $.ajax({
                 type: 'POST',
                 url: '/modulos/handlers/formularios.ashx?type='+type,
                 data: $('form').serialize(),
-                beforeSend: function () {
-                    $form.find('.loading-full').fadeIn('fast');
-                }
+                //beforeSend: function () {
+                //    $form.find('.loading-full').fadeIn('fast');
+                //}
             })
             .done(function (data) {
                 var msg;
@@ -31,30 +28,20 @@
                         msg = { title: 'Ops', text: 'Preencha todos os campos, tente novamente.', type: 'info' };
                         break;
                     case 1:
-                        if (contato) {
-                            msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
-                            grecaptcha.reset();
-                        } else {
-                            msg = { title: 'Sucesso', text: 'Email cadastrado com sucesso, aguarde, em breve retornaremos com novidades!', type: 'success' };
-                        }
-
+                        msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
                         // zera form e reseta captcha
-                        $('#' + $('body').attr('data-form')).find('input:not([type=submit]), textarea').val('');
-
+                        grecaptcha.reset();
+                        $form.find('input:not([type=submit]), textarea').val('');
                         break;
                     default:
-                        if (contato) {
-                            msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
-                        } else {
-                            msg = { title: 'Erro', text: 'Ocorreu um erro durante seu cadastro, tente novamente.', type: 'error' };
-                        }
+                        msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
                         break;
                 }
 
                 swal(msg);
 
                 // habilita botão e remover loading
-                $form.find('.loading-full').fadeOut('fast');
+                //$form.find('.loading-full').fadeOut('fast');
                 $btn.removeAttr('disabled');
             });
         };
@@ -63,16 +50,16 @@
         $('form').on('submit', function (e) {
 
             var $form = $('#' + $('body').attr('data-form'));
-            var $btn = $form.find('input[type="submit"]').length ? $form.find('input[type="submit"]') : $form.find('button');
+            var $btn = $form.find('input[type="submit"]') || $form.find('button');
 
             if ($btn.length && $form.length) {
                 e.preventDefault();
 
                 $btn.attr('disabled', 'disabled');
-                $form.find('.loading-full').fadeIn('fast');
+                //$form.find('.loading-full').fadeIn('fast');
 
-                // form de contato
-                if ($form.attr('id').indexOf('contact') >= 0) {
+                // form com captcha
+                if ($form.find('.g-recaptcha').length){
 
                     // captura valor inserido no captcha
                     var catpchaResponse = grecaptcha.getResponse();
@@ -97,9 +84,9 @@
                                 swal({ title: 'Ops', text: 'Código de verificação inválido, tente novamente.', type: 'info' });
                                 grecaptcha.reset();
                                 $btn.removeAttr('disabled');
-                                $form.find('.loading-full').fadeOut('fast');
+                                //$form.find('.loading-full').fadeOut('fast');
                             } else {
-                                ajaxForm($form, $btn, true);
+                                ajaxForm($form, $btn);
                             }
                         });
 
@@ -107,11 +94,11 @@
                     } else {
                         swal({ title: 'Erro', text: 'Preencha o <strong>Captcha</strong> para continuar.', type: 'error' });
                         $btn.removeAttr('disabled');
-                        $form.find('.loading-full').fadeOut('fast');
+                        //$form.find('.loading-full').fadeOut('fast');
                     }
 
                 }
-                // form newsletter
+                // form sem captcha
                 else {
                     ajaxForm($form, $btn);
                 }

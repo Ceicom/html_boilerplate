@@ -39,7 +39,8 @@ requirejs.config({
         arrayFilter: 'func/array_filter.min',   // @array_filter(arr)
         getUrlParam: 'func/getUrlParam.min',    // @getURLParameter(name)
         objectSize: 'func/object_size.min',     // @Object.size(obj)
-        wSize: 'func/wSize.min'                 // @wSize('w') || @wSize('h')
+        wSize: 'func/wSize.min',                // @wSize('w') || @wSize('h')
+        clearString: 'func/clearString.min'     // @clearString(string)
     },
 
     //urlArgs: 'v=1.0',                           // produção
@@ -95,8 +96,8 @@ require(['ie/version.min'], function (ieV) {
                 if (paginas[i] == 'modal') require(['ux/modal.min']);
                 else if (paginas[i] == 'carousel') require(['ux/carousel.min']);
 
-                // pages...
-                //if (paginas[i] == 'home') require(['pages/home.min']);
+                // pages
+                //else if (paginas[i] == 'home') require(['pages/home.min']);
             }
         });
 

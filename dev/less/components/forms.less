@@ -103,7 +103,14 @@
         }
     }
 
-    @media screen and (min-width: @quebraFormee) {
+    @media screen {
+        @media (max-width:350px){
+            .w-catpcha{
+                padding:0;
+            }
+        }
+
+         @media (min-width: @quebraFormee) {
             .g1-12  { .column(1,@resume:true); }
             .g2-12  { .column(2,@resume:true); }
             .g3-12  { .column(3,@resume:true); }
@@ -115,5 +122,7 @@
             .g9-12  { .column(9,@resume:true); }
             .g10-12 { .column(10,@resume:true); }
             .g11-12 { .column(11,@resume:true); }
+        }
     }
+
 }

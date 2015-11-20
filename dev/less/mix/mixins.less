@@ -455,6 +455,11 @@
         .em-size(@font-base);
     }
     
+    // form
+    form{
+        margin:0;
+    }
+
     // remove outline inputs padrão
     input:focus,
     textarea:focus,
@@ -608,7 +613,7 @@
         content:'style="inline" \a'
                 'href="link" \a'
                 'href sem TITLE \a'
-                'elementos vazios \a'
+                //'elementos vazios \a'
                 'img sem alt \a'
                 'button sem type  \a'
                 'form sem ACTION \a'
@@ -639,10 +644,10 @@
         height: 10px;
         z-index:999999;
         box-shadow: 
-            0 -308px 0 #7fffd4,
-            0 -283px 0 #8a2be2,
-            0 -258px 0 #a52a2a,
-            0 -233px 0 #7fff00,
+            0 -283px 0 #7fffd4,
+            0 -258px 0 #8a2be2,
+            0 -233px 0 #a52a2a,
+            //0 -233px 0 #7fff00,
             0 -208px 0 #ff7f50,
             0 -183px 0 #6495ed,
             0 -158px 0 #dc143c,
@@ -674,9 +679,9 @@
     }
 
     /* empty elements */
-    *:empty {
+    /**:empty {
       outline: 5px solid #7fff00;
-    }
+    }*/
 
     /* images */
     img:not([alt]),
