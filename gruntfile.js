@@ -138,6 +138,13 @@
             }
         },
 
+        /* 
+            DELETA AS PASTAS 
+            no intuito de só mandar o necessário
+        */
+        clean: ['css','js','vendor'],
+
+
         /* AUTO UPDATE */
         browserSync: {
             /*
@@ -213,5 +220,5 @@
     //grunt.registerTask('default', ['watch', 'browserSync']);
 
     /* TAREFA PADRÃO DE DESENVOLVIMENTO */
-    grunt.registerTask('init', ['less', 'autoprefixer', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('init', ['clean', 'less', 'autoprefixer', 'uglify', 'cssmin', 'copy']);
 };

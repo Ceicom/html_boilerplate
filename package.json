@@ -15,6 +15,7 @@
     "grunt-contrib-cssmin": "latest",
     "grunt-autoprefixer": "latest",
     "grunt-contrib-copy": "latest",
+    "grunt-contrib-clean": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-browser-sync": "latest",
     "load-grunt-tasks": "latest",
