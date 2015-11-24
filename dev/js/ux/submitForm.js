@@ -5,6 +5,8 @@
     ],
     function () {
 
+        //<div class="g-recaptcha" data-sitekey="6Lc9tP8SAAAAAKfA4Hwpo0QredfWcVlMxgIxUUnk"></div>
+
         var style = loadCSS('/vendor/sweetalert/sweet-alert.min.css');
         $('.btnSend').removeAttr('disabled');
 
@@ -22,6 +24,9 @@
                 //}
             })
             .done(function (data) {
+
+                console.info(data);
+
                 var msg;
                 switch (+data) {
                     case 0:
@@ -50,7 +55,7 @@
         $('form').on('submit', function (e) {
 
             var $form = $('#' + $('body').attr('data-form'));
-            var $btn = $form.find('input[type="submit"]') || $form.find('button');
+            var $btn = ($form.find('input[type="submit"]').length) ? $form.find('input[type="submit"]') : $form.find('button');
 
             if ($btn.length && $form.length) {
                 e.preventDefault();
@@ -71,7 +76,7 @@
                         var captcha = $.ajax({
                             type: 'POST',
                             url: '/modulos/handlers/captcha.ashx',
-                            data: { 'g-recaptcha-secret': '6Lc-wwgTAAAAAJUyGrAttv6P1rxR5yPgwQcYODnV', 'g-recaptcha-response': catpchaResponse }
+                            data: { 'g-recaptcha-secret': '6Lc9tP8SAAAAAB25N_5DmxE_HpRhqMjKew26Jf6n', 'g-recaptcha-response': catpchaResponse }
                         });
 
                         // depois de verificar captcha...

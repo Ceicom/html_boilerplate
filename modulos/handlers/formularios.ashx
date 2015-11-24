@@ -7,13 +7,13 @@ public class formularios : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
 
-        System.Threading.Thread.Sleep(1000);
+        //System.Threading.Thread.Sleep(1000);
         
         context.Response.ContentType = "text/plain";
         string type = context.Request.QueryString["type"];
         
         /*
-         * type = contato (form contato '/contato/' )
+         * type = contato
          * Contém os seguintes campos:
          * - txtName
          * - txtEmail
