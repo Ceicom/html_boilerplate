@@ -98,6 +98,7 @@ require(['ie/version.min'], function (ieV) {
 
                 // componentes
                 else if (paginas[i] == 'forms') require(['components/forms.min']);
+                else if (paginas[i] == 'popup') require(['components/popup.min']); //<input type="hidden" name="banner" value="imagem|link" />
 
                 // pages
                 //else if (paginas[i] == 'home') require(['pages/home.min']);
