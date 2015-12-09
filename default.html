@@ -1,34 +1,35 @@
 ﻿<!DOCTYPE html>
 
-<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server" prefix="og: http://ogp.me/ns#" >
-    
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head runat="server" prefix="og: http://ogp.me/ns#">
+
     <!-- ie helper -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
+
     <!-- codificação pagina -->
     <meta charset="utf-8">
-    
+
     <!-- container seo -->
     <asp:contentplaceholder id="seo" runat="server"></asp:contentplaceholder>
 
     <title></title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-    
-    <!-- twitter --> 
+
+    <!-- Open Graph Meta Tags by: www.MetaTagGenerator.org -->
+    <!-- twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:site" content="">
-    <meta property="twitter:title" content="">
-    <meta property="twitter:description" content="">
-    <meta property="twitter:image" content="/images/og-tags/twitter.jpg"> <!-- 764x399 -->
-    
-    <!-- facebook --> 
-    <meta property="og:title" content="titulo pagina para facebook">
-    <meta property="og:image" content="/images/og-tags/facebook.jpg"> <!-- 1200x630 -->
-    <meta property="og:site_name" content="">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="">
+    <meta name="twitter:site" content="http://www.site.com.br">
+    <meta name="twitter:title" content="titulo (max 70)">
+    <meta name="twitter:description" content="descrição (max 200)">
+    <meta name="twitter:image" content="http://www.site.com.br/images/social/twitter.jpg"> <!-- 764x399 -->
+    <!-- facebook -->
+    <meta property="og:title" content="titulo página e não nome website/marca">
+    <meta property="og:site_name" content="nome website/marca">
+    <meta property="og:description" content="descrição">
+    <meta property="og:image" content="http://www.site.com.br/images/social/facebook.jpg"> <!-- 1200x630 -->
+    <meta property="og:url" content="http://www.site.com.br">
     <meta property="og:type" content="website">
 
     <!-- mobile -->
@@ -38,11 +39,11 @@
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="x-rim-auto-match" content="none">
     <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no"> 
+    <meta name="msapplication-tap-highlight" content="no">
 
     <!-- skype -->
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
-    
+
     <!-- configs -->
     <meta name="robots" content="index, follow">
     <meta name="google" content="notranslate">
@@ -52,7 +53,6 @@
 
     <!-- favicon realfavicon -->
     <!-- sitemap gerar utilizando https://www.xml-sitemaps.com -->
-
     <!-- css default -->
     <link href="/css/main.min.css" rel="stylesheet">
 
@@ -62,9 +62,7 @@
 </head>
 <body>
 
-    <form id="form" runat="server" novalidate="novalidate">
-
-    </form>
+    <form id="form" runat="server" novalidate="novalidate"></form>
 
     <script async data-main="/js/common.min" src="/vendor/require/require.min.js"></script>
 
