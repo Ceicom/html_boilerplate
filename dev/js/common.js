@@ -96,6 +96,9 @@ require(['ie/version.min'], function (ieV) {
                 if (paginas[i] == 'modal') require(['ux/modal.min']);
                 else if (paginas[i] == 'carousel') require(['ux/carousel.min']);
 
+                // componentes
+                else if (paginas[i] == 'forms') require(['components/forms.min']);
+
                 // pages
                 //else if (paginas[i] == 'home') require(['pages/home.min']);
             }

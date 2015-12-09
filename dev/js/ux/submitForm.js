@@ -76,7 +76,7 @@
                         var captcha = $.ajax({
                             type: 'POST',
                             url: '/modulos/handlers/captcha.ashx',
-                            data: { 'g-recaptcha-secret': '6Lc9tP8SAAAAAB25N_5DmxE_HpRhqMjKew26Jf6n', 'g-recaptcha-response': catpchaResponse }
+                            data: { 'g-recaptcha-response': catpchaResponse }
                         });
 
                         // depois de verificar captcha...

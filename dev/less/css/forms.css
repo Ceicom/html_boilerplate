@@ -16,172 +16,28 @@
  |_| \_|\__,_|\___/  |_|  |_|\___/_/\_\___|_|   
 
 */
-.g1-12 {
-  width: 8.33333333%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
+.formee {
+  /* INPUTS SUBMIT, BUTTON, RESET */
 }
-.g2-12 {
-  width: 16.66666667%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g3-12 {
-  width: 25%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g4-12 {
-  width: 33.33333333%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g5-12 {
-  width: 41.66666667%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g6-12 {
-  width: 50%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g7-12 {
-  width: 58.33333333%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g8-12 {
-  width: 66.66666667%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g9-12 {
-  width: 75%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g10-12 {
-  width: 83.33333333%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g11-12 {
-  width: 91.66666667%;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.g12-12 {
+.formee .g1-12,
+.formee .g2-12,
+.formee .g3-12,
+.formee .g4-12,
+.formee .g5-12,
+.formee .g6-12,
+.formee .g7-12,
+.formee .g8-12,
+.formee .g9-12,
+.formee .g10-12,
+.formee .g11-12,
+.formee .g12-12 {
   width: 100%;
   float: left;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-}
-/* -------------------------------------------- *\
-    FORMEE CONFIG'S
-\* -------------------------------------------- */
-/* -------------------------------------------- *\
-    INPUTS:not(submit,button,reset) CONFIG's
-\* -------------------------------------------- */
-/* -------------------------------------------- *\
-    INPUTS: submit button reset 
-\* -------------------------------------------- */
-/* -------------------------------------------- *\
-    CORES DOS PLACEHOLDERS
-\* -------------------------------------------- */
-/* -------------------------------------------- *\
-    MENSAGENS
-\* -------------------------------------------- */
-/* -------------------------------------------- *\
-    TOOLTIP DAS VALIDAÇÕES
-\* -------------------------------------------- */
-.formee {
-  /* INPUTS GERAL */
-  /* CORES DOS PLACEHOLDERS */
-  /* INPUTS SUBMIT, BUTTON, RESET */
-}
-.formee:before,
-.formee:after {
-  content: "";
-  display: table;
-}
-.formee:after {
-  clear: both;
-}
-.formee.is-contact-form {
-  width: 66.66666667%;
-  float: left;
-  min-height: 1px;
-  position: relative;
-}
-.formee .txt-align {
-  line-height: 45px;
-}
-.formee .box-captcha input {
-  max-width: 50%;
-}
-.formee .box-captcha input[type=number],
-.formee .box-captcha img {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.formee .box-captcha input[type=number],
-.formee .box-captcha img,
-.formee .box-captcha div {
-  float: left;
-}
-.formee [class^=g]:not(.g-recaptcha) {
   margin: 5px 0;
   position: relative;
-}
-.formee [class^=g]:not(.g-recaptcha):before,
-.formee [class^=g]:not(.g-recaptcha):after {
-  content: "";
-  display: table;
-}
-.formee [class^=g]:not(.g-recaptcha):after {
-  clear: both;
-}
-.formee .row > [class^=g]:first-child {
-  margin-top: 0;
-}
-.formee .row > [class^=g]:last-child {
-  margin-bottom: 0;
-}
-.formee label {
-  margin: 0 0 3px;
-  display: inline-block;
-}
-.formee .req {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 10px;
-  color: #d10000;
-  position: relative;
-  top: -10px;
 }
 .formee input[type="url"],
 .formee input[type*="date"],
@@ -194,17 +50,12 @@
 .formee input[type="search"],
 .formee textarea,
 .formee select {
-  vertical-align: middle;
   width: 100%;
-  color: #000000;
+  color: #000;
   padding: 12px 15px;
-  font-size: 14px;
-  background: #ffffff;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d3d3d3;
-  border-radius: 0;
-  transition: .3s;
+  background: #fff;
+  border: 1px solid #d3d3d3;
+  transition: .2s;
 }
 .formee input[type="url"]:hover,
 .formee input[type*="date"]:hover,
@@ -217,10 +68,7 @@
 .formee input[type="search"]:hover,
 .formee textarea:hover,
 .formee select:hover {
-  color: #000000;
-  background: #ffffff;
   border-color: #a0a0a0;
-  outline: 0;
 }
 .formee input[type="url"]:focus,
 .formee input[type*="date"]:focus,
@@ -233,13 +81,23 @@
 .formee input[type="search"]:focus,
 .formee textarea:focus,
 .formee select:focus {
-  color: #666666;
-  background: #ffffff;
+  color: #666;
   border-color: #a0a0a0;
-  outline: 0;
+}
+.formee input[type="url"][disabled],
+.formee input[type*="date"][disabled],
+.formee input[type="number"][disabled],
+.formee input[type="text"][disabled],
+.formee input[type="password"][disabled],
+.formee input[type="email"][disabled],
+.formee input[type="tel"][disabled],
+.formee input[type="file"][disabled],
+.formee input[type="search"][disabled],
+.formee textarea[disabled],
+.formee select[disabled] {
+  cursor: not-allowed;
 }
 .formee textarea {
-  overflow: auto;
   height: 11.1em;
   resize: vertical;
 }
@@ -281,38 +139,64 @@
 }
 .formee input[type="submit"],
 .formee input[type="button"],
-.formee input[type="reset"] {
+.formee input[type="reset"],
+.formee button {
+  font-size: 16px;
+  font-size: 1rem;
   float: right;
   text-transform: uppercase;
   cursor: pointer;
   text-align: center;
-  display: inline-block;
+  display: table;
   line-height: 45px;
-  font-weight: 400;
-  color: #ffffff;
+  color: #fff;
   padding: 0 50px;
-  font-size: 16px;
-  font-size: 1pxrem;
-  border-width: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-radius: 0;
+  border: 0 none;
   background-color: #003d92;
 }
 .formee input[type="submit"][disabled],
 .formee input[type="button"][disabled],
-.formee input[type="reset"][disabled] {
+.formee input[type="reset"][disabled],
+.formee button[disabled] {
   cursor: not-allowed;
 }
-@media screen and (max-width: 480px) {
-  .formee [class^=g]:not(.g-recaptcha) {
-    width: 100%;
-    float: left;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+@media screen and (max-width: 350px) {
+  .formee .w-catpcha {
+    padding: 0;
   }
-  .formee .box-captcha input {
-    max-width: 100%;
+}
+@media screen and (min-width: 540px) {
+  .formee .g1-12 {
+    width: 8.33333333%;
+  }
+  .formee .g2-12 {
+    width: 16.66666667%;
+  }
+  .formee .g3-12 {
+    width: 25%;
+  }
+  .formee .g4-12 {
+    width: 33.33333333%;
+  }
+  .formee .g5-12 {
+    width: 41.66666667%;
+  }
+  .formee .g6-12 {
+    width: 50%;
+  }
+  .formee .g7-12 {
+    width: 58.33333333%;
+  }
+  .formee .g8-12 {
+    width: 66.66666667%;
+  }
+  .formee .g9-12 {
+    width: 75%;
+  }
+  .formee .g10-12 {
+    width: 83.33333333%;
+  }
+  .formee .g11-12 {
+    width: 91.66666667%;
   }
 }

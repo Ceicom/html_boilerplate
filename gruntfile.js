@@ -2,7 +2,12 @@
 
     var config = {
         host: 'localhost',
-        port: '13051'
+        port: '1000'
+    }
+
+    if (!config.port) {
+        console.info("obrigatório configurar porta de conexão com o website");
+        return;
     }
 
     //dependencies
@@ -187,23 +192,23 @@
             },
             lessfilesForms: {
                 files: ['dev/less/**/*.less', '!dev/less/main.less'],
-                tasks: ['less:lessfilesForms', 'autoprefixer:lessfilesForms', 'autoprefixer:lessFilesTooltip', 'cssmin:lessfilesForms']
+                tasks: ['newer:less:lessfilesForms', 'newer:autoprefixer:lessfilesForms', 'newer:autoprefixer:lessFilesTooltip', 'newer:cssmin:lessfilesForms']
             },
             lessfilesMain: {
                 files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/tooltip.less'],
-                tasks: ['less:lessfilesMain', 'autoprefixer:lessfilesMain', 'autoprefixer:lessFilesBox', 'cssmin:lessfilesMain']
+                tasks: ['newer:less:lessfilesMain', 'newer:autoprefixer:lessfilesMain', 'newer:autoprefixer:lessFilesBox', 'newer:cssmin:lessfilesMain']
             },
             jsfiles: {
                 files: ['dev/js/**/*.js'],
-                tasks: ['uglify:jsfiles']
+                tasks: ['newer:uglify:jsfiles']
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
-                tasks: ['autoprefixer:cssvendor', 'cssmin:cssvendor']
+                tasks: ['newer:autoprefixer:cssvendor', 'newer:cssmin:cssvendor']
             },
             jsvendor: {
                 files: ['dev/vendor/**/*.js'],
-                tasks: ['uglify:jsvendor']
+                tasks: ['newer:uglify:jsvendor']
             },
             gruntfile: {
                 files: ['gruntfile.js']
@@ -215,10 +220,12 @@
 
     grunt.initConfig(gruntSettings);
 
-    /* TAREFA PADRÃO DE PUBLICAÇÃO */
+    /* TAREFA PADRÃO */
     grunt.registerTask('default', ['browserSync', 'watch']);
-    //grunt.registerTask('default', ['watch', 'browserSync']);
+    
+    /* TAREFA SÓ GRUNT */
+    grunt.registerTask('grunt', ['watch']);
 
-    /* TAREFA PADRÃO DE DESENVOLVIMENTO */
+    /* TAREFA GERA TUDO */
     grunt.registerTask('init', ['clean', 'less', 'autoprefixer', 'uglify', 'cssmin', 'copy']);
 };
