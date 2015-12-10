@@ -2,7 +2,7 @@
 
     var config = {
         host: 'localhost',
-        port: '1000'
+        port: null
     }
 
     if (!config.port) {
@@ -192,11 +192,11 @@
             },
             lessfilesForms: {
                 files: ['dev/less/**/*.less', '!dev/less/main.less'],
-                tasks: ['newer:less:lessfilesForms', 'newer:autoprefixer:lessfilesForms', 'newer:autoprefixer:lessFilesTooltip', 'newer:cssmin:lessfilesForms']
+                tasks: ['less:lessfilesForms', 'autoprefixer:lessfilesForms', 'autoprefixer:lessFilesTooltip', 'cssmin:lessfilesForms']
             },
             lessfilesMain: {
                 files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/tooltip.less'],
-                tasks: ['newer:less:lessfilesMain', 'newer:autoprefixer:lessfilesMain', 'newer:autoprefixer:lessFilesBox', 'newer:cssmin:lessfilesMain']
+                tasks: ['less:lessfilesMain', 'autoprefixer:lessfilesMain', 'autoprefixer:lessFilesBox', 'cssmin:lessfilesMain']
             },
             jsfiles: {
                 files: ['dev/js/**/*.js'],
