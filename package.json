@@ -1,7 +1,7 @@
 {
   "name": "Ceicom",
-  "version": "0.0.0",
-  "description": "Extang",
+  "version": "1.0.0",
+  "description": "Html_BoilerPlate_Ceicom",
   "main": "grunfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,8 @@
   "author": "ceicom",
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "autoprefixer": "latest",
     "grunt": "latest",
-    "grunt-autoprefixer": "latest",
     "grunt-browser-sync": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-contrib-copy": "latest",
@@ -19,6 +19,7 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-newer": "latest",
+    "grunt-postcss": "latest",
     "load-grunt-tasks": "latest",
     "time-grunt": "latest"
   }

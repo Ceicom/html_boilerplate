@@ -34,13 +34,29 @@
                 },
             }
         },
-        /* AUTO-PREFIXER CSS */
-        autoprefixer: {
+        /* POST CSS AUTO-PREFIXER CSS */
+        postcss: {
             options: {
-                browsers: ['last 2 versions', 'ie 8', 'ie 9']
+                processors: [
+                  require('autoprefixer')({
+                      remove: false,
+                      browsers: [
+                          'last 4 Chrome versions',
+                          'last 4 Firefox versions',
+                          'last 4 Explorer versions',
+                          'last 4 Edge versions',
+                          'last 4 iOS versions',
+                          'last 4 Opera versions',
+                          'last 4 Safari versions',
+                          'last 4 OperaMobile versions',
+                          'last 4 OperaMini versions',
+                          'last 4 ChromeAndroid versions',
+                          'last 4 FirefoxAndroid versions',
+                          'last 4 ExplorerMobile versions'
+                      ]
+                  })
+                ]
             },
-
-            // para o css normal do site (main e formee)
             lessfilesForms: {
                 src: 'dev/less/css/forms.css',
             },
@@ -192,11 +208,11 @@
             },
             lessfilesForms: {
                 files: ['dev/less/**/*.less', '!dev/less/main.less'],
-                tasks: ['less:lessfilesForms', 'autoprefixer:lessfilesForms', 'autoprefixer:lessFilesTooltip', 'cssmin:lessfilesForms']
+                tasks: ['less:lessfilesForms', 'postcss:lessfilesForms', 'postcss:lessFilesTooltip', 'cssmin:lessfilesForms']
             },
             lessfilesMain: {
                 files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/tooltip.less'],
-                tasks: ['less:lessfilesMain', 'autoprefixer:lessfilesMain', 'autoprefixer:lessFilesBox', 'cssmin:lessfilesMain']
+                tasks: ['less:lessfilesMain', 'postcss:lessfilesMain', 'postcss:lessFilesBox', 'cssmin:lessfilesMain']
             },
             jsfiles: {
                 files: ['dev/js/**/*.js'],
@@ -204,7 +220,7 @@
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
-                tasks: ['newer:autoprefixer:cssvendor', 'newer:cssmin:cssvendor']
+                tasks: ['newer:postcss:cssvendor', 'newer:cssmin:cssvendor']
             },
             jsvendor: {
                 files: ['dev/vendor/**/*.js'],
@@ -227,5 +243,5 @@
     grunt.registerTask('grunt', ['watch']);
 
     /* TAREFA GERA TUDO */
-    grunt.registerTask('init', ['clean', 'less', 'autoprefixer', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('init', ['clean', 'less', 'postcss', 'uglify', 'cssmin', 'copy']);
 };
