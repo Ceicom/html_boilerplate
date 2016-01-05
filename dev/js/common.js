@@ -7,7 +7,7 @@
  *      @ ex meta
  *          <meta id="jsPageID" data-value="home" /> 
  *      @ ex chamada js
- *          if (paginas[i] == 'home') require(['pages/home.min']);
+ *          if (item == 'home') require(['pages/home.min']);
  * 
  * estas chamadas de js deverão ser posicionadas dentro do callback do 'require(['actualPage'])'
  * 
@@ -91,17 +91,18 @@ require(['ie/version.min'], function (ieV) {
         // chamada dos scripts por pagina
         require(['actualPage'], function (paginas) {
             for (var i = 0; i < paginas.length; i++) {
+                var item = paginas[i].trim();
 
                 // ux
-                if (paginas[i] == 'modal') require(['ux/modal.min']);
-                else if (paginas[i] == 'carousel') require(['ux/carousel.min']);
+                if (item == 'modal') require(['ux/modal.min']);
+                else if (item == 'carousel') require(['ux/carousel.min']);
 
                 // componentes
-                else if (paginas[i] == 'forms') require(['components/forms.min']);
-                else if (paginas[i] == 'popup') require(['components/popup.min']); //<input type="hidden" name="banner" value="imagem|link" />
+                else if (item == 'forms') require(['components/forms.min']);
+                else if (item == 'popup') require(['components/popup.min']); //<input type="hidden" name="banner" value="imagem|link" />
 
                 // pages
-                //else if (paginas[i] == 'home') require(['pages/home.min']);
+                //else if (item == 'home') require(['pages/home.min']);
             }
         });
 
