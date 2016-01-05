@@ -1,10 +1,22 @@
 /**
-* jquery.matchHeight.js master
+* jquery-match-height master by @liabru
 * http://brm.io/jquery-match-height/
 * License: MIT
 */
 
-;(function($) {
+; (function (factory) { // eslint-disable-line no-extra-semi
+    'use strict';
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof module !== 'undefined' && module.exports) {
+        // CommonJS
+        module.exports = factory(require('jquery'));
+    } else {
+        // Global
+        factory(jQuery);
+    }
+})(function ($) {
     /*
     *  internal
     */
@@ -17,7 +29,7 @@
     *  value parse utility function
     */
 
-    var _parse = function(value) {
+    var _parse = function (value) {
         // parse value and convert NaN to 0
         return parseFloat(value) || 0;
     };
@@ -28,14 +40,14 @@
     *  (as displayed after float wrapping applied by browser)
     */
 
-    var _rows = function(elements) {
+    var _rows = function (elements) {
         var tolerance = 1,
             $elements = $(elements),
             lastTop = null,
             rows = [];
 
         // group elements by their top position
-        $elements.each(function(){
+        $elements.each(function () {
             var $that = $(this),
                 top = $that.offset().top - _parse($that.css('margin-top')),
                 lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
@@ -65,7 +77,7 @@
     *  handle plugin options
     */
 
-    var _parseOptions = function(options) {
+    var _parseOptions = function (options) {
         var opts = {
             byRow: true,
             property: 'height',
@@ -91,7 +103,7 @@
     *  plugin definition
     */
 
-    var matchHeight = $.fn.matchHeight = function(options) {
+    var matchHeight = $.fn.matchHeight = function (options) {
         var opts = _parseOptions(options);
 
         // handle remove
@@ -102,7 +114,7 @@
             this.css(opts.property, '');
 
             // remove selected elements from all groups
-            $.each(matchHeight._groups, function(key, group) {
+            $.each(matchHeight._groups, function (key, group) {
                 group.elements = group.elements.not(that);
             });
 
@@ -131,18 +143,22 @@
     *  plugin global options
     */
 
+    matchHeight.version = 'master';
     matchHeight._groups = [];
     matchHeight._throttle = 80;
     matchHeight._maintainScroll = false;
     matchHeight._beforeUpdate = null;
     matchHeight._afterUpdate = null;
+    matchHeight._rows = _rows;
+    matchHeight._parse = _parse;
+    matchHeight._parseOptions = _parseOptions;
 
     /*
     *  matchHeight._apply
     *  apply matchHeight to given elements
     */
 
-    matchHeight._apply = function(elements, options) {
+    matchHeight._apply = function (elements, options) {
         var opts = _parseOptions(options),
             $elements = $(elements),
             rows = [$elements];
@@ -155,7 +171,7 @@
         var $hiddenParents = $elements.parents().filter(':hidden');
 
         // cache the original inline style
-        $hiddenParents.each(function() {
+        $hiddenParents.each(function () {
             var $that = $(this);
             $that.data('style-cache', $that.attr('style'));
         });
@@ -167,12 +183,12 @@
         if (opts.byRow && !opts.target) {
 
             // must first force an arbitrary equal height so floating elements break evenly
-            $elements.each(function() {
+            $elements.each(function () {
                 var $that = $(this),
                     display = $that.css('display');
 
                 // temporarily force a usable display value
-                if (display !== 'inline-block' && display !== 'inline-flex') {
+                if (display !== 'inline-block' && display !== 'flex' && display !== 'inline-flex') {
                     display = 'block';
                 }
 
@@ -187,7 +203,8 @@
                     'margin-bottom': '0',
                     'border-top-width': '0',
                     'border-bottom-width': '0',
-                    'height': '100px'
+                    'height': '100px',
+                    'overflow': 'hidden'
                 });
             });
 
@@ -195,13 +212,13 @@
             rows = _rows($elements);
 
             // revert original inline styles
-            $elements.each(function() {
+            $elements.each(function () {
                 var $that = $(this);
                 $that.attr('style', $that.data('style-cache') || '');
             });
         }
 
-        $.each(rows, function(key, row) {
+        $.each(rows, function (key, row) {
             var $row = $(row),
                 targetHeight = 0;
 
@@ -213,12 +230,13 @@
                 }
 
                 // iterate the row and find the max height
-                $row.each(function(){
+                $row.each(function () {
                     var $that = $(this),
+                        style = $that.attr('style'),
                         display = $that.css('display');
 
                     // temporarily force a usable display value
-                    if (display !== 'inline-block' && display !== 'inline-flex') {
+                    if (display !== 'inline-block' && display !== 'flex' && display !== 'inline-flex') {
                         display = 'block';
                     }
 
@@ -232,8 +250,12 @@
                         targetHeight = $that.outerHeight(false);
                     }
 
-                    // revert display block
-                    $that.css('display', '');
+                    // revert styles
+                    if (style) {
+                        $that.attr('style', style);
+                    } else {
+                        $that.css('display', '');
+                    }
                 });
             } else {
                 // if target set, use the height of the target element
@@ -241,7 +263,7 @@
             }
 
             // iterate the row and apply the height to all elements
-            $row.each(function(){
+            $row.each(function () {
                 var $that = $(this),
                     verticalPadding = 0;
 
@@ -262,7 +284,7 @@
         });
 
         // revert hidden parents
-        $hiddenParents.each(function() {
+        $hiddenParents.each(function () {
             var $that = $(this);
             $that.attr('style', $that.data('style-cache') || null);
         });
@@ -280,11 +302,11 @@
     *  applies matchHeight to all elements with a data-match-height attribute
     */
 
-    matchHeight._applyDataApi = function() {
+    matchHeight._applyDataApi = function () {
         var groups = {};
 
         // generate groups by their groupId set by elements using data-match-height
-        $('[data-match-height], [data-mh]').each(function() {
+        $('[data-match-height], [data-mh]').each(function () {
             var $this = $(this),
                 groupId = $this.attr('data-mh') || $this.attr('data-match-height');
 
@@ -296,7 +318,7 @@
         });
 
         // apply matchHeight to each group
-        $.each(groups, function() {
+        $.each(groups, function () {
             this.matchHeight(true);
         });
     };
@@ -306,12 +328,12 @@
     *  updates matchHeight on all current groups with their correct options
     */
 
-    var _update = function(event) {
+    var _update = function (event) {
         if (matchHeight._beforeUpdate) {
             matchHeight._beforeUpdate(event, matchHeight._groups);
         }
 
-        $.each(matchHeight._groups, function() {
+        $.each(matchHeight._groups, function () {
             matchHeight._apply(this.elements, this.options);
         });
 
@@ -320,7 +342,7 @@
         }
     };
 
-    matchHeight._update = function(throttle, event) {
+    matchHeight._update = function (throttle, event) {
         // prevent update if fired from a resize event
         // where the viewport width hasn't actually changed
         // fixes an event looping bug in IE8
@@ -336,7 +358,7 @@
         if (!throttle) {
             _update(event);
         } else if (_updateTimeout === -1) {
-            _updateTimeout = setTimeout(function() {
+            _updateTimeout = setTimeout(function () {
                 _update(event);
                 _updateTimeout = -1;
             }, matchHeight._throttle);
@@ -351,13 +373,13 @@
     $(matchHeight._applyDataApi);
 
     // update heights on load and resize events
-    $(window).bind('load', function(event) {
+    $(window).bind('load', function (event) {
         matchHeight._update(false, event);
     });
 
     // throttled update heights on resize events
-    $(window).bind('resize orientationchange', function(event) {
+    $(window).bind('resize orientationchange', function (event) {
         matchHeight._update(true, event);
     });
 
-})(jQuery);
+});
