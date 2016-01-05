@@ -36,7 +36,7 @@ requirejs.config({
         youtubevideo: '../vendor/youtube.video/yv.min',                     // veja "/dev/vendor/youtube.video/sample.html" para mais informações
 
         // funções
-        arrayFilter: 'func/array_filter.min',   // @array_filter(arr)
+        array_clean: 'func/array_clean.min',    // @arr.clean("valor a ser limpo")
         getUrlParam: 'func/getUrlParam.min',    // @getURLParameter(name)
         objectSize: 'func/object_size.min',     // @Object.size(obj)
         wSize: 'func/wSize.min',                // @wSize('w') || @wSize('h')

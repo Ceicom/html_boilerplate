@@ -185,7 +185,7 @@
                         '**/*.css',
                         '**/*.min.js',
                         '**/*.aspx',
-                        '**/*.master'
+                        '**/*.ascx'
                     ]
                 },
                 options: {

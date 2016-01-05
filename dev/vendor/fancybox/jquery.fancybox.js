@@ -648,10 +648,9 @@
 			}
 
 			// Re-center float type caption
-			if (current.caption.type === 'float') {
-				width = F.getViewport().w - (F.wrap.outerWidth(true)  - F.inner.width() );
-
-				current.caption.wrap.css('width', width).css('marginLeft', (width * 0.5 - F.inner.width() * 0.5) * -1 );
+			if (current.caption.type === 'float' && current.caption.wrap) {
+			    width = F.getViewport().w - (F.wrap.outerWidth(true) - F.inner.width());
+			    current.caption.wrap.css('width', width).css('marginLeft', (width * 0.5 - F.inner.width() * 0.5) * -1);
 			}
 
 			if (current.expander) {
