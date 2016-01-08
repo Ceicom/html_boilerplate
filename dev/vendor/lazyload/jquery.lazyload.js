@@ -36,7 +36,11 @@
             var counter = 0;
 
             elements.each(function () {
+
                 var $this = $(this);
+
+                if ($this.attr('src') == $this.attr('data-' + settings.data_attribute)) return;
+
                 if (settings.skip_invisible && !$this.is(":visible")) {
                     return;
                 }
@@ -161,6 +165,11 @@
 
         /* Force initial check if images should appear. */
         $(document).ready(function () {
+            update();
+        });
+
+        /* manual event by keller */
+        $(document).bind('revealLazy', function () {
             update();
         });
 
