@@ -21,7 +21,6 @@ requirejs.config({
     paths: {
         jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min', // jquery
         cfw: '//api.ceicom.com.br/libs/cfw/js/2.2/cFw.min',                 // framework
-        webfonts: '../vendor/webfonts/webfont.min',                         // ajeitar dentro do arquivo as fontes do projeto
         analytics: '../vendor/analytics/analytics.min',                     // ajeitar dentro do arquivo o UA do site
         recaptcha: 'https://www.google.com/recaptcha/api',                  // recaptcha google
 
@@ -82,7 +81,6 @@ require(['ie/version.min'], function (ieV) {
         // js default's
         require(
             [
-                'webfonts',             // webfonts
                 'analytics',            // analytics
             ]
         );
