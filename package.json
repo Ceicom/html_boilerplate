@@ -18,7 +18,6 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-newer": "latest",
     "grunt-postcss": "latest",
     "load-grunt-tasks": "latest",
     "time-grunt": "latest"

@@ -216,15 +216,15 @@
             },
             jsfiles: {
                 files: ['dev/js/**/*.js'],
-                tasks: ['newer:uglify:jsfiles']
+                tasks: ['uglify:jsfiles']
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
-                tasks: ['newer:postcss:cssvendor', 'newer:cssmin:cssvendor']
+                tasks: ['postcss:cssvendor', 'cssmin:cssvendor']
             },
             jsvendor: {
                 files: ['dev/vendor/**/*.js'],
-                tasks: ['newer:uglify:jsvendor']
+                tasks: ['uglify:jsvendor']
             },
             gruntfile: {
                 files: ['gruntfile.js']
