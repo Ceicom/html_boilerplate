@@ -46,14 +46,11 @@
 
 // uteis
 .clearfix() {
-	&:before,
-	&:after {
-	    content:"";
-	    display:table;
-	}
-	&:after {
-	    clear:both;
-	}
+    &:after {
+        content:"";
+        display:block;
+        clear:both;
+    }
 }
 .content() {
     margin-left:auto;
