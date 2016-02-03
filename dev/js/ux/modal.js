@@ -4,9 +4,9 @@
         'fancybox',
         'loadcss'
     ],
-        function ($, fancybox) {
+        function () {
 
-            var style = loadCSS('/vendor/fancybox/jquery.fancybox.min.css');
+            loadCSS('/vendor/fancybox/jquery.fancybox.min.css');
 
             $('.fancybox').fancybox();      // geral
             $('.galeriaFotos').fancybox();  // noticias internas

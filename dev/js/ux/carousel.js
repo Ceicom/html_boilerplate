@@ -4,9 +4,9 @@
         'owlcarousel',
         'loadcss'
     ],
-        function ( $, owlCarousel) {
+        function () {
 
-            var style = loadCSS('/vendor/owl.carousel/owl.carousel.min.css');
+            loadCSS('/vendor/owl.carousel/owl.carousel.min.css');
 
             /* variaveis */
             var $wrapper = $('.js-carousel');

@@ -1,5 +1,6 @@
 ﻿define(
     [
+        'jquery',
         'loadcss',
         'sweetalert',
     ],
@@ -7,7 +8,7 @@
 
         //<div class="g-recaptcha" data-sitekey="6Lc9tP8SAAAAAKfA4Hwpo0QredfWcVlMxgIxUUnk"></div>
 
-        var style = loadCSS('/vendor/sweetalert/sweet-alert.min.css');
+        loadCSS('/vendor/sweetalert/sweet-alert.min.css');
         $('.btnSend').removeAttr('disabled');
 
         // envia dados do formulário para enviar email

@@ -1,10 +1,11 @@
 ﻿define(
     [
         'jquery'
-    ], function () {
+    ],
+    function () {
 
         if ($('.g-recaptcha').length) require(['recaptcha']);
-
         require(['ux/validaForm.min', 'ux/submitForm.min']);
+
     }
 );
