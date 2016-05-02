@@ -3,6 +3,15 @@
     "use strict";
     /* exported loadCSS */
     var loadCSS = function( href, before, media ){
+        
+        // dont dup stylesheet load
+        var ss_loaded = document.styleSheets;
+        for (var i = ss_loaded.length - 1; i >= 0; i--) {
+            if (ss_loaded[i].href) {
+                if (ss_loaded[i].href.indexOf(href) > -1) return false;
+            }
+        }
+        
         // Arguments explained:
         // `href` [REQUIRED] is the URL for your CSS file.
         // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
