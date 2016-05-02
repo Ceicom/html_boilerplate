@@ -20,7 +20,7 @@ requirejs.config({
 
     paths: {
         jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min', // jquery
-        cfw: '//api.ceicom.com.br/libs/cfw/js/2.3/cFw.min',                 // framework
+        cfw: '//api.ceicom.com.br/libs/cfw/js/2.4/cFw.min',                 // framework
         analytics: '../vendor/analytics/analytics.min',                     // ajeitar dentro do arquivo o UA do site
         recaptcha: 'https://www.google.com/recaptcha/api',                  // recaptcha google
 
