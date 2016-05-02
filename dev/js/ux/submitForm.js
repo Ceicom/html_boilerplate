@@ -37,7 +37,7 @@
                         msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
                         // zera form e reseta captcha
                         grecaptcha.reset();
-                        $form.find('input:not([type=submit]), textarea').val('');
+                        $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val('');
                         break;
                     default:
                         msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
