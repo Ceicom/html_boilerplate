@@ -439,22 +439,25 @@
 
 /* ----------------------- *\
         RESET GERAL
-        \* ----------------------- */
-        .default() when (@default = true) {
-            *,
-            *:before,
-            *:after {
-                box-sizing: border-box;
-                -moz-osx-font-smoothing: grayscale;
-                -webkit-font-smoothing: antialiased;
-                text-rendering: optimizeLegibility;
-            }
-
+\* ----------------------- */
+.default() when (@default = true) {
+    
     // html
     html {
         .em-size(@font-base);
+        box-sizing: border-box;
     }
-    
+
+    // geral
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
     // form
     form{
         margin:0;
