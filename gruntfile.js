@@ -182,10 +182,11 @@
                 bsFiles: {
                     src: [
                         '**/*.html',
-                        '**/*.css',
+                        '**/*.min.css',
                         '**/*.min.js',
                         '**/*.aspx',
-                        '**/*.ascx'
+                        '**/*.ascx',
+                        '**/*.master'
                     ]
                 },
                 options: {
