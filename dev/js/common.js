@@ -98,6 +98,7 @@ require(['ie/version.min'], function (ieV) {
                 // componentes
                 else if (item == 'forms') require(['components/forms.min']);
                 else if (item == 'popup') require(['components/popup.min']); //<input type="hidden" name="banner" value="imagem|link" />
+                else if (item == 'cModal') require(['components/cModal.min']);  // ceicom modal
 
                 // pages
                 //else if (item == 'home') require(['pages/home.min']);

@@ -32,6 +32,11 @@
                     "dev/less/css/main.css": "dev/less/main.less",
                     "dev/less/css/boxmsg.css": "dev/less/components/boxmsg.less"
                 },
+            },
+            lessfileModal: {
+                files: {
+                    "dev/vendor/cModal/modal.css": "dev/vendor/cModal/modal.less"
+                },
             }
         },
         /* POST CSS AUTO-PREFIXER CSS */
@@ -218,6 +223,10 @@
             jsfiles: {
                 files: ['dev/js/**/*.js'],
                 tasks: ['uglify:jsfiles']
+            },
+            lessModal: {
+                files: ['dev/vendor/cModal/**/*.less'],
+                tasks: ['less:lessfileModal', 'postcss:cssvendor', 'cssmin:cssvendor']
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],

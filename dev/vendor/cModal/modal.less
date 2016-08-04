@@ -1,0 +1,90 @@
+﻿// MODAL
+//------------------------------
+
+@color-btn-bg: #6a55a3;
+@color-btn-txt: white;
+@width-content: 710px;
+@color-content-bg: white;
+
+.modal-open{ overflow: hidden;}
+
+.cfw-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 20;
+
+    &__close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75px;
+        height: 23px;
+        line-height:23px;
+        cursor: pointer;
+        background-color: @color-btn-bg;
+        z-index: 8040;
+        border: 0;
+
+        &:before,
+        &:after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            content: '';
+            height: 24px;
+            width: 2px;
+            background-color: @color-btn-txt;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__pos-conteudo {
+        position: absolute;
+        width: 90%;
+        max-width: @width-content;
+        max-height: 90%;
+        height: 100%;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &__conteudo {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        max-height: 100%;
+        padding: 30px 15px;
+        background: @color-content-bg;
+        overflow: auto;
+    }
+
+    @media screen{
+        @media( min-width:740px ){
+
+            .cfw-modal__conteudo{ padding: 30px;}
+
+            .cfw-modal__close-btn{
+                top: 0;
+                right: 0;
+            }
+
+        }
+    }
+}
