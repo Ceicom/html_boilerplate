@@ -15,14 +15,30 @@
         var ajaxForm = function ($form, $btn) {
 
             var type = $form.attr('id');
+            var formData = new FormData();
+            var $File = $form.find('input[type="file"]');
+
+             if( $File.length )
+                formData.append( $File.attr('name') , $File[0].files[0] );
+
+            var formInfo = $('form').serialize().split('&');
+
+            for( var i = 0; i < formInfo.length; i++ ){
+
+                var info = formInfo[i].split('=');
+                var key = info[0];
+                var val = decodeURIComponent(info[1]);
+
+                if( key && val ) 
+                    formData.append(key, val);
+            }
 
             $.ajax({
                 type: 'POST',
                 url: '/modulos/handlers/formularios.ashx?type='+type,
-                data: $('form').serialize(),
-                //beforeSend: function () {
-                //    $form.find('.loading-full').fadeIn('fast');
-                //}
+                processData: false,
+                contentType: false,
+                data: formData,
             })
             .done(function (data) {
 

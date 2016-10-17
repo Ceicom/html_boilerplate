@@ -2,6 +2,11 @@
 @import '../mix/variables';
 @import '../mix/functions';
 
+// cor do placeholder
+@input--placeholder: #b01717;
+@input-error--placeholder: #b01717;
+
+
 .formee {
     .clearfix();
 
@@ -24,7 +29,17 @@
         position: relative;
     }
 
-    // inputs
+    // new inputs
+    input[type="datetime"],
+    input[type="file"],
+    input[type="month"],
+    input[type="radio"],
+    input[type="range"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+
+    //old add inputs
     input[type="url"],
     input[type*="date"],
     input[type="number"],
@@ -59,22 +74,49 @@
 
     // textarea
     textarea {
-        height: 11.1em;
+        height: 8em;
         resize: vertical;
     }
 
-    // placeholder
-    @input--placeholder: #d3d3d3;
-    @input-error--placeholder: #b01717;
+    input::-webkit-input-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
 
-    input::-webkit-input-placeholder    { color: @input--placeholder; }
-    textarea::-webkit-input-placeholder { color: @input--placeholder; }
-    input:-ms-input-placeholder         { color: @input--placeholder; }
-    textarea:-ms-input-placeholder      { color: @input--placeholder; }
-    input::-moz-placeholder             { color: @input--placeholder; } 
-    textarea::-moz-placeholder          { color: @input--placeholder; }
-    input:-moz-placeholder              { color: @input--placeholder; }
-    textarea:-moz-placeholder           { color: @input--placeholder; }
+    textarea::-webkit-input-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-ms-input-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input::-moz-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea::-moz-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-moz-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-moz-placeholder{ 
+        color: @input--placeholder;
+        opacity: 1;
+    }
 
     .cFw2013_input-erro::-webkit-input-placeholder  { color: @input-error--placeholder; }
     .cFw2013_input-erro:-ms-input-placeholder       { color: @input-error--placeholder; }
@@ -87,7 +129,6 @@
     input[type="reset"],
     button {
         .font-size(16);
-        float: right;
         text-transform: uppercase;
         cursor: pointer;
         text-align: center;
@@ -97,6 +138,16 @@
         padding: 0 50px;
         border: 0 none;
         background-color: #003d92;
+
+        &.is-centered{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &.is-right{
+            margin-left: auto;
+            margin-right: 0;
+        }
 
         &[disabled] {
             cursor: not-allowed;

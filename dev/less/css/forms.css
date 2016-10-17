@@ -19,6 +19,11 @@
 .formee {
   /* INPUTS SUBMIT, BUTTON, RESET */
 }
+.formee:after {
+  content: "";
+  display: block;
+  clear: both;
+}
 .formee .g1-12,
 .formee .g2-12,
 .formee .g3-12,
@@ -39,6 +44,14 @@
   margin: 5px 0;
   position: relative;
 }
+.formee input[type="datetime"],
+.formee input[type="file"],
+.formee input[type="month"],
+.formee input[type="radio"],
+.formee input[type="range"],
+.formee input[type="time"],
+.formee input[type="url"],
+.formee input[type="week"],
 .formee input[type="url"],
 .formee input[type*="date"],
 .formee input[type="number"],
@@ -55,8 +68,17 @@
   padding: 12px 15px;
   background: #fff;
   border: 1px solid #d3d3d3;
+  -o-transition: .2s;
   transition: .2s;
 }
+.formee input[type="datetime"]:hover,
+.formee input[type="file"]:hover,
+.formee input[type="month"]:hover,
+.formee input[type="radio"]:hover,
+.formee input[type="range"]:hover,
+.formee input[type="time"]:hover,
+.formee input[type="url"]:hover,
+.formee input[type="week"]:hover,
 .formee input[type="url"]:hover,
 .formee input[type*="date"]:hover,
 .formee input[type="number"]:hover,
@@ -70,6 +92,14 @@
 .formee select:hover {
   border-color: #a0a0a0;
 }
+.formee input[type="datetime"]:focus,
+.formee input[type="file"]:focus,
+.formee input[type="month"]:focus,
+.formee input[type="radio"]:focus,
+.formee input[type="range"]:focus,
+.formee input[type="time"]:focus,
+.formee input[type="url"]:focus,
+.formee input[type="week"]:focus,
 .formee input[type="url"]:focus,
 .formee input[type*="date"]:focus,
 .formee input[type="number"]:focus,
@@ -84,6 +114,14 @@
   color: #666;
   border-color: #a0a0a0;
 }
+.formee input[type="datetime"][disabled],
+.formee input[type="file"][disabled],
+.formee input[type="month"][disabled],
+.formee input[type="radio"][disabled],
+.formee input[type="range"][disabled],
+.formee input[type="time"][disabled],
+.formee input[type="url"][disabled],
+.formee input[type="week"][disabled],
 .formee input[type="url"][disabled],
 .formee input[type*="date"][disabled],
 .formee input[type="number"][disabled],
@@ -98,32 +136,40 @@
   cursor: not-allowed;
 }
 .formee textarea {
-  height: 11.1em;
+  height: 8em;
   resize: vertical;
 }
 .formee input::-webkit-input-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee textarea::-webkit-input-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee input:-ms-input-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee textarea:-ms-input-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee input::-moz-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee textarea::-moz-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee input:-moz-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee textarea:-moz-placeholder {
-  color: #d3d3d3;
+  color: #b01717;
+  opacity: 1;
 }
 .formee .cFw2013_input-erro::-webkit-input-placeholder {
   color: #b01717;
@@ -143,7 +189,6 @@
 .formee button {
   font-size: 16px;
   font-size: 1rem;
-  float: right;
   text-transform: uppercase;
   cursor: pointer;
   text-align: center;
@@ -153,6 +198,20 @@
   padding: 0 50px;
   border: 0 none;
   background-color: #003d92;
+}
+.formee input[type="submit"].is-centered,
+.formee input[type="button"].is-centered,
+.formee input[type="reset"].is-centered,
+.formee button.is-centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+.formee input[type="submit"].is-right,
+.formee input[type="button"].is-right,
+.formee input[type="reset"].is-right,
+.formee button.is-right {
+  margin-left: auto;
+  margin-right: 0;
 }
 .formee input[type="submit"][disabled],
 .formee input[type="button"][disabled],
@@ -199,4 +258,80 @@
   .formee .g11-12 {
     width: 91.66666667%;
   }
+}
+
+/* -------------------------------------------- *\
+    TOOLTIP DAS VALIDAÇÕES
+\* -------------------------------------------- */
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  text-transform: none;
+}
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  z-index: 1000000;
+  visibility: hidden;
+  opacity: 0;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+.tooltip:before {
+  position: absolute;
+  z-index: 1000001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: '';
+}
+.tooltip:after {
+  padding: 8px 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  content: attr(data-tooltip);
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 13.2px;
+}
+.tooltip.baixo {
+  left: 34px;
+  bottom: 0;
+}
+.tooltip.baixo:before {
+  margin-top: -12px;
+}
+.tooltip.baixo:after {
+  margin-left: -18px;
+}
+.tooltip.baixo:before,
+.tooltip.baixo:after {
+  top: 100%;
+  left: 50%;
+}
+.tooltip.baixo:hover:before,
+.tooltip.baixo:hover:after {
+  -webkit-transform: translateY(8px);
+      -ms-transform: translateY(8px);
+          transform: translateY(8px);
+}
+.tooltip.erro:after {
+  background-color: #b34e4d;
+  text-shadow: 0 -1px 0px #5a2626;
+}
+.tooltip.erro.baixo:before {
+  border-bottom-color: #b34e4d;
+}
+.tooltip.always.baixo:after,
+.tooltip.always.baixo:before {
+  -webkit-transform: translateY(8px);
+      -ms-transform: translateY(8px);
+          transform: translateY(8px);
+}
+.tooltip:hover:before,
+.tooltip.always:before,
+.tooltip:hover:after,
+.tooltip.always:after {
+  visibility: visible;
+  opacity: 1;
 }

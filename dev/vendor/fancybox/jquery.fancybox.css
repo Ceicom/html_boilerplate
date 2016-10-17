@@ -182,6 +182,7 @@ a.fancybox-expand {
     opacity: 0;  filter: alpha(opacity=0);
     background-position: 0 -150px;
     zoom: 1;
+    -o-transition: opacity .5s ease;
     transition: opacity .5s ease;
 }
 
@@ -305,7 +306,7 @@ a.fancybox-expand {
 }
 
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-resolution: 2dppx) {
     .fancybox-default a.fancybox-close,
     .fancybox-default a.fancybox-expand,
     .fancybox-default a.fancybox-nav span
@@ -335,7 +336,7 @@ a.fancybox-expand {
     opacity: 0.8; filter: alpha(opacity=80);
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio:2), only screen and (min--moz-device-pixel-ratio:2), only screen and (min-device-pixel-ratio:2), only screen and (min-resolution:192dpi), only screen and (min-resolution:2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio:2), only screen and (min--moz-device-pixel-ratio:2), only screen and (min-device-pixel-ratio:2), only screen and (-o-min-device-pixel-ratio:2/1), only screen and (min-resolution:192dpi), only screen and (min-resolution:2dppx) {
     .fancybox-dark a.fancybox-close,
     .fancybox-dark a.fancybox-expand,
     .fancybox-dark a.fancybox-nav span {
@@ -355,7 +356,7 @@ a.fancybox-expand {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-resolution: 2dppx) {
     .fancybox-light a.fancybox-close,
     .fancybox-light a.fancybox-expand,
     .fancybox-light a.fancybox-nav span
@@ -368,5 +369,6 @@ a.fancybox-expand {
 .fancybox-light-overlay {
     opacity: 0.9; filter: alpha(opacity=90);
     background: #555555; /* Old browsers */ /* FF3.6+ */ /* Chrome,Safari4+ */ /* Chrome10+,Safari5.1+ */ /* Opera 12+ */ /* IE10+ */
+    background: -o-radial-gradient(center ellipse,  #999999 0%,#555555 100%);
     background: radial-gradient(ellipse at center,  #999999 0%,#555555 100%); /* W3C */
 }

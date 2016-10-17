@@ -22,12 +22,6 @@
         pointer-events: none;
     }
 
-    &:hover:before,
-    &:hover:after{
-        visibility: visible;
-        opacity: 1;
-    }
-
     &:before{
         position: absolute;
         z-index: 1000001;
@@ -46,41 +40,67 @@
         line-height: @fontSize*1.1;
     }
 
+    //baixo
     &.baixo{
         left: 34px;
         bottom: 0;
-    }
 
-        &.baixo:before{ margin-top: -12px;}
+        &:before{ margin-top: -12px;}
 
-        &.baixo:after{ margin-left: -18px;}
+        &:after{ margin-left: -18px;}
 
-        &.baixo:before,
-        &.baixo:after{
+        &:before,
+        &:after{
             top: 100%;
             left: 50%;
         }
 
-        &.baixo:hover:before,
-        &.baixo:hover:after{
-            transform: translateY(8px);
+        &:hover{
+            &:before,
+            &:after{
+                transform: translateY(8px);
+            }
         }
 
-    &.erro:after{
-        background-color: @errorColor;
-        text-shadow: 0 -1px 0px @errorShadow;
+    }       
+
+    //erro
+    &.erro{
+
+        &:after{
+            background-color: @errorColor;
+            text-shadow: 0 -1px 0px @errorShadow;
+        }
+
+        &.baixo{
+            &:before{ 
+                border-bottom-color: @errorColor; 
+            }
+        }
+        
     }
 
-    &.erro.baixo:before{ border-bottom-color: @errorColor; }
+    //always
+    &.always{
 
-    &.always:after,
-    &.always:before{
-        visibility: visible !important;
-        opacity: 1 !important;
+        &.baixo{
+            &:after,
+            &:before{
+                transform: translateY(8px);
+            }
+        }
+
     }
 
-    &.always.baixo:after,
-    &.always.baixo:before{
-        transform: translateY(8px);
+    &:hover,
+    &.always{
+
+        &:before,
+        &:after{
+            visibility: visible;
+            opacity: 1;
+        }
+
     }
+
 }

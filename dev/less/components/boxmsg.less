@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 //---------------------------------------
 
@@ -13,12 +13,20 @@
     color: #555;
     border-radius: 3px;
     font-size: 12px;
-    width: 100%;
     padding: 10px 15px;
     display: table;
     font-family: Tahoma;
     border-style: solid;
     border-width: 1px 1px 1px 3px;
+
+    &.is-centered{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.is-full{
+        width: 100%;
+    }
 
     a {
         text-decoration: underline;
@@ -27,37 +35,38 @@
 
     &.is-info {
         border-color: @info-border;
-        background-color: lighten(@info-border,18%);
+        background-color: lighten(@info-border,20%);
 
         a {
-            color: darken(@info-border,15%);
+            color: darken(@info-border,18%);
         }
     }
 
     &.is-error {
         border-color: @error-border;
-        background-color: lighten(@error-border,18%);
+        background-color: lighten(@error-border,20%);
 
         a {
-            color: darken(@error-border,15%);
+            color: darken(@error-border,18%);
         }
     }
 
     &.is-success {
         border-color: @success-border;
-        background-color: lighten(@success-border,18%);
+        background-color: lighten(@success-border,20%);
 
         a {
-            color: darken(@success-border,15%);
+            color: darken(@success-border,18%);
         }
     }
 
     &.is-warning {
         border-color: @warning-border;
-        background-color: lighten(@warning-border,18%);
+        background-color: lighten(@warning-border,20%);
 
         a {
-            color: darken(@warning-border,15%);
+            color: darken(@warning-border,18%);
         }
     }
+
 }

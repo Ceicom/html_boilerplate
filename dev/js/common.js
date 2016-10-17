@@ -19,7 +19,7 @@
 requirejs.config({
 
     paths: {
-        jquery: '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min', // jquery
+        jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min', // jquery 3.x
         cfw: '//api.ceicom.com.br/libs/cfw/js/2.4/cFw.min',                 // framework
         analytics: '../vendor/analytics/analytics.min',                     // ajeitar dentro do arquivo o UA do site
         recaptcha: 'https://www.google.com/recaptcha/api',                  // recaptcha google
@@ -43,7 +43,7 @@ requirejs.config({
     },
 
     //urlArgs: 'v=1.0',                           // produção
-    urlArgs: 'v=' + (new Date()).getTime(),     // desenvolvimento
+    urlArgs: 've=' + (new Date()).getTime(),     // desenvolvimento
 
     shim: {
         'cfw': ['jquery'],
@@ -54,6 +54,7 @@ requirejs.config({
         'owlcarousel': ['jquery'],
         'sweetalert': ['jquery']
     }
+
 });
 
 // verifica pagina atual baseada no elemento #jsPageID
@@ -79,12 +80,9 @@ require(['ie/version.min'], function (ieV) {
         if (ieV < 100) document.getElementsByTagName('html')[0].className += ' ie' + ieV;
 
         // js default's
-        require(
-            [
-                'analytics',            // analytics
-            ]
-        );
-
+        require([
+            'analytics',
+        ]);
 
         // chamada dos scripts por pagina
         require(['actualPage'], function (paginas) {

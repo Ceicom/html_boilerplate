@@ -1,0 +1,79 @@
+.modal-open {
+  overflow: hidden;
+}
+.cfw-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+.cfw-modal__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: 23px;
+  line-height: 23px;
+  cursor: pointer;
+  background-color: #6a55a3;
+  z-index: 8040;
+  border: 0;
+}
+.cfw-modal__close-btn:before,
+.cfw-modal__close-btn:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  height: 24px;
+  width: 2px;
+  background-color: white;
+}
+.cfw-modal__close-btn:before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.cfw-modal__close-btn:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.cfw-modal__pos-conteudo {
+  position: absolute;
+  width: 90%;
+  max-width: 710px;
+  max-height: 90%;
+  height: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.cfw-modal__conteudo {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  max-height: 100%;
+  padding: 30px 15px;
+  background: white;
+  overflow: auto;
+}
+@media screen and (min-width: 740px) {
+  .cfw-modal .cfw-modal__conteudo {
+    padding: 30px;
+  }
+  .cfw-modal .cfw-modal__close-btn {
+    top: 0;
+    right: 0;
+  }
+}

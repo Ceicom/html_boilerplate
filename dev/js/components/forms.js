@@ -1,11 +1,15 @@
-﻿define(
-    [
-        'jquery'
-    ],
-    function () {
+﻿define([
 
-        if ($('.g-recaptcha').length) require(['recaptcha']);
-        require(['ux/validaForm.min', 'ux/submitForm.min']);
+    'jquery'
 
-    }
-);
+],function(){
+
+    if( $('.g-recaptcha').length )
+        require(['recaptcha']);
+
+    require([
+        'ux/validaForm.min',
+        'ux/submitForm.min'
+    ]);
+
+});
