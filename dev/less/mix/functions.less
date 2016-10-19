@@ -58,14 +58,7 @@
     max-width:@larguraContent;
     width:100%;
 }
-.font-size(@sizeValue) {
-    @rem: (@sizeValue / @font-base);
-    font-size: @sizeValue* 1px;
-    font-size: ~"@{rem}rem";
-}
-.em-size(@value) {
-	font-size: (@value / 16)*1em;
-}
+
 .sprite(@col, @lin, @width: 0, @heigth: @width, @pseudo: false, @bg: false) {
     
     @x: -((@col*@spriteW)-@spriteW);
