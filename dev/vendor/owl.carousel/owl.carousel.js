@@ -1372,7 +1372,7 @@
             item = this.prepare(item);
             this.$stage.append(item);
             this._items.push(item);
-            this._mergers.push(item.find('[data-merge]').andSelf('[data-merge]').attr('data-merge') * 1 || 1);
+            this._mergers.push(item.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
         }, this));
 
         this.reset($.isNumeric(this.settings.startPosition) ? this.settings.startPosition : 0);
