@@ -1395,11 +1395,11 @@
         if (this._items.length === 0 || position === this._items.length) {
             this.$stage.append(content);
             this._items.push(content);
-            this._mergers.push(content.find('[data-merge]').andSelf('[data-merge]').attr('data-merge') * 1 || 1);
+            this._mergers.push(content.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
         } else {
             this._items[position].before(content);
             this._items.splice(position, 0, content);
-            this._mergers.splice(position, 0, content.find('[data-merge]').andSelf('[data-merge]').attr('data-merge') * 1 || 1);
+            this._mergers.splice(position, 0, content.find('[data-merge]').addBack('[data-merge]').attr('data-merge') * 1 || 1);
         }
 
         this.invalidate('items');
@@ -2643,12 +2643,12 @@
         this._handlers = {
             'prepared.owl.carousel': $.proxy(function (e) {
                 if (this._core.settings.dotsData) {
-                    this._templates.push($(e.content).find('[data-dot]').andSelf('[data-dot]').attr('data-dot'));
+                    this._templates.push($(e.content).find('[data-dot]').addBack('[data-dot]').attr('data-dot'));
                 }
             }, this),
             'add.owl.carousel': $.proxy(function (e) {
                 if (this._core.settings.dotsData) {
-                    this._templates.splice(e.position, 0, $(e.content).find('[data-dot]').andSelf('[data-dot]').attr('data-dot'));
+                    this._templates.splice(e.position, 0, $(e.content).find('[data-dot]').addBack('[data-dot]').attr('data-dot'));
                 }
             }, this),
             'remove.owl.carousel prepared.owl.carousel': $.proxy(function (e) {
