@@ -1,4 +1,4 @@
-﻿@import 'variables';
+@import 'variables';
 @import 'functions';
 
 // NORMALIZE
@@ -71,3 +71,17 @@
     @import '../components/datatooltip';    
 }
 .tip();
+
+// FOMEE
+//------------------------------------
+.formee() when (@formee = true) {
+    @import '../components/forms';    
+}
+.formee();
+
+// CEICOM MODAL
+//------------------------------------
+.cmodal() when (@cmodal = true) {
+    @import '../components/modal';    
+}
+.cmodal();
