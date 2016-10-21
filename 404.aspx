@@ -79,7 +79,7 @@
         <span>Erro 404</span>
         <h1>Página não encontrada...</h1>
         <p>Desculpe, mas a página que você <br />esta tentando acessar não existe.</p>
-        <a href="javascript:history.back(-1);" role="button">Voltar</a>
+        <a href="/" title="Página Inicial" role="button">Voltar</a>
 
     </div>
 

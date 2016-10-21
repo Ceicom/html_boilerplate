@@ -14,10 +14,8 @@
 
                 var style = loadCSS('/vendor/fancybox/jquery.fancybox.min.css');
 
-                if (!value[1]) value[1] = 'javascript:;';
-
                 var banner = value[0];
-                var link = value[1];
+                var link = value[1] || 'javascript:;';
 
                 $.fancybox.open(
                     [{

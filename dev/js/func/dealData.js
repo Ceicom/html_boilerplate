@@ -1,4 +1,4 @@
-﻿dealData = function( data ){    
+﻿var dealData = function( data ){    
 
     /*
         [FORMATO DE ENTRADA PADRÃO]
@@ -22,7 +22,7 @@
 		r.fullhour = date[1].split(':')[0] + ':' + date[1].split(':')[1];
 		r.hour = date[1].split(':')[0];
 	    r.minute = date[1].split(':')[1];
-	    r.seconde = date[1].split(':')[2];	
+	    r.second = date[1].split(':')[2];	
 
 	}    
 

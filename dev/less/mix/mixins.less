@@ -8,7 +8,7 @@
 }
 .normalize();
 
-// RESET GERAL
+// GERAL
 //------------------------------------
 .default() when (@default = true) {
     @import '../components/reset';
@@ -50,38 +50,9 @@
 }
 .icons();
 
-
 // ITENS DIAGNÓSTICO
 //------------------------------------
 .diagnostic() when (@diagnostic = true) {
     @import '../components/diagnostic';   
 }
 .diagnostic();
-
-// YOUTUBE PLUGIN
-//------------------------------------
-.youtube-video() when (@youtube-video = true) {
-    @import '../components/youtubeVideo';
-}
-.youtube-video();
-
-// TOOLTIP
-//------------------------------------
-.tip() when (@tooltip = true) {
-    @import '../components/datatooltip';    
-}
-.tip();
-
-// FOMEE
-//------------------------------------
-.formee() when (@formee = true) {
-    @import '../components/forms';    
-}
-.formee();
-
-// CEICOM MODAL
-//------------------------------------
-.cmodal() when (@cmodal = true) {
-    @import '../components/modal';    
-}
-.cmodal();

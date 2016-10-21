@@ -19,7 +19,7 @@
 requirejs.config({
 
     paths: {
-        jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min', // jquery 3.x
+        jquery: '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min',  // jquery 3.x
         cfw: '//api.ceicom.com.br/libs/cfw/js/2.4/cFw.min',                 // framework
         analytics: '../vendor/analytics/analytics.min',                     // ajeitar dentro do arquivo o UA do site
         recaptcha: 'https://www.google.com/recaptcha/api',                  // recaptcha google
@@ -42,8 +42,8 @@ requirejs.config({
         clearString: 'func/clearString.min'     // @clearString(string)
     },
 
-    //urlArgs: 'v=1.0',                           // produção
-    urlArgs: 've=' + (new Date()).getTime(),     // desenvolvimento
+    //urlArgs: 'v=1.0',                         // produção
+    urlArgs: 've=' + (new Date()).getTime(),    // desenvolvimento
 
     shim: {
         'cfw': ['jquery'],
@@ -92,9 +92,10 @@ require(['ie/version.min'], function (ieV) {
                 // ux
                 if (item == 'modal') require(['ux/modal.min']);
                 else if (item == 'carousel') require(['ux/carousel.min']);
+                else if (item == 'forms') require(['ux/forms.min']);
+                else if (item == 'lightgallery') require(['ux/lightgallery.min']);
 
                 // componentes
-                else if (item == 'forms') require(['components/forms.min']);
                 else if (item == 'popup') require(['components/popup.min']); //<input type="hidden" name="banner" value="imagem|link" />
                 else if (item == 'cModal') require(['components/cModal.min']);  // ceicom modal
 

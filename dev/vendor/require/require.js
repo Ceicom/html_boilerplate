@@ -1,6 +1,6 @@
 /** vim: et:ts=4:sw=4:sts=4
- * @license RequireJS 2.2.0 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, http://github.com/requirejs/requirejs/LICENSE
+ * @license RequireJS 2.3.2 Copyright jQuery Foundation and other contributors.
+ * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
  */
 //Not using strict: uneven strict support in browsers, #392, and causes
 //problems with requirejs.exec()/transpiler plugins that may not be strict.
@@ -8,11 +8,11 @@
 /*global window, navigator, document, importScripts, setTimeout, opera */
 
 var requirejs, require, define;
-(function (global) {
+(function (global, setTimeout) {
     var req, s, head, baseElement, dataMain, src,
         interactiveScript, currentlyAddingScript, mainScript, subPath,
-        version = '2.2.0',
-        commentRegExp = /(\/\*([\s\S]*?)\*\/|([^:]|^)\/\/(.*)$)/mg,
+        version = '2.3.2',
+        commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
         cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
         jsSuffixRegExp = /\.js$/,
         currDirRegExp = /^\.\//,
@@ -36,7 +36,7 @@ var requirejs, require, define;
         useInteractive = false;
 
     //Could match something like ')//comment', do not lose the prefix to comment.
-    function commentReplace(match, multi, multiText, singlePrefix) {
+    function commentReplace(match, singlePrefix) {
         return singlePrefix || '';
     }
 
@@ -556,7 +556,7 @@ var requirejs, require, define;
         function takeGlobalQueue() {
             //Push all the globalDefQueue items into the context's defQueue
             if (globalDefQueue.length) {
-                each(globalDefQueue, function(queueItem) {
+                each(globalDefQueue, function (queueItem) {
                     var id = queueItem[0];
                     if (typeof id === 'string') {
                         context.defQueueMap[id] = true;
@@ -1142,7 +1142,7 @@ var requirejs, require, define;
                             // No direct errback on this module, but something
                             // else is listening for errors, so be sure to
                             // propagate the error correctly.
-                            on(depMap, 'error', bind(this, function(err) {
+                            on(depMap, 'error', bind(this, function (err) {
                                 this.emit('error', err);
                             }));
                         }
@@ -1287,7 +1287,7 @@ var requirejs, require, define;
                 // Convert old style urlArgs string to a function.
                 if (typeof cfg.urlArgs === 'string') {
                     var urlArgs = cfg.urlArgs;
-                    cfg.urlArgs = function(id, url) {
+                    cfg.urlArgs = function (id, url) {
                         return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
                     };
                 }
@@ -1346,7 +1346,7 @@ var requirejs, require, define;
                     each(cfg.packages, function (pkgObj) {
                         var location, name;
 
-                        pkgObj = typeof pkgObj === 'string' ? {name: pkgObj} : pkgObj;
+                        pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
 
                         name = pkgObj.name;
                         location = pkgObj.location;
@@ -1486,7 +1486,7 @@ var requirejs, require, define;
                         }
 
                         return context.nameToUrl(normalize(moduleNamePlusExt,
-                                                relMap && relMap.id, true), ext,  true);
+                                                relMap && relMap.id, true), ext, true);
                     },
 
                     defined: function (id) {
@@ -1519,7 +1519,7 @@ var requirejs, require, define;
                         //Clean queued defines too. Go backwards
                         //in array so that the splices do not
                         //mess up the iteration.
-                        eachReverse(defQueue, function(args, i) {
+                        eachReverse(defQueue, function (args, i) {
                             if (args[0] === id) {
                                 defQueue.splice(i, 1);
                             }
@@ -1722,9 +1722,9 @@ var requirejs, require, define;
                 var data = getScriptData(evt);
                 if (!hasPathFallback(data.id)) {
                     var parents = [];
-                    eachProp(registry, function(value, key) {
+                    eachProp(registry, function (value, key) {
                         if (key.indexOf('_@r') !== 0) {
-                            each(value.depMaps, function(depMap) {
+                            each(value.depMaps, function (depMap) {
                                 if (depMap.id === data.id) {
                                     parents.push(key);
                                     return true;
@@ -1907,13 +1907,13 @@ var requirejs, require, define;
             //UNFORTUNATELY Opera implements attachEvent but does not follow the script
             //script execution mode.
             if (node.attachEvent &&
-                    //Check if node.attachEvent is artificially added by custom script or
-                    //natively supported by browser
-                    //read https://github.com/requirejs/requirejs/issues/187
-                    //if we can NOT find [native code] then it must NOT natively supported.
-                    //in IE8, node.attachEvent does not have toString()
-                    //Note the test for "[native code" with no closing brace, see:
-                    //https://github.com/requirejs/requirejs/issues/273
+                //Check if node.attachEvent is artificially added by custom script or
+                //natively supported by browser
+                //read https://github.com/requirejs/requirejs/issues/187
+                //if we can NOT find [native code] then it must NOT natively supported.
+                //in IE8, node.attachEvent does not have toString()
+                //Note the test for "[native code" with no closing brace, see:
+                //https://github.com/requirejs/requirejs/issues/273
                     !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) &&
                     !isOpera) {
                 //Probably IE. IE (at least 6-8) do not fire
@@ -1972,7 +1972,7 @@ var requirejs, require, define;
                 // Post a task to the event loop to work around a bug in WebKit
                 // where the worker gets garbage-collected after calling
                 // importScripts(): https://webkit.org/b/153317
-                setTimeout(function() {}, 0);
+                setTimeout(function () { }, 0);
                 importScripts(url);
 
                 //Account for anonymous modules
@@ -2026,7 +2026,7 @@ var requirejs, require, define;
                     //baseUrl.
                     src = mainScript.split('/');
                     mainScript = src.pop();
-                    subPath = src.length ? src.join('/')  + '/' : './';
+                    subPath = src.length ? src.join('/') + '/' : './';
 
                     cfg.baseUrl = subPath;
                 }
@@ -2139,4 +2139,4 @@ var requirejs, require, define;
 
     //Set up with config info.
     req(cfg);
-}(this));
+}(this, (typeof setTimeout === 'undefined' ? undefined : setTimeout)));

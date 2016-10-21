@@ -8,7 +8,7 @@
 
 
 .formee {
-    .clearfix();
+    &:extend(.cf all);
 
     // grid mobile
     .g1-12,
@@ -29,7 +29,7 @@
         position: relative;
     }
 
-    // new inputs
+    // inputs
     input[type="datetime"],
     input[type="file"],
     input[type="month"],
@@ -38,8 +38,6 @@
     input[type="time"],
     input[type="url"],
     input[type="week"],
-
-    //old add inputs
     input[type="url"],
     input[type*="date"],
     input[type="number"],
@@ -58,10 +56,7 @@
         border: 1px solid #d3d3d3;
         transition: .2s;
 
-        &:hover {
-            border-color: #a0a0a0;
-        }
-        
+        &:hover,
         &:focus {
             color: #666;
             border-color: #a0a0a0;
@@ -78,6 +73,7 @@
         resize: vertical;
     }
 
+    // placeholders
     input::-webkit-input-placeholder{ 
         color: @input--placeholder;
         opacity: 1;
@@ -118,12 +114,13 @@
         opacity: 1;
     }
 
+    // placeholder -> mensgem de erro
     .cFw2013_input-erro::-webkit-input-placeholder  { color: @input-error--placeholder; }
     .cFw2013_input-erro:-ms-input-placeholder       { color: @input-error--placeholder; }
     .cFw2013_input-erro::-moz-placeholder           { color: @input-error--placeholder; }
     .cFw2013_input-erro:-moz-placeholder            { color: @input-error--placeholder; }
     
-    /* INPUTS SUBMIT, BUTTON, RESET */
+    // button, input submit, input reset
     input[type="submit"],
     input[type="button"],
     input[type="reset"],
@@ -156,12 +153,12 @@
 
     @media screen {
         @media (max-width:350px){
-            .w-catpcha{
+            .w-captcha{
                 padding:0;
             }
         }
 
-         @media (min-width: @quebraFormee) {
+         @media (min-width: 540px) {
             .g1-12  { .column(1,@resume:true); }
             .g2-12  { .column(2,@resume:true); }
             .g3-12  { .column(3,@resume:true); }

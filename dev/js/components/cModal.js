@@ -1,10 +1,12 @@
-define([
+define(
+    [
+        'jquery',
+        'loadcss',
+        '/vendor/cModal/modal.min.js'
+    ],
+    function () {
 
-    'jquery',
-    '/vendor/cModal/modal.min.js'
-    
-],function(){
+        loadCSS('/vendor/cModal/modal.min.css');
 
-    console.info('cModal -> loadad');
-
-});
+    }
+);

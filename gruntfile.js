@@ -37,6 +37,11 @@
                 files: {
                     "dev/vendor/cModal/modal.css": "dev/vendor/cModal/modal.less"
                 },
+            },
+            lessfileYoutubeVideo: {
+                files: {
+                    "dev/vendor/youtube.video/yv.css": "dev/vendor/youtube.video/yv.less"
+                },
             }
         },
         /* POST CSS AUTO-PREFIXER CSS */
@@ -158,7 +163,7 @@
                 files: [{
                     expand: true,
                     cwd: 'dev/vendor/',
-                    src: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.cur', '**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2'],
+                    src: ['**/*.jpg', '**/*.png', '**/*.gif', '**/*.cur', '**/*.eot', '**/*.svg', '**/*.ttf', '**/*.woff', '**/*.woff2', '**/*.php'],
                     dest: 'vendor/'
                 }]
             }
@@ -186,12 +191,14 @@
             geral: {
                 bsFiles: {
                     src: [
-                        '**/*.html',
-                        '**/*.min.css',
-                        '**/*.min.js',
-                        '**/*.aspx',
-                        '**/*.ascx',
-                        '**/*.master'
+                        '**/*.html',        // html page
+                        '**/*.aspx',        // asp page
+                        '**/*.min.css',     // css
+                        '**/*.min.js',      // js
+                        '**/*.ascx',        // asp user control
+                        '**/*.ashx',        // asp handlers
+                        '**/*.master',      // asp master page
+                        '**/*.cs'           // asp coding file
                     ]
                 },
                 options: {
@@ -199,6 +206,7 @@
                     startPath: "/default.aspx",
                     proxy: config.host + ':' + config.port,
                     notify: false,
+                    logLevel: "debug",
                     open: false
                 }
             }
@@ -227,6 +235,10 @@
             lessModal: {
                 files: ['dev/vendor/cModal/**/*.less'],
                 tasks: ['less:lessfileModal', 'postcss:cssvendor', 'cssmin:cssvendor']
+            },
+            lessYoutubeVideo: {
+                files: ['dev/vendor/youtube.video/**/*.less'],
+                tasks: ['less:lessfileYoutubeVideo', 'postcss:cssvendor', 'cssmin:cssvendor']
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],

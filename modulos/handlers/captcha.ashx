@@ -7,7 +7,7 @@ public class captcha : IHttpHandler {
     
     public void ProcessRequest (HttpContext context) {
 
-        //System.Threading.Thread.Sleep(2500);
+        // Modelo DIV: @<div class="g-recaptcha" data-sitekey="6Lc9tP8SAAAAAKfA4Hwpo0QredfWcVlMxgIxUUnk"></div>
         
         context.Response.ContentType = "text/json";
         

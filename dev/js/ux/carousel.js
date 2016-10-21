@@ -44,8 +44,6 @@
                 $(this).owlCarousel(options);
             });
 
-            
-
             /* navegação */
             $('.js-carousel--nav').on('click', 'button', function (e) {
                 e.preventDefault();
