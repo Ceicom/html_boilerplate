@@ -6,6 +6,8 @@
     ],
         function () {
 
+            // http://www.owlcarousel.owlgraphic.com/docs/api-options.html
+
             loadCSS('/vendor/owl.carousel/owl.carousel.min.css');
 
             /* variaveis */

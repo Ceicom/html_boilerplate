@@ -6,7 +6,7 @@
     ],
         function () {
 
-            // @http://sachinchoolur.github.io/lightGallery/docs/
+            // http://sachinchoolur.github.io/lightGallery/docs/
 
             require([
 
