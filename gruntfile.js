@@ -206,7 +206,7 @@
                     startPath: "/default.aspx",
                     proxy: config.host + ':' + config.port,
                     notify: false,
-                    logLevel: "debug",
+                    //logLevel: "debug",
                     open: false
                 }
             }
