@@ -19,7 +19,7 @@
              if( $File.length )
                 formData.append( $File.attr('name') , $File[0].files[0] );
 
-            var formInfo = $('form').serialize().split('&');
+            var formInfo = $('form').serialize().replace(/\+/g,' ').split('&');
 
             for( var i = 0; i < formInfo.length; i++ ){
 
