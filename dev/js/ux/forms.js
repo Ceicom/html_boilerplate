@@ -6,7 +6,7 @@
     ],
     function () {
 
-        loadcss('/css/tooltip.min.css');
+        loadCSS('/css/tooltip.min.css');
 
         if ($('.g-recaptcha').length)
             require(['recaptcha']);
