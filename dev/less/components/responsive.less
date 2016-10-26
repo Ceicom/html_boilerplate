@@ -1,9 +1,9 @@
-﻿// content responsive
+// content responsive
 .cont-resp {
     position: relative;
     height: 0;
     overflow: hidden;
-    padding-bottom: 76.25%; /**/
+    padding-bottom: 100%; /* square */
 
     iframe,
     object,
@@ -13,5 +13,9 @@
         left: 0;
         width: 100%;
         height: 100%;
+    }
+    
+    &.is-wide {
+        padding-bottom: 56.25%; /* wide */
     }
 }
