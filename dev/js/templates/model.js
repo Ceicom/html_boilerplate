@@ -11,7 +11,7 @@
         });
 
         r.then(function (data) {
-            if (Object.size(data) > 1)
+            if (Object.keys(data).length)
                 _.doTemplate(data);
             else
                 _.insertHtml(1);

@@ -5,10 +5,8 @@
         port: 65223
     }
 
-    if (!config.port) {
-        console.info("obrigatório configurar porta de conexão com o website");
-        return;
-    }
+    if (!config.port)
+        throw new Error('obrigatório configurar porta de conexão com o website');
 
     //dependencies
     require('load-grunt-tasks')(grunt);
@@ -20,27 +18,21 @@
         less: {
             lessfilesForms: {
                 files: {
-                    "dev/less/css/forms.css": "dev/less/components/forms.less",
-                    "dev/less/css/tooltip.css": "dev/less/components/tooltip.less"
+                    "dev/less/css/forms.css": "dev/less/components/forms.less"
                 },
             },
             lessfilesMain: {
                 files: {
-                    "dev/less/css/main.css": "dev/less/main.less",
+                    "dev/less/css/main.css": "dev/less/main.less"
+                },
+            },
+            lessfilesMsg: {
+                files: {
                     "dev/less/css/boxmsg.css": "dev/less/components/boxmsg.less"
                 },
             },
-            lessfileModal: {
-                files: {
-                    "dev/vendor/cModal/modal.css": "dev/vendor/cModal/modal.less"
-                },
-            },
-            lessfileYoutubeVideo: {
-                files: {
-                    "dev/vendor/youtube.video/yv.css": "dev/vendor/youtube.video/yv.less"
-                },
-            }
         },
+
         /* POST CSS AUTO-PREFIXER CSS */
         postcss: {
             options: {
@@ -70,10 +62,7 @@
             lessfilesMain: {
                 src: 'dev/less/css/main.css',
             },
-            lessFilesTooltip: {
-                src: 'dev/less/css/tooltip.css',
-            },
-            lessFilesBox: {
+            lessfilesMsg: {
                 src: 'dev/less/css/boxmsg.css',
             },
             cssvendor: {
@@ -85,13 +74,16 @@
         cssmin: {
             lessfilesForms: {
                 files: {
-                    'css/forms.min.css': ['dev/less/css/forms.css'],
-                    'css/tooltip.min.css': ['dev/less/css/tooltip.css']
+                    'css/forms.min.css': ['dev/less/css/forms.css']
                 },
             },
             lessfilesMain: {
                 files: {
-                    'css/main.min.css': ['dev/less/css/main.css'],
+                    'css/main.min.css': ['dev/less/css/main.css']
+                },
+            },
+            lessfilesMsg: {
+                files: {
                     'css/boxmsg.min.css': ['dev/less/css/boxmsg.css']
                 },
             },
@@ -146,9 +138,6 @@
             }
         },
 
-        /* DELETA AS PASTAS */
-        clean: ['css','js','vendor'],
-
         /* AUTO UPDATE */
         browserSync: {
             geral: {
@@ -180,25 +169,23 @@
                 spawn: false
             },
             lessfilesForms: {
-                files: ['dev/less/**/*.less', '!dev/less/main.less'],
-                tasks: ['less:lessfilesForms', 'postcss:lessfilesForms', 'postcss:lessFilesTooltip', 'cssmin:lessfilesForms']
+                files: ['dev/less/**/*.less', '!dev/less/main.less', '!dev/less/components/boxmsg.less'],
+                tasks: ['less:lessfilesForms', 'postcss:lessfilesForms', 'cssmin:lessfilesForms']
             },
             lessfilesMain: {
-                files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/tooltip.less'],
-                tasks: ['less:lessfilesMain', 'postcss:lessfilesMain', 'postcss:lessFilesBox', 'cssmin:lessfilesMain']
+                files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/boxmsg.less'],
+                tasks: ['less:lessfilesMain', 'postcss:lessfilesMain', 'cssmin:lessfilesMain']
             },
+            lessfilesMsg: {
+                files: ['dev/less/**/*.less', '!dev/less/main.less', '!dev/less/components/forms.less'],
+                tasks: ['less:lessfilesMsg', 'postcss:lessfilesMsg', 'cssmin:lessfilesMsg']
+            },
+
             jsfiles: {
                 files: ['dev/js/**/*.js'],
                 tasks: ['uglify:jsfiles']
             },
-            lessModal: {
-                files: ['dev/vendor/cModal/**/*.less'],
-                tasks: ['less:lessfileModal', 'postcss:cssvendor', 'cssmin:cssvendor']
-            },
-            lessYoutubeVideo: {
-                files: ['dev/vendor/youtube.video/**/*.less'],
-                tasks: ['less:lessfileYoutubeVideo', 'postcss:cssvendor', 'cssmin:cssvendor']
-            },
+
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
                 tasks: ['postcss:cssvendor', 'cssmin:cssvendor']
@@ -207,11 +194,15 @@
                 files: ['dev/vendor/**/*.js'],
                 tasks: ['uglify:jsvendor']
             },
+
             gruntfile: {
                 files: ['gruntfile.js']
             }
 
-        }
+        },
+
+        /* DELETA AS PASTAS */
+        clean: ['css', 'js', 'vendor']
 
     };
 
@@ -221,5 +212,5 @@
     grunt.registerTask('default', ['browserSync', 'watch']);
 
     /* TAREFA GERA TUDO */
-    grunt.registerTask('init', ['clean', 'less', 'postcss', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('init', ['clean', 'less', 'postcss', 'cssmin', 'uglify', 'copy']);
 };

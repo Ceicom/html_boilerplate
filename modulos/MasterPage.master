@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="modulos_MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head runat="server" prefix="og: http://ogp.me/ns#">
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+
+    <!-- container seo -->
+    <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
+
+    <title></title>
+    <meta name="description" content="">
+    <!-- limit to 150 characters-->
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="Título Página">
+    <meta property="og:description" content="Descrição">
+    <meta property="og:image" content="Imagem">
+    <!-- 1200x630 -->
+    <meta property="og:image:width" content="valor em px">
+    <meta property="og:image:height" content="valor em px">
+    <meta property="og:url" content="URL">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- tags -->
+    <link rel="canonical" href="url site cliente" />
+    <meta http-equiv="cleartype" content="on">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="x-rim-auto-match" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+    <meta http-equiv="default-style" content="text/css" />
+    <meta name="referrer" content="always">
+    <meta name="robots" content="index, follow">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="Ceicom® www.ceicom.com.br">
+
+    <!-- MODELO CSS SEM CACHE -->
+    <!-- <link href="/css/main.min.css<%= "?v=" + DateTime.Now.ToString("ddmmyyyyhhmmss") %>" rel="stylesheet"/> -->
+    <link href="/css/main.min.css" rel="stylesheet">
+
+    <!-- container head -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- FAVICON -->
+    <!-- gerar utilizando http://realfavicongenerator.net/ -->
+
+    <!-- SITEMAP -->
+    <!-- gerar utilizando https://www.xml-sitemaps.com -->
+
+    <!-- CHAMADA JS  -->
+    <!-- <meta id="jsPageID" data-value="" /> -->
+
+</head>
+<body>
+
+    <form id="form" runat="server" novalidate="novalidate">
+    </form>
+
+    <script async data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
+
+</body>
+</html>

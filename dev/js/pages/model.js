@@ -1,7 +1,6 @@
 ﻿define(
     [
         'jquery',
-        'objectSize',
         'templates/model.min',
     ],
     function () {
