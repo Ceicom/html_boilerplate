@@ -1,21 +1,22 @@
 ﻿@import 'variables';
 
 /*
-  _   _               __  __                    
- | \ | | ____        |  \/  |                   
- |  \| | __ _  ___   | \  / | _____  _____ _ __ 
+  _   _               __  __
+ | \ | | ____        |  \/  |
+ |  \| | __ _  ___   | \  / | _____  _____ _ __
  | . ` |/ _` |/ _ \  | |\/| |/ _ \ \/ / _ \ '__|
- | |\  | (_| | (_) | | |  | |  __/>  <  __/ |   
- |_| \_|\__,_|\___/  |_|  |_|\___/_/\_\___|_|   
+ | |\  | (_| | (_) | | |  | |  __/>  <  __/ |
+ |_| \_|\__,_|\___/  |_|  |_|\___/_/\_\___|_|
 
 */
 
-// mixGrid
-@larguraColuna: (100%/@columns); // variavel colunas
+// variavel colunas em %
+@larguraColuna: (100%/@columns);
 
+// mix colunas grid
 .column(@totalColunas, @margin-left: @gutter-width, @margin-right: @margin-left, @float:left, @resume: false) {
     width: @larguraColuna*@totalColunas;
-    
+
     .full-cont() when (@resume = false) {
         float: @float;
         min-height:1px;
@@ -32,56 +33,22 @@
     }
     .full-cont();
 }
+
+
+// mix espaço esquerda grid
 .prefix(@totalColunas){
     margin-left:@larguraColuna*@totalColunas;
 }
+
+// mix espaço direita grid
 .sufix(@totalColunas){
     margin-right:@larguraColuna*@totalColunas;
 }
-.row (@margin: @gutter-width) {
-    .clearfix();
-    margin-left:-@gutter-width*1px;
-    margin-right:-@gutter-width*1px;
-}
 
-// uteis
-.clearfix() {
-    &:after {
-        content:"";
-        display:block;
-        clear:both;
-    }
-}
+// mix content
 .content() {
     margin-left:auto;
     margin-right:auto;
     max-width:@larguraContent;
     width:100%;
-}
-
-.sprite(@col, @lin, @width: 0, @heigth: @width, @pseudo: false, @bg: false) {
-    
-    @x: -((@col*@spriteW)-@spriteW);
-    @y: -((@lin*@spriteW)-@spriteW);
-
-    .bg(@c:@bg) when (@c = true) {
-        background-image: url(/images/sprite.png);
-    }
-    .bg();
-
-    .pseudo(@a:@pseudo) when (@a = true) {
-        content:'';
-        display:inline-block;
-        background-image: url(/images/sprite.png);
-        background-repeat:no-repeat;
-    }
-    .pseudo();
-
-    .dimens(@w: @width) when not (@w = 0){
-        height: @heigth*1px;
-        width: @width*1px;
-    }
-    .dimens();
-
-    background-position: @x @y;
 }

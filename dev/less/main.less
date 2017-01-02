@@ -1,12 +1,33 @@
 ﻿@charset "UTF-8";
-@import 'mix/mixins';
+
+// ESSENCIAIS
+//------------------------------------
+@import 'mix/variables';
+@import 'mix/functions';
+
+@import 'components/normalize';
+@import 'misc/essential';
 
 // ESTILOS INICIAIS
 //------------------------------------
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+html{
+    font-size: @font-base * 1px;
+    box-sizing: border-box;
+}
+
 body {
-    //color:@color;
-    //font-family: 'xxx', sans-serif;
-    font-size:@font-base*1px;
+    font-family: sans-serif;
+    font-size: @font-base*1px;
+    //color &:extend(.color-xxx);
 }
 
 a,
@@ -14,14 +35,27 @@ a:hover {
     text-decoration: none;
 }
 
+figure {
+    margin: 0;
+}
 
-//????????
+object {
+    display: block;
+}
+
+// ESTILOS COMPONENTES (gerados arquivos separados)
 //------------------------------------
+//@import 'components/forms';
+//@import 'components/boxmsg';
 
-
-
-//ESTILOS GERAIS
+//ESTILOS MISCELANEOS
 //------------------------------------
-@import 'components/boxmsg';
-@import 'components/animations';
-@import 'components/fonts';
+@import 'misc/color';
+@import 'misc/fonts';
+@import 'misc/icons';
+@import 'misc/responsive';
+@import 'misc/typography';
+
+//ESTILOS ESPECIFICOS
+//------------------------------------
+//@import 'pages/...';

@@ -2,7 +2,7 @@
 
     var config = {
         host: 'localhost',
-        port: 65223
+        port: null
     }
 
     if (!config.port)
@@ -72,6 +72,9 @@
 
         /* CSSMIN MINIFICA, COMBINA CSS */
         cssmin: {
+            options: {
+                report: 'gzip'
+            },
             lessfilesForms: {
                 files: {
                     'css/forms.min.css': ['dev/less/css/forms.css']
@@ -202,7 +205,7 @@
         },
 
         /* DELETA AS PASTAS */
-        clean: ['css', 'js', 'vendor']
+        clean: ['css', 'dev/less/css', 'js', 'vendor']
 
     };
 

@@ -1,175 +1,204 @@
-﻿// mantido import devido ao formee ser feito 1 arquivo separado
-@import '../mix/variables';
-@import '../mix/functions';
+﻿@import '../mix/variables';
+@import '../misc/grid';
 
-// cor do placeholder
-@input--placeholder: #b01717;
-@input-error--placeholder: #b01717;
+// mini reset
+input,
+textarea,
+keygen,
+select,
+button {
+    margin: 0;
+    font-size: @font-base * 1px;
+    font-family: initial;
+    line-height:1em;
+}
 
+// remove outline inputs padrão
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+    outline: 0;
+}
 
-.formee {
-    &:extend(.cf all);
+// remove X dos inputs no IE
+::-ms-clear {
+    display: none;
+}
 
-    // grid mobile
-    .g1-12,
-    .g2-12,
-    .g3-12,
-    .g4-12,
-    .g5-12,
-    .g6-12,
-    .g7-12,
-    .g8-12,
-    .g9-12,
-    .g10-12,
-    .g11-12,
-    .g12-12{
-        &:extend(.cf all);
-        .column(12);
-        margin: 5px 0;
-        position: relative;
+// reseta select em brownsers website
+// principalmente mobile
+select {
+    -webkit-appearance: listbox;
+}
+
+// remove bordas redondas input search no safari e chorme mobile
+input[type="search"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+// inputs
+input[type="datetime"],
+input[type="file"],
+input[type="month"],
+input[type="range"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="url"],
+input[type*="date"],
+input[type="number"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="file"],
+input[type="search"],
+textarea,
+select {
+    width: 100%;
+    color: @input-color;
+    background: @input-bg;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+        color: @input-color;
     }
 
-    // inputs
-    input[type="datetime"],
-    input[type="file"],
-    input[type="month"],
-    input[type="range"],
-    input[type="time"],
-    input[type="url"],
-    input[type="week"],
-    input[type="url"],
-    input[type*="date"],
-    input[type="number"],
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="file"],
-    input[type="search"],
-    textarea,
-    select {
-        width: 100%;
-        color: #000;
-        padding: 12px 15px;
-        background: #fff;
-        border: 1px solid #d3d3d3;
-        transition: .2s;
-
-        &:hover,
-        &:focus {
-            color: #666;
-            border-color: #a0a0a0;
-        }
-
-        &[disabled] {
-            cursor: not-allowed;
-        }
+    &[disabled] {
+        cursor: not-allowed;
     }
+}
 
-    // textarea
-    textarea {
-        height: 8em;
-        resize: vertical;
+// inputs relacionados a data
+input[type="datetime"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type*="date"]{
+    padding: 14px 20px 12px;
+}
+
+// select
+select {
+    padding: 15px 20px 12px;
+}
+
+// input file
+input[type="file"]{
+    padding: 13px 20px;
+}
+
+// demais inputs e textarea
+input[type="range"],
+input[type="url"],
+input[type="url"],
+input[type="number"],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="search"],
+textarea{
+    padding: 16px 20px 13px;
+}
+
+// textarea
+textarea {
+    height: 8em;
+    resize: vertical;
+}
+
+// placeholders
+input::-webkit-input-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+textarea::-webkit-input-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+textarea:-ms-input-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+input::-moz-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+textarea::-moz-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+input:-moz-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+textarea:-moz-placeholder{
+    color: @input--placeholder;
+    opacity: 1;
+}
+
+// placeholder -> mensgem de erro
+.cfw-input-invalid::-webkit-input-placeholder  { color: @input-error--placeholder; }
+.cfw-input-invalid:-ms-input-placeholder       { color: @input-error--placeholder; }
+.cfw-input-invalid::-moz-placeholder           { color: @input-error--placeholder; }
+.cfw-input-invalid:-moz-placeholder            { color: @input-error--placeholder; }
+
+// button, input submit, input reset
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button {
+    border: 0;
+
+    &[disabled] {
+        cursor: not-allowed;
     }
+}
 
-    // placeholders
-    input::-webkit-input-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
+@media screen {
 
-    textarea::-webkit-input-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
+    // setinhas select somente em webkit (chrome, etc)
+    @media (-webkit-min-device-pixel-ratio:0) {
+        .select-seta {
+            position: relative;
 
-    input:-ms-input-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea:-ms-input-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    input::-moz-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea::-moz-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    input:-moz-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea:-moz-placeholder{ 
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    // placeholder -> mensgem de erro
-    .cFw2013_input-erro::-webkit-input-placeholder  { color: @input-error--placeholder; }
-    .cFw2013_input-erro:-ms-input-placeholder       { color: @input-error--placeholder; }
-    .cFw2013_input-erro::-moz-placeholder           { color: @input-error--placeholder; }
-    .cFw2013_input-erro:-moz-placeholder            { color: @input-error--placeholder; }
-    
-    // button, input submit, input reset
-    input[type="submit"],
-    input[type="button"],
-    input[type="reset"],
-    button {
-        font-size: 16px;
-        text-transform: uppercase;
-        cursor: pointer;
-        text-align: center;
-        display: table;
-        line-height: 45px;
-        color: #fff;
-        padding: 0 50px;
-        border: 0 none;
-        background-color: #003d92;
-
-        &.is-centered{
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        &.is-right{
-            margin-left: auto;
-            margin-right: 0;
-        }
-
-        &[disabled] {
-            cursor: not-allowed;
-        }
-    }
-
-    @media screen {
-        @media (max-width:350px){
-            .w-captcha{
-                padding:0;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                right: (@gutter-width*2)+3px;
+                top: 0;
+                bottom: 0;
+                border-width: 1px;
+                border-style: solid;
+                border-color: transparent black black transparent;
+                margin: auto;
+                background: transparent;
+                width: 6px;
+                height: 6px;
+                transform: rotate(45deg) translateY(-1px);
             }
         }
-
-         @media (min-width: 540px) {
-            .g1-12  { .column(1,@resume:true); }
-            .g2-12  { .column(2,@resume:true); }
-            .g3-12  { .column(3,@resume:true); }
-            .g4-12  { .column(4,@resume:true); }
-            .g5-12  { .column(5,@resume:true); }
-            .g6-12  { .column(6,@resume:true); }
-            .g7-12  { .column(7,@resume:true); }
-            .g8-12  { .column(8,@resume:true); }
-            .g9-12  { .column(9,@resume:true); }
-            .g10-12 { .column(10,@resume:true); }
-            .g11-12 { .column(11,@resume:true); }
-        }
     }
 
+    @media (max-width:350px){
+        .w-captcha{
+            padding:0;
+        }
+    }
 }

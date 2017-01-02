@@ -1,32 +1,15 @@
-﻿@charset "UTF-8";
+﻿@import '../mix/variables';
 
-//---------------------------------------
-
-@info-border: #8ed9f6;
-@error-border: #f5aca6;
-@success-border: #a6ca8a;
-@warning-border: #f2c779;
-
-//---------------------------------------
-
+// BOX DE MENSAGEM (SUCCESS, INFO, WARNING, ERROR)
+//--------------------------------------
 .msg-box {
     color: #555;
-    border-radius: 3px;
-    font-size: 12px;
-    padding: 10px 15px;
-    display: table;
-    font-family: Tahoma;
-    border-style: solid;
-    border-width: 1px 1px 1px 3px;
-
-    &.is-centered{
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    &.is-full{
-        width: 100%;
-    }
+    font-size: 16px;
+    font-weight:400;
+    padding: 14px 20px 12px;
+    border: 1px solid;
+    display:block;
+    line-height:1.4em;
 
     a {
         text-decoration: underline;
@@ -34,38 +17,38 @@
     }
 
     &.is-info {
-        border-color: @info-border;
-        background-color: lighten(@info-border,20%);
+        border-color: darken(@info-border,25%);
+        background-color: @info-border;
 
         a {
-            color: darken(@info-border,18%);
+            color: darken(@info-border,25%);
         }
     }
 
     &.is-error {
-        border-color: @error-border;
-        background-color: lighten(@error-border,20%);
+        border-color: darken(@error-border,25%);
+        background-color: @error-border;
 
         a {
-            color: darken(@error-border,18%);
+            color: darken(@error-border,25%);
         }
     }
 
     &.is-success {
-        border-color: @success-border;
-        background-color: lighten(@success-border,20%);
+        border-color: darken(@success-border,25%);
+        background-color: @success-border;
 
         a {
-            color: darken(@success-border,18%);
+            color: darken(@success-border,25%);
         }
     }
 
     &.is-warning {
-        border-color: @warning-border;
-        background-color: lighten(@warning-border,20%);
+        border-color: darken(@warning-border,25%);
+        background-color: @warning-border;
 
         a {
-            color: darken(@warning-border,18%);
+            color: darken(@warning-border,25%);
         }
     }
 
