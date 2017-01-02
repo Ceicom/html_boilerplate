@@ -15,11 +15,11 @@ public class formularios : IHttpHandler {
         /*
          * Com a implementação do API FileReader é obrigatório manter a captura do arquivo para retorno correto, segue modelo:
          * @FILE: HttpPostedFile arquivo = context.Request.Files["nomeInputFile"];
-         * 
+         *
          * Seguem campos de cada formulário:
          * @TYPE: exemplo
          * campos....
-         * 
+         *
          * RETORNO DOS DADOS:
          * 0 : quando algum dos campos veio vazio.
          * 1 : mensagem enviada com sucesso
@@ -27,10 +27,12 @@ public class formularios : IHttpHandler {
          * {texto} : mensagem de erro personalizada
          */
 
+        HttpPostedFile arquivo = context.Request.Files["file"];
+
         string retorno = string.Empty;
 
         foreach(string key in context.Request.Form){
-            retorno += String.Format("{0}: {1} \n", key, context.Request.Form[key]);
+            retorno += String.Format("{0} <> {1}\n", key, context.Request.Form[key]);
         }
 
         context.Response.Write(retorno);

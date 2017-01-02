@@ -2,7 +2,7 @@
 
     var config = {
         host: 'localhost',
-        port: null
+        port: 65223
     }
 
     if (!config.port) {
@@ -18,9 +18,6 @@
 
         /* COMPILADOR LESS */
         less: {
-            /*
-             * 2 compilações para que o formee ainda tenha um css separado
-             */
             lessfilesForms: {
                 files: {
                     "dev/less/css/forms.css": "dev/less/components/forms.less",
@@ -79,7 +76,6 @@
             lessFilesBox: {
                 src: 'dev/less/css/boxmsg.css',
             },
-            // para os plugins
             cssvendor: {
                 src: ['dev/vendor/**/*.css'],
             }
@@ -87,7 +83,6 @@
 
         /* CSSMIN MINIFICA, COMBINA CSS */
         cssmin: {
-            // minifica o main e o formee
             lessfilesForms: {
                 files: {
                     'css/forms.min.css': ['dev/less/css/forms.css'],
@@ -100,8 +95,6 @@
                     'css/boxmsg.min.css': ['dev/less/css/boxmsg.css']
                 },
             },
-
-            // minifica os css´s dos plugins
             cssvendor: {
                 files: [{
                     expand: true,
@@ -117,9 +110,8 @@
         /* UGLIFY MINIFICA */
         uglify: {
             options: {
-                sourceMap: false,    // gera sitemaps
+                sourceMap: false
             },
-            // arquivos da pasta js (geralmente criados pelo dev)
             jsfiles: {
                 files: [{
                     expand: true,
@@ -130,7 +122,6 @@
                     extDot: 'last'
                 }]
             },
-            // arquivos de plugins, minifica eles
             jsvendor: {
                 files: [{
                     expand: true,
@@ -145,20 +136,6 @@
 
         /* COPY, COPIA PLUGINS */
         copy: {
-            /*
-             * SÓ COPIA ARQUIVOS NECESSÁRIOS
-             * 
-             * da pasta: /vendor/...
-             * para a pasta: /modulos/...
-             * 
-             * .min.js
-             * .js.map
-             * .min.css
-             * .jpg
-             * .png
-             * .gif
-             * 
-            */
             copyvendor: {
                 files: [{
                     expand: true,
@@ -169,25 +146,11 @@
             }
         },
 
-        /* 
-            DELETA AS PASTAS 
-            no intuito de só mandar o necessário
-        */
+        /* DELETA AS PASTAS */
         clean: ['css','js','vendor'],
-
 
         /* AUTO UPDATE */
         browserSync: {
-            /*
-             * acompanha alterações nos arquivos:
-              .css
-              .min.js
-              .aspx
-              .master
-              .html
-              .ashx
-    
-             */
             geral: {
                 bsFiles: {
                     src: [
@@ -206,7 +169,6 @@
                     startPath: "/default.aspx",
                     proxy: config.host + ':' + config.port,
                     notify: false,
-                    //logLevel: "debug",
                     open: false
                 }
             }
@@ -214,11 +176,8 @@
 
         /* WATCH, VERIFICA ALTERAÇÕES NOS ARQUIVOS */
         watch: {
-            /*
-             * tarefa padrão de desenvolvimento
-             */
             options: {
-                spawn: false,
+                spawn: false
             },
             lessfilesForms: {
                 files: ['dev/less/**/*.less', '!dev/less/main.less'],
@@ -260,9 +219,6 @@
 
     /* TAREFA PADRÃO */
     grunt.registerTask('default', ['browserSync', 'watch']);
-    
-    /* TAREFA SÓ GRUNT */
-    grunt.registerTask('grunt', ['watch']);
 
     /* TAREFA GERA TUDO */
     grunt.registerTask('init', ['clean', 'less', 'postcss', 'uglify', 'cssmin', 'copy']);

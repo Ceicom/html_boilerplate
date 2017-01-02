@@ -1,12 +1,8 @@
 define(
     [
-        'jquery',
-        'loadcss',
-        '/vendor/cModal/modal.min.js'
+        'cfw'
     ],
     function () {
-
-        loadCSS('/vendor/cModal/modal.min.css');
-
+        cfw.cmodal.init();
     }
 );

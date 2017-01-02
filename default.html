@@ -2,17 +2,15 @@
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head runat="server" prefix="og: http://ogp.me/ns#">
 
-    <!-- ie helper -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-
-    <!-- codificação pagina -->
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
 
     <!-- container seo -->
     <asp:contentplaceholder id="seo" runat="server"></asp:contentplaceholder>
 
     <title></title>
-    <meta name="description" content="">
+    <meta name="description" content=""> <!-- limit to 150 characters-->
 
     <!--  Essential META Tags -->
     <meta property="og:title" content="Título Página">
@@ -33,9 +31,7 @@
 
     <!-- tags -->
     <link rel="canonical" href="url site cliente" />
-
     <meta http-equiv="cleartype" content="on">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="x-rim-auto-match" content="none">
@@ -47,26 +43,138 @@
     <meta name="robots" content="index, follow">
     <meta name="google" content="notranslate">
     <meta name="author" content="Ceicom® www.ceicom.com.br">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta name="revisit-after" content="1">
 
     <!-- FAVICON -->
     <!-- gerar utilizando http://realfavicongenerator.net/ -->
-
     <!-- SITEMAP -->
     <!-- gerar utilizando https://www.xml-sitemaps.com -->
 
+    <!--<link href="/css/main.min.css<%= " ?v=" + DateTime.Now.ToString("ddmmyyyyhhmmss") %>" rel="stylesheet"/>-->
     <link href="/css/main.min.css" rel="stylesheet">
 
     <!-- container head -->
     <asp:contentplaceholder id="head" runat="server"></asp:contentplaceholder>
 
+    <!--<meta id="jsPageID" data-value="cmodal, matchheight,citystate,zipcode,validaform,mask" />-->
+    <meta id="jsPageID" data-value="cmodal, matchheight, form" />
+
 </head>
 <body>
 
-    <form id="form" runat="server" novalidate="novalidate"></form>
+    <form id="form" runat="server" novalidate="novalidate">
 
-    <script async data-main="/js/common.min" src="/vendor/require/require.min.js"></script>
+        <h3>validaform</h3>
+        <div>
+            <div data-validate="form" data-submitform="form1" style="padding:0 20px;">
+                <div>
+                    <label>
+                        Required
+                        <input type="text" value="obrigatorio" name="required" data-validate="required" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Full Name
+                        <input type="text" value="obrigatorio obrigatorio" name="fullname" data-validate="fullname" />
+                    </label>
+                </div>
+                <div hidden>
+                    <label>
+                        Full Name
+                        <input type="text" value="" name="fullname1" data-validate="fullname" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Email
+                        <input type="email" value="obrigatorio@email.com.br" name="email" data-validate />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        CPF
+                        <input type="text" value="04296863908" name="cpf" data-validate="cpf" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        CNPJ
+                        <input type="text" value="89171274000157" name="cnpj" data-validate="cnpj" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        URL
+                        <input type="url" value="http://www.gloonyc.com/food" name="url" data-validate data-validate-optional="true" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Input File
+                        <input type="file" value="" name="file" data-validate data-validate-size="10240" data-validate-ext="jpg,rar,zip" data-validate-optional="true" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Compare
+                        <input type="password" value="" name="password" data-validate="compare" data-validate-group="1" data-validate-optional="true" /><br />
+                        <input type="password" value="" data-validate-group="1" /><br />
+                        <input type="password" value="" data-validate-group="1" />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Checkbox
+                        <br />
+                        <input type="checkbox" name="testeCheck" value="" data-validate="checkbox" data-validate-optional="true" data-validate-qtd="2,2" data-validate-target="div" />Item<br />
+                        <input type="checkbox" name="testeCheck" value="" />Item<br />
+                        <input type="checkbox" name="testeCheck" value="" />Item<br />
+                        <input type="checkbox" name="testeCheck" value="" />Item<br />
+                        <input type="checkbox" name="testeCheck" value="" />Item
+                    </label>
+                </div>
+                <div>
+                    <label>Hidden Value</label><br />
+                    <input type="hidden" id="hiddenfield" name="hidden" data-validate="hidden" data-validate-txt="Clique no botão para colocar valor... ou tirar..." value="123" />
+                </div>
+                <div>
+                    <label>Radio</label>
+                    <input type="radio" value="1" name="teste123" data-validate />Item 1<br />
+                    <input type="radio" value="2" name="teste123" />Item 2<br />
+                    <input type="radio" value="3" name="teste123" />Item 3<br />
+                    <input type="radio" value="4" name="teste123" />Item 4
+                </div>
+
+                <hr />
+
+                <input type="submit" value="OK INPUT" disabled />
+                <button type="submit">OK BTN</button>
+            </div>
+
+            <div data-validate="form">
+                <div>
+                    <input type="text" name="teste" value="" data-validate="required" />
+                    <button type="submit">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+    </form>
+
+    <code>
+        if (Request.Browser.Type.ToUpper().Contains("IE")) // replace with your check
+        {
+            if (Request.Browser.MajorVersion <= 8){
+                Response.Write("navegador velho");
+            }
+        }
+
+        https://whatbrowser.org/
+    </code>
+
+    <script async data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
 
 </body>
 </html>
