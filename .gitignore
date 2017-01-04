@@ -3,8 +3,8 @@
 *.suo
 *.sln
 *.log
-node_modules/
+/node_modules/
 .vs/
-css/
-js/
-vendor/
+/css/
+/js/
+/vendor/
