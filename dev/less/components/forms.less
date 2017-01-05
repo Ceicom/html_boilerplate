@@ -1,4 +1,4 @@
-﻿@import '../mix/variables';
+@import '../mix/variables';
 @import '../misc/grid';
 
 // mini reset
@@ -9,7 +9,7 @@ select,
 button {
     margin: 0;
     font-size: @font-base * 1px;
-    font-family: initial;
+    font-family: inherit;
     line-height:1em;
 }
 
@@ -38,135 +38,126 @@ input[type="search"] {
     border-radius: 0;
 }
 
-// inputs
-input[type="datetime"],
-input[type="file"],
-input[type="month"],
-input[type="range"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-input[type="url"],
-input[type*="date"],
-input[type="number"],
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="file"],
-input[type="search"],
-textarea,
-select {
-    width: 100%;
-    color: @input-color;
-    background: @input-bg;
-    border: 1px solid transparent;
-
-    &:hover,
-    &:focus {
-        color: @input-color;
-    }
-
-    &[disabled] {
-        cursor: not-allowed;
-    }
-}
-
-// inputs relacionados a data
-input[type="datetime"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type*="date"]{
-    padding: 14px 20px 12px;
-}
-
-// select
-select {
-    padding: 15px 20px 12px;
-}
-
-// input file
-input[type="file"]{
-    padding: 13px 20px;
-}
-
-// demais inputs e textarea
-input[type="range"],
-input[type="url"],
-input[type="url"],
-input[type="number"],
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="search"],
-textarea{
-    padding: 16px 20px 13px;
-}
-
-// textarea
-textarea {
-    height: 8em;
-    resize: vertical;
-}
-
-// placeholders
-input::-webkit-input-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-textarea::-webkit-input-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-input:-ms-input-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-textarea:-ms-input-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-input::-moz-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-textarea::-moz-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-input:-moz-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
-textarea:-moz-placeholder{
-    color: @input--placeholder;
-    opacity: 1;
-}
-
 // placeholder -> mensgem de erro
 .cfw-input-invalid::-webkit-input-placeholder  { color: @input-error--placeholder; }
 .cfw-input-invalid:-ms-input-placeholder       { color: @input-error--placeholder; }
 .cfw-input-invalid::-moz-placeholder           { color: @input-error--placeholder; }
 .cfw-input-invalid:-moz-placeholder            { color: @input-error--placeholder; }
 
-// button, input submit, input reset
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-button {
-    border: 0;
+.formee{
+    // inputs
+    input[type="datetime"],
+    input[type="file"],
+    input[type="month"],
+    input[type="range"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    input[type="url"],
+    input[type*="date"],
+    input[type="number"],
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"],
+    input[type="search"],
+    textarea,
+    select {
+        width: 100%;
+        color: #000;
+        padding: 12px 15px;
+        background: #fff;
+        border: 1px solid #d3d3d3;
+        transition: .2s;
 
-    &[disabled] {
-        cursor: not-allowed;
+        &:hover,
+        &:focus {
+            color: #666;
+            border-color: #a0a0a0;
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+        }
+    }
+
+    // textarea
+    textarea {
+        height: 8em;
+        resize: vertical;
+    }
+
+    // placeholders
+    input::-webkit-input-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea::-webkit-input-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-ms-input-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input::-moz-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea::-moz-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-moz-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-moz-placeholder{
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    // button, input submit, input reset
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"],
+    button {
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        text-align: center;
+        display: table;
+        line-height: 45px;
+        color: #fff;
+        padding: 0 50px;
+        border: 0 none;
+        background-color: #003d92;
+
+        &.is-centered{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &.is-right{
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        &[disabled] {
+            cursor: not-allowed;
+        }
     }
 }
 
