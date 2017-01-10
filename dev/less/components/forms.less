@@ -38,12 +38,6 @@ input[type="search"] {
     border-radius: 0;
 }
 
-// placeholder -> mensgem de erro
-.cfw-input-invalid::-webkit-input-placeholder  { color: @input-error--placeholder; }
-.cfw-input-invalid:-ms-input-placeholder       { color: @input-error--placeholder; }
-.cfw-input-invalid::-moz-placeholder           { color: @input-error--placeholder; }
-.cfw-input-invalid:-moz-placeholder            { color: @input-error--placeholder; }
-
 .formee{
     // inputs
     input[type="datetime"],
@@ -88,46 +82,25 @@ input[type="search"] {
         resize: vertical;
     }
 
-    // placeholders
-    input::-webkit-input-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
+    // placeholder -> mensgem de erro
+    .cfw-input-invalid input::-webkit-input-placeholder             { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid textarea::-webkit-input-placeholder          { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid input:-ms-input-placeholder                  { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid textarea:-ms-input-placeholder               { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid input::-moz-placeholder                      { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid textarea::-moz-placeholder                   { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid input:-moz-placeholder                       { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid textarea:-moz-placeholder                    { color: @input-error--placeholder; opacity:1; }
 
-    textarea::-webkit-input-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    input:-ms-input-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea:-ms-input-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    input::-moz-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea::-moz-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    input:-moz-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
-
-    textarea:-moz-placeholder{
-        color: @input--placeholder;
-        opacity: 1;
-    }
+    // placeholders -> default input´s
+    input::-webkit-input-placeholder                                { color: @input--placeholder; opacity: 1; }
+    textarea::-webkit-input-placeholder                             { color: @input--placeholder; opacity: 1; }
+    input:-ms-input-placeholder                                     { color: @input--placeholder; opacity: 1; }
+    textarea:-ms-input-placeholder                                  { color: @input--placeholder; opacity: 1; }
+    input::-moz-placeholder                                         { color: @input--placeholder; opacity: 1; }
+    textarea::-moz-placeholder                                      { color: @input--placeholder; opacity: 1; }
+    input:-moz-placeholder                                          { color: @input--placeholder; opacity: 1; }
+    textarea:-moz-placeholder                                       { color: @input--placeholder; opacity: 1; }
 
     // button, input submit, input reset
     input[type="submit"],
