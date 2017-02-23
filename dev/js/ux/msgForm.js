@@ -1,4 +1,4 @@
-﻿define(
+define(
     [
         'cfw',
     ],
@@ -17,8 +17,16 @@
                     break;
                 case 1:
                     msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
-                    grecaptcha.reset();                                                                                         // reseta captcha
                     $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val('');      // zera form
+
+                    // fecha modal
+                    if ($('body').hasClass('modal-loaded') && $('.cfw-modal:visible').length)
+                        $('.cfw-modal:visible').trigger('close');
+
+                    // reseta captcha
+                    if (typeof (grecaptcha) !== 'undefined')
+                        grecaptcha.reset();
+
                     break;
                 case 2:
                     msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
