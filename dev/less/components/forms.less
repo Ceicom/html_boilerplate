@@ -1,43 +1,6 @@
 @import '../mix/variables';
 @import '../mix/functions';
 
-// mini reset
-input,
-textarea,
-keygen,
-select,
-button {
-    margin: 0;
-    font-size: @font-base * 1px;
-    font-family: inherit;
-    line-height:1em;
-}
-
-// remove outline inputs padrão
-input:focus,
-textarea:focus,
-button:focus,
-select:focus {
-    outline: 0;
-}
-
-// remove X dos inputs no IE
-::-ms-clear {
-    display: none;
-}
-
-// reseta select em brownsers website
-// principalmente mobile
-select {
-    -webkit-appearance: listbox;
-}
-
-// remove bordas redondas input search no safari e chorme mobile
-input[type="search"] {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
 .formee{
     // inputs
     input[type="datetime"],
@@ -154,30 +117,6 @@ input[type="search"] {
 }
 
 @media screen {
-
-    // setinhas select somente em webkit (chrome, etc)
-    @media (-webkit-min-device-pixel-ratio:0) {
-        .select-seta {
-            position: relative;
-
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                right: (@gutter-width*2)+3px;
-                top: 0;
-                bottom: 0;
-                border-width: 1px;
-                border-style: solid;
-                border-color: transparent black black transparent;
-                margin: auto;
-                background: transparent;
-                width: 6px;
-                height: 6px;
-                transform: rotate(45deg) translateY(-1px);
-            }
-        }
-    }
 
     @media (max-width:350px){
         .w-captcha{

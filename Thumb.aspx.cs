@@ -18,10 +18,10 @@ using System.IO;
 /*
 
 Thumb.NET version 3.1, by wyllyan@wyllyan.com
-    
+
     * Parameters
     w: Width
-    h: Height 
+    h: Height
     only w or h: Proportional resize
     b: Background color (html type)
     c: Condition
@@ -59,7 +59,7 @@ public partial class Thumb : System.Web.UI.Page
             //Path com as imagens "cacheadas"
             string cachePath = Path.Combine(Server.MapPath("~/Arquivos/ThumbCache/"), strImg);
 
-            //Dados da última 
+            //Dados da última
             DateTime dataModCache = File.GetLastWriteTime(Server.MapPath(imgName));
             DateTime dataModImg = File.GetLastWriteTime(cachePath);
 
@@ -190,7 +190,7 @@ public partial class Thumb : System.Web.UI.Page
                 Bitmap bmpT = new Bitmap(widthT, heightT);
 
                 EncoderParameter qualityParam = new EncoderParameter(Encoder.Quality, 95L);
-                //Image codec 
+                //Image codec
                 ImageCodecInfo imgCodec = ImageCodecInfo.GetImageEncoders().FirstOrDefault(a => a.FormatID == formato.Guid);
                 EncoderParameters encoderParams = new EncoderParameters(1);
                 encoderParams.Param[0] = qualityParam;
@@ -268,8 +268,8 @@ public partial class Thumb : System.Web.UI.Page
         cachePolicy.VaryByParams["i"] = true;
         cachePolicy.VaryByParams["p"] = true;
         cachePolicy.SetOmitVaryStar(true);
-        cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(7));
-        //cachePolicy.SetExpires(DateTime.Now);
+        //cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(7));
+        cachePolicy.SetExpires(DateTime.Now);
         cachePolicy.SetValidUntilExpires(true);
         cachePolicy.SetLastModified(lastModified);
     }

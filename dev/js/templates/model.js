@@ -4,8 +4,6 @@
 
         var _ = this;
 
-        if (!_.callback) _.callback = function () { };
-
         var r = $.ajax({
             url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx'
         });
@@ -26,7 +24,8 @@
         var html = '';
 
         $.each(data, function (key, value) {
-            html += key + ' -> ' + value;
+            //html +=
+            console.info(key + ' -> ' + value);
         });
 
         return this.insertHtml(html);
@@ -51,7 +50,7 @@
 
         this.wrapper.html(html);
 
-        if (!error)
+        if (!error && typeof(this.callback) == 'function')
             this.callback();
 
         return this;

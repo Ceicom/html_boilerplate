@@ -18,7 +18,7 @@ public class formularios : IHttpHandler {
          *
          * Seguem campos de cada formulário:
          * @TYPE: exemplo
-         * campos....
+         * campo1
          *
          * RETORNO DOS DADOS:
          * 0 : quando algum dos campos veio vazio.

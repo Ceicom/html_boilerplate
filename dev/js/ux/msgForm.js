@@ -17,6 +17,7 @@ define(
                     break;
                 case 1:
                     msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
+
                     $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val('');      // zera form
 
                     // fecha modal
