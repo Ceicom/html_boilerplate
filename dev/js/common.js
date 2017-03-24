@@ -17,7 +17,7 @@
 requirejs.config({
 
     paths: {
-        jquery:     '//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min',   // jquery 3.x
+        jquery:     '//ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min',   // jquery 3.x
         cfw:        '//src.inf.br/cfw/cfw.min',                                  // framework
         recaptcha:  '//www.google.com/recaptcha/api',                            // recaptcha google
     },
@@ -52,18 +52,13 @@ require(
             var item = paginas[i].trim();
 
             // components
-            if (item == 'cmodal') require(['components/cmodal.min']);
-            else if (item == 'matchheight') require(['components/matchheight.min']);
-            else if (item == 'citystate') require(['components/citystate.min']);
-            else if (item == 'zipcode') require(['components/zipcode.min']);
-            else if (item == 'validaform') require(['components/validaform.min']);
-            else if (item == 'mask') require(['components/mask.min']);
-
+            if (item == 'xxx') require(['components/xxx.min']);
+            
             // ux
             else if (item == 'form') require(['ux/form.min']);
 
             // pages
-            //else if (item == 'home') require(['pages/home.min']);
+            else if (item == 'yyyy') require(['pages/yyyy.min']);
         }
 
     }
