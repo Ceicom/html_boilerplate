@@ -13,7 +13,7 @@ public class captcha : IHttpHandler {
         context.Response.ContentType = "text/json";
         
         string response = context.Request["g-recaptcha-response"];
-        string secret = ConfigurationManager.AppSettings["recaptcha-sitekey"].ToString();
+        string secret = ConfigurationManager.AppSettings["recaptcha-secretkey"].ToString();
 
         var client = new System.Net.WebClient();
         var reply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
