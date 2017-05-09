@@ -2,6 +2,7 @@
 
 using System;
 using System.Web;
+using System.Configuration;
 
 public class captcha : IHttpHandler {
     
@@ -12,7 +13,7 @@ public class captcha : IHttpHandler {
         context.Response.ContentType = "text/json";
         
         string response = context.Request["g-recaptcha-response"];
-        string secret = "6Lc9tP8SAAAAAB25N_5DmxE_HpRhqMjKew26Jf6n";
+        string secret = ConfigurationManager.AppSettings["recaptcha-sitekey"].ToString();
 
         var client = new System.Net.WebClient();
         var reply = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
