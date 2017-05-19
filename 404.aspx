@@ -22,12 +22,21 @@
             font-family: Arial, Helvetica, sans-serif;
             text-align: center;
             overflow: hidden;
+            height: 100%;
+        }
+
+        html,
+        body{
+            margin: 0;
         }
 
         div {
-            padding-top: 20vh;
             max-width: 600px;
             margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%)  translateX(-50%);
         }
 
         span{
