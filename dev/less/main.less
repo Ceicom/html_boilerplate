@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 // ESSENCIAIS
 //------------------------------------
@@ -25,14 +25,18 @@ html{
 }
 
 body {
-    font-family: sans-serif;
+    font-family: '??', sans-serif;
     font-size: @font-base*1px;
-    //color &:extend(.color-xxx);
+    //&:extend(.color-xxx);
 }
 
-a,
-a:hover {
-    text-decoration: none;
+a {
+    //&:extend(.color-xxx);
+    
+    &,
+    &:hover{
+        text-decoration: none;
+    }
 }
 
 figure {
@@ -47,6 +51,7 @@ object {
 //------------------------------------
 //@import 'components/forms';
 //@import 'components/boxmsg';
+//@import 'components/newscontent';
 
 //ESTILOS MISCELANEOS
 //------------------------------------
