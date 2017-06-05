@@ -56,6 +56,7 @@ require(
             
             // ux
             else if (item == 'form') require(['ux/form.min']);
+            else if (item == 'flutuante') require(['ux/flutuante.min']);
 
             // pages
             else if (item == 'yyyy') require(['pages/yyyy.min']);
