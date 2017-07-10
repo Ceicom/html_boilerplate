@@ -1,20 +1,12 @@
 define(
     [
-        'cfw'
+        'cfw',
+        'components/validaURL.min',
+        'components/validaMAIL.min'
     ],
     function () {
 
         var getBannerFlutuanteData = function () { };
-
-        getBannerFlutuanteData.prototype.validaURL = function (url) {
-            var r = /^(ftp|http|https):\/\/[^ "]+$/;
-            return r.test(url);
-        }
-
-        getBannerFlutuanteData.prototype.checkEmail = function (email) {
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
 
         getBannerFlutuanteData.prototype.init = function () {
 
@@ -39,7 +31,7 @@ define(
             var url = '';
 
             if (data.link) {
-                url = this.checkEmail(data.link) ? 'mailto:' + data.link : !this.validaURL(data.link) ? '//' + data.link : data.link;
+                url = validaMAIL(data.link) ? 'mailto:' + data.link : !validaURL(data.link) ? '//' + data.link : data.link;
                 url = 'data-modal-url="' + url + '"';
             }
 
@@ -58,7 +50,7 @@ define(
 
         }
 
-        /**/
+        /* initialize */
         var getBanner = new getBannerFlutuanteData();
             getBanner.init();
     }

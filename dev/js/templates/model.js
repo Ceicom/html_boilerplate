@@ -4,8 +4,14 @@
 
         var _ = this;
 
+        var data = {};
+            data.cat = this.cat;
+            data.type = this.type;
+
         var r = $.ajax({
-            url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx'
+            method: 'GET',
+            url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx',
+            data: data
         });
 
         r.then(function (data) {
@@ -24,7 +30,7 @@
         var html = '';
 
         $.each(data, function (key, value) {
-            //html +=
+            html += '';
             console.info(key + ' -> ' + value);
         });
 

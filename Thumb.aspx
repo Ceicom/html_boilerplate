@@ -9,14 +9,14 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        
-        <!-- 
-        
+
+        <!--
+
         Thumb.NET version 3.1, by wyllyan@wyllyan.com
-    
+
             * Parameters
             w: Width
-            h: Height 
+            h: Height
             only w or h: Proportional resize
             b: Background color (html type)
             c: Condition
@@ -26,7 +26,7 @@
                 = 0 -> High Quality Bicubic
                 = 1 -> High Quality Bilinear
             p: Precision
- 
+
          -->
 
     </div>

@@ -1,10 +1,11 @@
 *.ini
 *.db
+.thumb
 *.suo
 *.sln
 *.log
+*.vs/
 /node_modules/
-.vs/
 /css/
 /js/
 /vendor/

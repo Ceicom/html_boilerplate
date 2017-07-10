@@ -5,13 +5,28 @@ using System.Web;
 using System.Configuration;
 
 public class captcha : IHttpHandler {
-    
+
     public void ProcessRequest (HttpContext context) {
 
-        // Modelo DIV: @<div class="g-recaptcha" data-sitekey="6Lc9tP8SAAAAAKfA4Hwpo0QredfWcVlMxgIxUUnk"></div>
-        
+        /*
+         * exemplo de código para o CAPTCHA
+         *
+         * 1) add a library
+         *    using System.Configuration;
+         *
+         * 2) create a string in public methods
+         *    public string sitekey { get; set; }
+         *
+         * 3) add config in void Page_Load
+         *    sitekey = ConfigurationManager.AppSettings["recaptcha-sitekey"].ToString();
+         *
+         * 4) inside form
+         *    <div class="g-recaptcha" data-sitekey="<%=sitekey%>"></div>
+         *
+         */
+
         context.Response.ContentType = "text/json";
-        
+
         string response = context.Request["g-recaptcha-response"];
         string secret = ConfigurationManager.AppSettings["recaptcha-secretkey"].ToString();
 
@@ -20,7 +35,7 @@ public class captcha : IHttpHandler {
 
         context.Response.Write(reply);
     }
- 
+
     public bool IsReusable {
         get {
             return false;

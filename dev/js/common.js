@@ -53,7 +53,7 @@ require(
 
             // components
             if (item == 'xxx') require(['components/xxx.min']);
-            
+
             // ux
             else if (item == 'form') require(['ux/form.min']);
             else if (item == 'flutuante') require(['ux/flutuante.min']);

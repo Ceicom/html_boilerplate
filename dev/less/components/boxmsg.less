@@ -1,6 +1,4 @@
-﻿@import '../mix/variables';
-
-// BOX DE MENSAGEM (SUCCESS, INFO, WARNING, ERROR)
+﻿// BOX DE MENSAGEM (SUCCESS, INFO, WARNING, ERROR)
 //--------------------------------------
 .msg-box {
     color: #555;
@@ -20,6 +18,7 @@
         border-color: darken(@info-border,25%);
         background-color: @info-border;
 
+        strong,
         a {
             color: darken(@info-border,25%);
         }
@@ -29,6 +28,7 @@
         border-color: darken(@error-border,25%);
         background-color: @error-border;
 
+        strong,
         a {
             color: darken(@error-border,25%);
         }
@@ -38,6 +38,7 @@
         border-color: darken(@success-border,25%);
         background-color: @success-border;
 
+        strong,
         a {
             color: darken(@success-border,25%);
         }
@@ -47,6 +48,7 @@
         border-color: darken(@warning-border,25%);
         background-color: @warning-border;
 
+        strong,
         a {
             color: darken(@warning-border,25%);
         }

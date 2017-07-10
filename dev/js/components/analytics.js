@@ -4,7 +4,8 @@
     ],
     function () {
 
-        cfw.analytics.init();
+        var ua = ''; // configuração do User Agente (exemplo: UA-123123123)
+        cfw.analytics.init(ua);
 
     }
 );

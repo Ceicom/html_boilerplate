@@ -19,18 +19,13 @@
             lessfilesForms: {
                 files: {
                     "dev/less/css/forms.css": "dev/less/components/forms.less"
-                },
+                }
             },
             lessfilesMain: {
                 files: {
                     "dev/less/css/main.css": "dev/less/main.less"
-                },
-            },
-            lessfilesMsg: {
-                files: {
-                    "dev/less/css/boxmsg.css": "dev/less/components/boxmsg.less"
-                },
-            },
+                }
+            }
         },
 
         /* POST CSS AUTO-PREFIXER CSS */
@@ -62,9 +57,6 @@
             lessfilesMain: {
                 src: 'dev/less/css/main.css',
             },
-            lessfilesMsg: {
-                src: 'dev/less/css/boxmsg.css',
-            },
             cssvendor: {
                 src: ['dev/vendor/**/*.css'],
             }
@@ -83,11 +75,6 @@
             lessfilesMain: {
                 files: {
                     'css/main.min.css': ['dev/less/css/main.css']
-                },
-            },
-            lessfilesMsg: {
-                files: {
-                    'css/boxmsg.min.css': ['dev/less/css/boxmsg.css']
                 },
             },
             cssvendor: {
@@ -168,20 +155,16 @@
 
         /* WATCH, VERIFICA ALTERAÇÕES NOS ARQUIVOS */
         watch: {
-            options: {
-                spawn: false
-            },
+            //options: {
+            //    spawn: false
+            //},
             lessfilesForms: {
                 files: ['dev/less/**/*.less', '!dev/less/main.less', '!dev/less/components/boxmsg.less'],
                 tasks: ['less:lessfilesForms', 'postcss:lessfilesForms', 'cssmin:lessfilesForms']
             },
             lessfilesMain: {
-                files: ['dev/less/**/*.less', '!dev/less/components/forms.less', '!dev/less/components/boxmsg.less'],
+                files: ['dev/less/**/*.less', '!dev/less/components/forms.less'],
                 tasks: ['less:lessfilesMain', 'postcss:lessfilesMain', 'cssmin:lessfilesMain']
-            },
-            lessfilesMsg: {
-                files: ['dev/less/**/*.less', '!dev/less/main.less', '!dev/less/components/forms.less'],
-                tasks: ['less:lessfilesMsg', 'postcss:lessfilesMsg', 'cssmin:lessfilesMsg']
             },
 
             jsfiles: {

@@ -11,22 +11,20 @@
     <!-- container seo -->
     <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
 
-    <title></title>
-    <meta name="description" content="">
-    <!-- limit to 150 characters-->
 
     <!--  Essential META Tags -->
+    <title></title>
     <meta property="og:title" content="Título Página">
+    <meta name="description" content=""> <!-- limit to 150 characters-->
     <meta property="og:description" content="Descrição">
-    <meta property="og:image" content="Imagem">
-    <!-- 1200x630 -->
-    <meta property="og:image:width" content="valor em px">
-    <meta property="og:image:height" content="valor em px">
+    <meta property="og:image" content="Imagem"> <!-- 1200x630 -->
+    <meta property="og:image:width" content="valor em px"> <!-- em imagens padrões setar largura, imagens dinâmicas desconsiderar tag -->
+    <meta property="og:image:height" content="valor em px"> <!-- em imagens padrões setar largura, imagens dinâmicas desconsiderar tag -->
     <meta property="og:url" content="URL">
-    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="url site cliente" />
 
     <!-- tags -->
-    <link rel="canonical" href="url site cliente" />
+    <meta name="twitter:card" content="summary_large_image">
     <meta http-equiv="cleartype" content="on">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
