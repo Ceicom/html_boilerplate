@@ -11,7 +11,6 @@
     <!-- container seo -->
     <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
 
-
     <!--  Essential META Tags -->
     <title></title>
     <meta property="og:title" content="Título Página">
@@ -55,6 +54,7 @@
 <body>
 
     <form id="form" runat="server" novalidate="novalidate">
+
     </form>
 
     <script async data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
