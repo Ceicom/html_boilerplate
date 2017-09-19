@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title runat="server" visible="false">
 
     <!-- container seo -->
     <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
