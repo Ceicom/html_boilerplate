@@ -7,13 +7,12 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title runat="server" visible="false">
+    <title runat="server" visible="false"></title>
 
     <!-- container seo -->
     <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
 
     <!--  Essential META Tags -->
-    <title></title>
     <meta property="og:title" content="Título Página">
     <meta name="description" content=""> <!-- limit to 150 characters-->
     <meta property="og:description" content="Descrição">
