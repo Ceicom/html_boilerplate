@@ -5,8 +5,8 @@
         var _ = this;
 
         var data = {};
-            data.cat = this.cat;
-            data.type = this.type;
+            data.cat = this.cat || undefined;
+            data.type = this.type || undefined;
 
         var r = $.ajax({
             method: 'GET',
@@ -31,7 +31,9 @@
 
         $.each(data, function (key, value) {
             html += '';
-            console.info(key + ' -> ' + value);
+            console.info(key);
+            console.info(value);
+            console.info('--------');
         });
 
         return this.insertHtml(html);

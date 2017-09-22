@@ -1,25 +1,31 @@
 ﻿<div class="formee at-aaaaaaaaaaaaaaaaaa" role="form" data-submitform="aaaaaaaaaaaaaaaaaa" data-validate="form">
 
     <div class="col12">
-        <input id="txtNome" name="txtNome" data-validate="fullname" type="text" placeholder="Nome Completo" />
+        <label for="txtNome">Nome Completo</label>
+        <input id="txtNome" name="txtNome" data-validate="fullname" type="text" placeholder="Seu nome completo" />
     </div>
     <div class="col6">
-        <input id="txtEmail" name="txtEmail" data-validate="email" type="email" placeholder="E-mail" />
-    </div>
-
-    <div class="col6">
-        <input id="txtCPF" name="txtCPF" type="text" data-validate="cpf" data-mask="cpf" placeholder="CPF" />
-    </div>
-    <div class="col6">
-        <input id="txtCNPJ" name="txtCNPJ" type="text" data-validate="cnpj" data-mask="cnpj" placeholder="CNPJ" />
+        <label for="txtEmail">E-mail</label>
+        <input id="txtEmail" name="txtEmail" data-validate="email" type="email" placeholder="email@dominio.com.br" />
     </div>
 
     <div class="col6">
-        <input id="txtURL" name="txtURL" type="url" data-validate="url" placeholder="Site/Link" />
+        <label for="txtCPF">CPF</label>
+        <input id="txtCPF" name="txtCPF" type="text" data-validate="cpf" data-mask="cpf" placeholder="000.000.000-00" />
+    </div>
+    <div class="col6">
+        <label for="txtCNPJ">CNPJ</label>
+        <input id="txtCNPJ" name="txtCNPJ" type="text" data-validate="cnpj" data-mask="cnpj" placeholder="00.000.000/0000-00" />
     </div>
 
     <div class="col6">
-        <input type="file" data-validate="file" data-validate-size="5412" data-validate-ext="jpg,rar,zip" />
+        <label for="txtNome">Site/Link</label>
+        <input id="txtURL" name="txtURL" type="url" data-validate="url" placeholder="http://www.seusite.com.br" />
+    </div>
+
+    <div class="col6">
+        <label for="ffFile">Arquivo - extensão .jpg, rar e zip - tamanho máximo 5mb</label>
+        <input id="ffFile" name="ffFile" type="file" data-validate="file" data-validate-size="5412" data-validate-ext="jpg,rar,zip" />
     </div>
 
     <div class="col6">
@@ -38,29 +44,37 @@
     </div>
 
     <div class="col6">
-        <input id="txtTelefone" name="txtTelefone" data-mask="phone" data-validate="required" type="tel" placeholder="Telefone" />
+        <label for="txtTelefone">Telefone</label>
+        <input id="txtTelefone" name="txtTelefone" data-mask="phone" data-validate="required" type="tel" placeholder="(00) 00000-0000" />
     </div>
     <div class="col12">
-        <textarea id="txtMensagem" name="txtMensagem" data-validate="required" placeholder="Mensagem"></textarea>
+        <label for="txtMensagem">Mensagem</label>
+        <textarea id="txtMensagem" name="txtMensagem" data-validate="required" placeholder="Escreva sua mensagem"></textarea>
     </div>
     <div class="col4">
-        <input id="txtCEP" name="txtCEP" data-validate="required" data-mask="zip" data-zipcode="zip" data-zipcode-group="1" type="text" placeholder="CEP" />
+        <label for="txtCEP">CEP</label>
+        <input id="txtCEP" name="txtCEP" data-validate="required" data-mask="zip" data-zipcode="zip" data-zipcode-group="1" type="text" placeholder="00000-000" />
     </div>
     <div class="col8">
-        <input id="txtEndereco" name="txtEndereco" data-validate="required" data-zipcode="street" data-zipcode-group="1" type="text" placeholder="Endereço" />
+        <label for="txtEndereco">Endereço</label>
+        <input id="txtEndereco" name="txtEndereco" data-validate="required" data-zipcode="street" data-zipcode-group="1" type="text" placeholder="Rua, Logradouro" />
     </div>
     <div class="col8">
-        <input id="txtBairro" name="txtBairro" data-validate="required" data-zipcode="district" data-zipcode-group="1" type="text" placeholder="Bairro" />
+        <label for="txtBairro">Bairro</label>
+        <input id="txtBairro" name="txtBairro" data-validate="required" data-zipcode="district" data-zipcode-group="1" type="text" />
     </div>
     <div class="col4">
-        <input id="txtNumero" name="txtNumero" type="text" placeholder="Nº" />
+        <label for="txtNumero">Nº</label>
+        <input id="txtNumero" name="txtNumero" type="text" />
     </div>
     <div class="col6 select-seta">
+        <label for="ddEstado">Estado</label>
         <select id="ddEstado" name="ddEstado" data-list="states" data-list-group="1" data-zipcode="state" data-zipcode-group="1" data-validate="required">
             <option value="">carregando..</option>
         </select>
     </div>
     <div class="col6 select-seta">
+        <label for="ddCidade">Cidade</label>
         <select id="ddCidade" name="ddCidade" data-list="cities" data-list-group="1" data-zipcode="city" data-zipcode-group="1" data-validate="required">
             <option value="">carregando..</option>
         </select>

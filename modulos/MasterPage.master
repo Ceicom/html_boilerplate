@@ -7,13 +7,13 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title runat="server" visible="false">
+    <title runat="server" visible="false"></title>
 
     <!-- container seo -->
     <asp:ContentPlaceHolder ID="seo" runat="server"></asp:ContentPlaceHolder>
 
     <!--  Essential META Tags -->
-    <title></title>
+    <%--<title></title>--%>
     <meta property="og:title" content="Título Página">
     <meta name="description" content=""> <!-- limit to 150 characters-->
     <meta property="og:description" content="Descrição">
@@ -21,6 +21,7 @@
     <meta property="og:image:width" content="valor em px"> <!-- em imagens padrões setar largura, imagens dinâmicas desconsiderar tag -->
     <meta property="og:image:height" content="valor em px"> <!-- em imagens padrões setar largura, imagens dinâmicas desconsiderar tag -->
     <meta property="og:url" content="URL">
+    <meta property="og:type" content="article" /> <!-- https://developers.facebook.com/docs/reference/opengraph#object-type -->
     <link rel="canonical" href="url site cliente" />
 
     <!-- tags -->
@@ -58,7 +59,7 @@
 
     </form>
 
-    <script async data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
+    <script async defer data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
 
 </body>
 </html>

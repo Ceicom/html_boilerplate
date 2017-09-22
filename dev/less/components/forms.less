@@ -24,14 +24,14 @@
         width: 100%;
         color: @input-color;
         padding: 12px 15px;
-        background: #fff;
-        border: 1px solid #d3d3d3;
+        background: @input-bg;
+        border: 1px solid @input-border;
         transition: .2s;
 
         &:hover,
         &:focus {
-            color: #666;
-            border-color: #a0a0a0;
+            color: @input-color;
+            border-color: darken(@input-border, 20%);
         }
 
         &[disabled] {

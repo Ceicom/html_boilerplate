@@ -1,57 +1,61 @@
 define(
     [
-        'cfw',
-        'components/validaURL.min',
-        'components/validaMAIL.min'
+        'cfw'
     ],
     function () {
 
-        var getBannerFlutuanteData = function () { };
+        cfw.funcs.init();
 
-        getBannerFlutuanteData.prototype.init = function () {
+        $(document).one('cfw_funcs_loaded', function () {
 
-            var _ = this;
-            var r = $.ajax({
-                url: '/modulos/handlers/flutuante.ashx'
-            });
+            var getBannerFlutuanteData = function () { };
 
-            r.then(function (data) {
-                if (Object.keys(data).length)
-                    _.doTemplate(data);
-                else
-                    console.warn('retorno handler flutuante %cvazio ', 'color: red ');
-            }, function () {
-                console.warn('retorno handler flutuante %cinválido', 'color: red ');
-            });
+            getBannerFlutuanteData.prototype.init = function () {
 
-        }
+                var _ = this;
+                var r = $.ajax({
+                    url: '/modulos/handlers/flutuante.ashx'
+                });
 
-        getBannerFlutuanteData.prototype.doTemplate = function (data) {
+                r.then(function (data) {
+                    if (Object.keys(data).length)
+                        _.doTemplate(data);
+                    else
+                        console.warn('retorno handler flutuante %cvazio ', 'color: red ');
+                }, function () {
+                    console.warn('retorno handler flutuante %cinválido', 'color: red ');
+                });
 
-            var url = '';
-
-            if (data.link) {
-                url = validaMAIL(data.link) ? 'mailto:' + data.link : !validaURL(data.link) ? '//' + data.link : data.link;
-                url = 'data-modal-url="' + url + '"';
             }
 
-            var _ = this;
-            var html = '<a id="flutuante_banner_2017" data-modal href="' + data.img + '" title="' + data.title + '" ' + url + ' data-modal-lock="false"></a>';
+            getBannerFlutuanteData.prototype.doTemplate = function (data) {
 
-            $('body').append(html);
-            cfw.cmodal.init();
+                var url = '';
 
-            var si = setInterval(function () {
-                if (typeof (cModal) == 'function') {
-                    clearInterval(si);
-                    $('body').find('#flutuante_banner_2017').trigger('click');
+                if (data.link) {
+                    url = validaMail(data.link) ? 'mailto:' + data.link : !validaURL(data.link) ? '//' + data.link : data.link;
+                    url = 'data-modal-url="' + url + '"';
                 }
-            }, 100);
 
-        }
+                var _ = this;
+                var html = '<a id="flutuante_banner_2017" data-modal href="' + data.img + '" title="' + data.title + '" ' + url + ' data-modal-lock="false"></a>';
 
-        /* initialize */
-        var getBanner = new getBannerFlutuanteData();
-            getBanner.init();
+                $('body').append(html);
+                cfw.cmodal.init();
+
+                var si = setInterval(function () {
+                    if (typeof (cModal) == 'function') {
+                        clearInterval(si);
+                        $('body').find('#flutuante_banner_2017').trigger('click');
+                    }
+                }, 100);
+
+            }
+
+            /* initialize */
+            var getBanner = new getBannerFlutuanteData();
+                getBanner.init();
+
+        });
     }
 );
