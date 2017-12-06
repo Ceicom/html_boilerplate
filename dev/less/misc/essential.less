@@ -20,7 +20,6 @@
 // WRAPPER GRID
 //------------------------------------
 .row{
-    &:extend(.cf all);
     margin-left:-15px;
     margin-right:-15px;
 }
@@ -62,6 +61,16 @@ select {
 input[type="search"] {
     -webkit-appearance: none;
     border-radius: 0;
+}
+
+// tira margins do element figure
+figure {
+    margin: 0;
+}
+
+// object = block !
+object {
+    display: block;
 }
 
 // setinhas select somente em webkit (chrome, etc)

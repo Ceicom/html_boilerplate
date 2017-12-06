@@ -32,7 +32,7 @@ public class formularios : IHttpHandler {
         string retorno = string.Empty;
 
         foreach(string key in context.Request.Form){
-            retorno += String.Format("{0} <> {1}\n", key, context.Request.Form[key]);
+            retorno += String.Format("{0}\n", key, context.Request.Form[key]);
         }
 
         context.Response.Write(retorno);

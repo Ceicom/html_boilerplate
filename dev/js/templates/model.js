@@ -2,11 +2,12 @@
 
     getData.prototype.init = function () {
 
-        var _ = this;
+        var self = this;
 
         var data = {};
-            data.cat = this.cat || undefined;
+            data.limit = this.limit || undefined;
             data.type = this.type || undefined;
+            data.id = this.id || undefined;
 
         var r = $.ajax({
             method: 'GET',
@@ -16,11 +17,11 @@
 
         r.then(function (data) {
             if (Object.keys(data).length)
-                _.doTemplate(data);
+                self.doTemplate(data);
             else
-                _.insertHtml(1);
+                self.insertHtml(1);
         }, function () {
-            _.insertHtml(2);
+            self.insertHtml(2);
         });
 
     }
@@ -31,6 +32,7 @@
 
         $.each(data, function (key, value) {
             html += '';
+
             console.info(key);
             console.info(value);
             console.info('--------');
@@ -58,8 +60,8 @@
 
         this.wrapper.html(html);
 
-        if (!error && typeof(this.callback) == 'function')
-            this.callback();
+        if (!error)
+            this.callback(this.type);
 
         return this;
     }

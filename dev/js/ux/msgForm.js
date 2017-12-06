@@ -24,10 +24,6 @@ define(
                     if ($('body').hasClass('modal-loaded') && $('.cfw-modal:visible').length)
                         $('.cfw-modal:visible').trigger('close');
 
-                    // reseta captcha
-                    if (typeof (grecaptcha) !== 'undefined')
-                        grecaptcha.reset();
-
                     break;
                 case 2:
                     msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
@@ -36,6 +32,10 @@ define(
                     msg = { title: 'Ops', text: retorno, type: 'info' };
                     break;
             }
+
+            // reseta captcha
+            if (typeof (grecaptcha) !== 'undefined')
+                grecaptcha.reset();
 
             swal(msg);
 

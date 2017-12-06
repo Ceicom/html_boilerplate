@@ -20,6 +20,7 @@ requirejs.config({
         jquery:     '//ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min',   // jquery 3.x
         cfw:        '//src.inf.br/cfw/cfw.min',                                  // framework
         recaptcha:  '//www.google.com/recaptcha/api',                            // recaptcha google
+        addthis:    '//s7.addthis.com/js/300/addthis_widget.js'                  // addthis
     },
 
     //urlArgs: 'v=1.0',                         // produção

@@ -6,9 +6,9 @@ define(
 
         cfw.funcs.init();
 
-        $(document).one('cfw_funcs_loaded', function () {
+        /**********************************************/
 
-            var getBannerFlutuanteData = function () { };
+        var getBannerFlutuanteData = function () { };
 
             getBannerFlutuanteData.prototype.init = function () {
 
@@ -52,10 +52,12 @@ define(
 
             }
 
-            /* initialize */
-            var getBanner = new getBannerFlutuanteData();
-                getBanner.init();
+        /**********************************************/
 
+        var getBanner = new getBannerFlutuanteData();
+
+        $(document).one('cfw_funcs_loaded', function () {
+            getBanner.init();
         });
     }
 );

@@ -2,7 +2,7 @@
 @import '../mix/functions';
 
 .formee{
-    // inputs
+
     input[type="datetime"],
     input[type="file"],
     input[type="month"],
@@ -39,7 +39,19 @@
         }
     }
 
-    // textarea
+    select {
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+
+    label{
+        display:block;
+        margin:0 0 4px;
+        font-size:12px;
+        line-height:.9em;
+        text-transform:uppercase;
+    }
+
     textarea {
         height: 8em;
         resize: vertical;
@@ -76,10 +88,10 @@
         text-align: center;
         display: table;
         line-height: 45px;
-        color: #fff;
+        color: @input-bg;
         padding: 0 50px;
-        border: 0 none;
-        background-color: #003d92;
+        border: 0;
+        background: @input-color;
 
         &.is-centered{
             margin-left: auto;
@@ -117,13 +129,6 @@
 }
 
 @media screen {
-
-    @media (max-width:350px){
-        .w-captcha{
-            padding:0;
-        }
-    }
-
     @media (min-width: 880px) {
         .formee{
             .col1   { .column(1,@resume:true); }
