@@ -35,6 +35,11 @@
                     share: true
                 });
 
+                cfw.fancybox.init({
+                    element: '[data-fancybox]' // default
+                });
+
+                require(['addthis']);
             };
 
         $(document).one('cfw_funcs_loaded', function () {

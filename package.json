@@ -20,6 +20,10 @@
     "grunt-contrib-watch": "latest",
     "grunt-postcss": "latest",
     "load-grunt-tasks": "latest",
-    "time-grunt": "latest"
+    "time-grunt": "latest",
+    "babel-core": "latest",
+    "babel-preset-env": "latest",
+    "grunt-babel": "latest",
+    "grunt-contrib-uglify-es": "latest"
   }
 }

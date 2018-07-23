@@ -16,12 +16,7 @@
 
         /* COMPILADOR LESS */
         less: {
-            lessfilesForms: {
-                files: {
-                    "dev/less/css/forms.css": "dev/less/components/forms.less"
-                }
-            },
-            lessfilesMain: {
+            lessfiles: {
                 files: {
                     "dev/less/css/main.css": "dev/less/main.less"
                 }
@@ -32,29 +27,14 @@
         postcss: {
             options: {
                 processors: [
-                  require('autoprefixer')({
-                      remove: false,
-                      browsers: [
-                          'last 4 Chrome versions',
-                          'last 4 Firefox versions',
-                          'last 4 Explorer versions',
-                          'last 4 Edge versions',
-                          'last 4 iOS versions',
-                          'last 4 Opera versions',
-                          'last 4 Safari versions',
-                          'last 4 OperaMobile versions',
-                          'last 4 OperaMini versions',
-                          'last 4 ChromeAndroid versions',
-                          'last 4 FirefoxAndroid versions',
-                          'last 4 ExplorerMobile versions'
-                      ]
-                  })
+                    require('autoprefixer')({
+                        remove: false,
+                        grid: true,
+                        browsers: 'last 2 versions'
+                    })
                 ]
             },
-            lessfilesForms: {
-                src: 'dev/less/css/forms.css',
-            },
-            lessfilesMain: {
+            lessfiles: {
                 src: 'dev/less/css/main.css',
             },
             cssvendor: {
@@ -67,12 +47,7 @@
             options: {
                 report: 'gzip'
             },
-            lessfilesForms: {
-                files: {
-                    'css/forms.min.css': ['dev/less/css/forms.css']
-                },
-            },
-            lessfilesMain: {
+            lessfiles: {
                 files: {
                     'css/main.min.css': ['dev/less/css/main.css']
                 },
@@ -92,7 +67,9 @@
         /* UGLIFY MINIFICA */
         uglify: {
             options: {
-                sourceMap: false
+                compress: {
+                    drop_debugger: false,
+                }
             },
             jsfiles: {
                 files: [{
@@ -153,25 +130,22 @@
             }
         },
 
+        /* DELETA AS PASTAS */
+        clean: ['css', 'dev/less/css', 'js', 'vendor'],
+
         /* WATCH, VERIFICA ALTERAÇÕES NOS ARQUIVOS */
         watch: {
-            //options: {
-            //    spawn: false
-            //},
-            lessfilesForms: {
-                files: ['dev/less/**/*.less', '!dev/less/main.less', '!dev/less/components/boxmsg.less'],
-                tasks: ['less:lessfilesForms', 'postcss:lessfilesForms', 'cssmin:lessfilesForms']
+            options: {
+                spawn: false
             },
             lessfilesMain: {
-                files: ['dev/less/**/*.less', '!dev/less/components/forms.less'],
-                tasks: ['less:lessfilesMain', 'postcss:lessfilesMain', 'cssmin:lessfilesMain']
+                files: ['dev/less/**/*.less'],
+                tasks: ['less:lessfiles', 'postcss:lessfiles', 'cssmin:lessfiles']
             },
-
             jsfiles: {
                 files: ['dev/js/**/*.js'],
                 tasks: ['uglify:jsfiles']
             },
-
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
                 tasks: ['postcss:cssvendor', 'cssmin:cssvendor']
@@ -184,12 +158,7 @@
             gruntfile: {
                 files: ['gruntfile.js']
             }
-
-        },
-
-        /* DELETA AS PASTAS */
-        clean: ['css', 'dev/less/css', 'js', 'vendor']
-
+        }
     };
 
     grunt.initConfig(gruntSettings);

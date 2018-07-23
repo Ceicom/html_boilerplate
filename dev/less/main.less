@@ -14,9 +14,8 @@
 *:before,
 *:after {
     box-sizing: inherit;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;     // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    -webkit-font-smoothing: antialiased;    // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
 }
 
 html{
@@ -41,7 +40,7 @@ a {
 
 // ESTILOS COMPONENTES (gerados arquivos separados)
 //------------------------------------
-//@import 'components/forms';
+@import 'components/forms';
 @import 'components/boxmsg';
 //@import 'components/newscontent';
 @import 'components/loading';
@@ -50,7 +49,7 @@ a {
 //------------------------------------
 @import 'misc/fonts';
 @import 'misc/icons';
-//@import 'misc/responsive';
+@import 'misc/responsive';
 @import 'misc/typography';
 
 //ESTILOS ESPECIFICOS

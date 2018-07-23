@@ -33,6 +33,21 @@
     .full-cont();
 }
 
+// mis grid flex
+.flex(@totalColunas, @grow: false, @shrink: false) {
+    width: @larguraColuna*@totalColunas;
+    flex-basis: @larguraColuna*@totalColunas;
+
+    .grow() when not(@grow = false) {
+        flex-grow: @grow;
+    }
+    .grow();
+
+    .shrink() when not(@shrink = false) {
+        flex-shrink: @shrink;
+    }
+    .shrink();
+}
 
 // mix espaço esquerda grid
 .prefix(@totalColunas){
