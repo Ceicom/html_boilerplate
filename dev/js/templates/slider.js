@@ -1,63 +1,59 @@
-﻿    var getSliderData = function () {};
+﻿const getSliderData = () => { };
 
-    getSliderData.prototype.init = function () {
+getSliderData.prototype.init = function () {
+    const me = this,
+        data = {
+            type: me.type
+        };
 
-        var _ = this;
+    const r = $.ajax({
+        method: 'GET',
+        url: '/modulos/handlers/xxxxxxxxxxxxx.ashx',
+        data: data
+    });
 
-        var data = {};
-            data.type = _.type;
+    r.then(function (data) {
+        if (Object.keys(data).length)
+            me.doTemplate(data);
+        else
+            me.insertHtml(1);
+    }, function () {
+        me.insertHtml(2);
+    });
+};
 
-        var r = $.ajax({
-            method: 'GET',
-            url: '/modulos/handlers/xxxxxxxxxxxxx.ashx',
-            data: data
-        });
+getSliderData.prototype.doTemplate = function (data) {
+    const me = this;
+    let html = ``;
 
-        r.then(function (data) {
-            if (Object.keys(data).length)
-                _.doTemplate(data);
-            else
-                _.insertHtml(1);
-        }, function () {
-            _.insertHtml(2);
-        });
+    $.each(data, function (key, value) {
+        const url = value.url ? 'href="' + (validaMail(value.url)? 'mailto:' + value.url : validaURL(value.url) ? value.url + '" target="_blank" rel="noreferrer' : value.url) + '\"' : '';
+        html += `<a ${url} title="${value.title}" style="background-image:url(${value.img});"></a>`;
+    });
 
-    }
+    return me.insertHtml(html);
+};
 
-    getSliderData.prototype.doTemplate = function (data) {
+getSliderData.prototype.insertHtml = function (html) {
+    const me = this;
 
-        var html = '';
+    if (typeof html === 'number') {
+        let msg;
 
-        $.each(data, function (key, value) {
-            var url = value.url ? 'href="' + (validaMail(value.url) ? 'mailto:' + value.url : validaURL(value.url) ? value.url + '" target="_blank" rel="noreferrer' : value.url) + '\"' : '';
-            html += '<a ' + url + ' title="' + value.title + '" style="background-image:url(' + value.img + ');"></a>';
-        });
-
-        return this.insertHtml(html);
-    }
-
-    getSliderData.prototype.insertHtml = function (html) {
-
-        var error = false;
-
-        if (typeof (html) == 'number') {
-            error = true;
-            var msg;
-
-            switch (html) {
-                case 1:
-                    msg = 'Sem informações disponíveis no momento.';
-                    break;
-                default:
-                    msg = 'Falha ao recuperar informações, tente novamente.';
-                    break;
-            }
-
-            console.warn(this.type + 'Home: ' + msg);
-        } else {
-            this.wrapper.html(html);
-            this.callback();
+        switch (html) {
+            case 1:
+                msg = 'Sem informações disponíveis no momento.';
+                break;
+            default:
+                msg = 'Falha ao recuperar informações, tente novamente.';
+                break;
         }
 
-        return this;
+        console.warn(`${me.type} Slider >> ${msg}`);
+    } else {
+        me.wrapper.html(html);
+        me.callback();
     }
+
+    return me;
+};

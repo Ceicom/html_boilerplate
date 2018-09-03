@@ -1,67 +1,63 @@
-﻿    var getData = function () {};
+﻿const getData = () => {};
 
-    getData.prototype.init = function () {
+getData.prototype.init = function () {
+    const me = this,
+        data = {
+            limit: me.limit || undefined,
+            type: me.type || undefined,
+            id: me.id || undefined
+        };
 
-        var self = this;
+    const r = $.ajax({
+        method: 'GET',
+        url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx',
+        data: data
+    });
 
-        var data = {};
-            data.limit = this.limit || undefined;
-            data.type = this.type || undefined;
-            data.id = this.id || undefined;
+    r.then(function (data) {
+        if (Object.keys(data).length)
+            me.doTemplate(data);
+        else
+            me.insertHtml(1);
+    }, function () {
+        me.insertHtml(2);
+    });
+};
 
-        var r = $.ajax({
-            method: 'GET',
-            url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx',
-            data: data
-        });
+getData.prototype.doTemplate = function (data) {
+    const me = this;
+    let html = ``;
 
-        r.then(function (data) {
-            if (Object.keys(data).length)
-                self.doTemplate(data);
-            else
-                self.insertHtml(1);
-        }, function () {
-            self.insertHtml(2);
-        });
+    console.info(data);
 
-    }
+    $.each(data, function (key, value) {
+        html += ``; // use es6 templates
+    });
 
-    getData.prototype.doTemplate = function (data) {
+    return me.insertHtml(html);
+};
 
-        var html = '';
+getData.prototype.insertHtml = function (html) {
+    const me = this;
+    let error = false;
 
-        $.each(data, function (key, value) {
-            html += '';
+    if (typeof html === 'number') {
+        error = true;
 
-            console.info(key);
-            console.info(value);
-            console.info('--------');
-        });
-
-        return this.insertHtml(html);
-    }
-
-    getData.prototype.insertHtml = function (html) {
-
-        var error = false;
-
-        if (typeof (html) == 'number') {
-            error = true;
-
-            switch (html) {
-                case 1:
-                    html = '<div class="msg-box is-info">Sem informações disponíveis no momento.</div>';
-                    break;
-                default:
-                    html = '<div class="msg-box is-error">Falha ao recuperar informações, tente novamente.</div>';
-                    break;
-            }
+        switch (html) {
+            case 1:
+                html = `<div class="msg-box is-info">Sem informações disponíveis no momento.</div>`;
+                break;
+            default:
+                html = `<div class="msg-box is-error">Falha ao recuperar informações, tente novamente.</div>`;
+                break;
         }
-
-        this.wrapper.html(html);
-
-        if (!error)
-            this.callback(this.type);
-
-        return this;
     }
+
+    me.wrapper.html(html);
+
+    if (!error)
+        me.callback(me.type);
+
+    return me;
+};

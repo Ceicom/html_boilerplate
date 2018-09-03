@@ -17,14 +17,14 @@
 requirejs.config({
 
     paths: {
-        jquery:     '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min',   // jquery 3.x
-        cfw:        '//src.inf.br/cfw/cfw.min',                                  // framework
-        recaptcha:  '//www.google.com/recaptcha/api',                            // recaptcha google
-        addthis:    '//s7.addthis.com/js/300/addthis_widget.js'                  // addthis
+        jquery:     `//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min`,   // jquery 3.x
+        cfw:        `//src.inf.br/cfw/cfw.min`,                                  // framework
+        recaptcha:  `//www.google.com/recaptcha/api`,                            // recaptcha google
+        addthis:    `//s7.addthis.com/js/300/addthis_widget.js`                  // addthis
     },
 
-    //urlArgs: 'v=1.0',                         // produção
-    urlArgs: 've=' + (new Date()).getTime(),    // desenvolvimento
+    //urlArgs: `v=1.0`,                         // produção
+    urlArgs: `ve=${new Date().getTime()}`,    // desenvolvimento
 
     shim: {
         'cfw': ['jquery']
@@ -37,7 +37,8 @@ requirejs.config({
 define('actualPage', function () {
     var element = document.getElementById('jsPageID');
     var atributos = [];
-    if (typeof (element) != 'undefined' && element != null) atributos = element.getAttribute('data-value').split(',');
+    if (typeof element !== 'undefined' && element !== null) atributos = element.getAttribute('data-value').split(',');
+
     return atributos;
 });
 
@@ -53,14 +54,14 @@ require(
             var item = paginas[i].trim();
 
             // components
-            if (item == 'xxx') require(['components/xxx.min']);
+            if (item === 'xxx') require(['components/xxx.min']);
 
             // ux
-            else if (item == 'form') require(['ux/form.min']);
-            else if (item == 'flutuante') require(['ux/flutuante.min']);
+            else if (item === 'form') require(['ux/form.min']);
+            else if (item === 'flutuante') require(['ux/flutuante.min']);
 
             // pages
-            else if (item == 'yyyy') require(['pages/yyyy.min']);
+            else if (item === 'yyyy') require(['pages/yyyy.min']);
         }
 
     }

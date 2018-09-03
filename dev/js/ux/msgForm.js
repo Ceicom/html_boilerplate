@@ -1,44 +1,46 @@
 define(
     [
-        'cfw',
+        'cfw'
     ],
     function () {
 
         // sweet alert
         cfw.sweetalert.init();
 
+        // evento submit
         $(document).on('cfw_submitform', function (e, retorno, $form) {
 
-            var msg;
+            let msg,
+                cb = function () { };
 
             switch (+retorno) {
                 case 0:
-                    msg = { title: 'Ops', text: 'Preencha todos os campos, tente novamente.', type: 'info' };
+                    msg = { title: `Ops`, text: `Preencha todos os campos, tente novamente.`, type: `info` };
                     break;
                 case 1:
-                    msg = { title: 'Sucesso', text: 'Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!', type: 'success' };
+                    msg = { title: `Sucesso`, text: `Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!`, type: `success` };
 
-                    $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val('');      // zera form
+                    // zera form
+                    $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val(``);
 
-                    // fecha modal
+                    // fecha modal se existir 1 aberto
                     if ($('body').hasClass('modal-loaded') && $('.cfw-modal:visible').length)
                         $('.cfw-modal:visible').trigger('close');
 
                     break;
                 case 2:
-                    msg = { title: 'Erro', text: 'Ocorreu um erro durante o envio de sua mensagem, tente novamente.', type: 'error' };
+                    msg = { title: `Erro`, text: `Ocorreu um erro durante o envio de sua mensagem, tente novamente.`, type: `error` };
                     break;
                 default:
-                    msg = { title: 'Ops', text: retorno, type: 'info' };
+                    msg = { title: `Ops`, text: retorno, type: `info` };
                     break;
             }
 
             // reseta captcha
-            if (typeof (grecaptcha) !== 'undefined')
+            if (typeof grecaptcha !== 'undefined')
                 grecaptcha.reset();
 
-            swal(msg);
-
+            swal(msg, cb);
         });
 
     }

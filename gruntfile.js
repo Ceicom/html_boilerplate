@@ -1,9 +1,9 @@
 ﻿module.exports = function (grunt) {
 
-    var config = {
+    const config = {
         host: 'localhost',
         port: null
-    }
+    };
 
     if (!config.port)
         throw new Error('obrigatório configurar porta de conexão com o website');
@@ -12,13 +12,13 @@
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
-    var gruntSettings = {
+    const gruntSettings = {
 
         /* COMPILADOR LESS */
         less: {
             lessfiles: {
                 files: {
-                    "dev/less/css/main.css": "dev/less/main.less"
+                    "dev/tmp/less/main.css": "dev/less/main.less"
                 }
             }
         },
@@ -30,15 +30,27 @@
                     require('autoprefixer')({
                         remove: false,
                         grid: true,
-                        browsers: 'last 2 versions'
+                        browsers: [
+                            'last 4 Chrome versions',
+                            'last 4 Firefox versions',
+                            'last 4 Edge versions',
+                            'last 4 iOS versions',
+                            'last 4 Opera versions',
+                            'last 4 Safari versions',
+                            'last 4 OperaMobile versions',
+                            'last 4 OperaMini versions',
+                            'last 4 ChromeAndroid versions',
+                            'last 4 FirefoxAndroid versions',
+                            'last 4 ExplorerMobile versions'
+                        ]
                     })
                 ]
             },
             lessfiles: {
-                src: 'dev/less/css/main.css',
+                src: 'dev/tmp/less/main.css'
             },
             cssvendor: {
-                src: ['dev/vendor/**/*.css'],
+                src: ['dev/vendor/**/*.css']
             }
         },
 
@@ -49,8 +61,8 @@
             },
             lessfiles: {
                 files: {
-                    'css/main.min.css': ['dev/less/css/main.css']
-                },
+                    'css/main.min.css': ['dev/tmp/less/main.css']
+                }
             },
             cssvendor: {
                 files: [{
@@ -61,20 +73,44 @@
                     ext: '.min.css',
                     extDot: 'last'
                 }]
+            }
+        },
+
+        /* BABEL */
+        babel: {
+            options: {
+                presets: ['env']
             },
+            jsfiles: {
+                files: [{
+                    expand: true,
+                    cwd: 'dev/js/',
+                    src: ['**/*.js', '!**/*.min.js'],
+                    dest: 'dev/tmp/js/'
+                }]
+            },
+
+            jsvendor: {
+                files: [{
+                    expand: true,
+                    cwd: 'dev/vendor/',
+                    src: ['**/*.js', '!**/*.min.js'],
+                    dest: 'dev/tmp/vendor/'
+                }]
+            }
         },
 
         /* UGLIFY MINIFICA */
         uglify: {
             options: {
                 compress: {
-                    drop_debugger: false,
+                    drop_debugger: false
                 }
             },
             jsfiles: {
                 files: [{
                     expand: true,
-                    cwd: 'dev/js/',
+                    cwd: 'dev/tmp/js/',
                     src: ['**/*.js', '!**/*.min.js'],
                     dest: 'js/',
                     ext: '.min.js',
@@ -84,13 +120,13 @@
             jsvendor: {
                 files: [{
                     expand: true,
-                    cwd: 'dev/vendor/',
+                    cwd: 'dev/tmp/vendor/',
                     src: ['**/*.js', '!**/*.min.js'],
                     dest: 'vendor/',
                     ext: '.min.js',
                     extDot: 'last'
                 }]
-            },
+            }
         },
 
         /* COPY, COPIA PLUGINS */
@@ -131,20 +167,48 @@
         },
 
         /* DELETA AS PASTAS */
-        clean: ['css', 'dev/less/css', 'js', 'vendor'],
+        clean: ['css', 'dev/tmp', 'js', 'vendor', 'images/**/*.min.svg'],
+
+        /* OPTIMIZE SVG */
+        svgmin: {
+            options: {
+                plugins: [
+                    { removeTitle: false },
+                    { removeDesc: false },
+                    { convertStyleToAttrs: false },
+                    { removeHiddenElems: false },
+                    { removeViewBox: false },
+                    { removeUnknownsAndDefaults: false },
+                    { removeUselessStrokeAndFill: false },
+                    { removeRasterImages: true },
+                    { sortAttrs: true },
+                    { removeDimensions: true }
+                ]
+            },
+            files: {
+                files: [{
+                    expand: true,
+                    cwd: 'images/',
+                    src: ['**/*.svg', '!**/*.min.svg'],
+                    dest: 'images/',
+                    ext: '.min.svg',
+                    extDot: 'last'
+                }]
+            }
+        },
 
         /* WATCH, VERIFICA ALTERAÇÕES NOS ARQUIVOS */
         watch: {
             options: {
                 spawn: false
             },
-            lessfilesMain: {
+            lessfiles: {
                 files: ['dev/less/**/*.less'],
                 tasks: ['less:lessfiles', 'postcss:lessfiles', 'cssmin:lessfiles']
             },
             jsfiles: {
                 files: ['dev/js/**/*.js'],
-                tasks: ['uglify:jsfiles']
+                tasks: ['babel:jsfiles', 'uglify:jsfiles']
             },
             cssvendor: {
                 files: ['dev/vendor/**/*.css'],
@@ -152,9 +216,12 @@
             },
             jsvendor: {
                 files: ['dev/vendor/**/*.js'],
-                tasks: ['uglify:jsvendor']
+                tasks: ['babel:jsfiles', 'uglify:jsvendor']
             },
-
+            svg: {
+                files: ['images/**/*.svg', '!images/**/*.min.svg'],
+                tasks: ['svgmin']
+            },
             gruntfile: {
                 files: ['gruntfile.js']
             }
@@ -167,5 +234,5 @@
     grunt.registerTask('default', ['browserSync', 'watch']);
 
     /* TAREFA GERA TUDO */
-    grunt.registerTask('init', ['clean', 'less', 'postcss', 'cssmin', 'uglify', 'copy']);
+    grunt.registerTask('init', ['clean', 'less', 'postcss', 'cssmin', 'babel', 'uglify', 'svgmin', 'copy']);
 };

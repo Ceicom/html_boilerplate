@@ -1,30 +1,35 @@
 ﻿define(
     [
         'cfw',
-        'templates/slider.min',
+        'templates/slider.min'
     ],
-    function () {
+    () => {
 
+        // vars
+        const wrapper = '#wrapper',
+              sliderInfo = new getSliderData();
+
+        // funcs module
         cfw.funcs.init();
 
-        var wrapper = '#wrapper';
-        var sliderInfo = new getSliderData();
-            sliderInfo.wrapper = $(wrapper);
-            sliderInfo.type = 'slider';
-            sliderInfo.callback = function () {
+        // start
+        sliderInfo.wrapper = $(wrapper);
+        sliderInfo.type = 'slider';
+        sliderInfo.callback = () => {
 
-                cfw.owlcarousel.init({
-                    element: wrapper,
-                    items: 1,
-                    loop: $(wrapper).children().length > 1,
-                    autoplay: true,
-                    animateOut: 'fadeOut'
-                });
+            cfw.owlcarousel.init({
+                element: wrapper,
+                items: 1,
+                loop: $(wrapper).children().length > 1,
+                autoplay: true,
+                animateOut: 'fadeOut'
+            });
 
-            };
+        };
 
-        $(document).one('cfw_funcs_loaded', function () {
+        // callback
+        $(document).one('cfw_funcs_loaded', () => {
             sliderInfo.init();
         });
     }
-)
+);
