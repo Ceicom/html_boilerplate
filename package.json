@@ -10,20 +10,21 @@
   "license": "BSD-2-Clause",
   "devDependencies": {
     "autoprefixer": "latest",
+    "babel-core": "latest",
+    "babel-preset-env": "latest",
     "grunt": "latest",
+    "grunt-babel": "latest",
     "grunt-browser-sync": "latest",
     "grunt-contrib-clean": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-cssmin": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
+    "grunt-contrib-uglify-es": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-postcss": "latest",
+    "grunt-svgmin": "latest",
     "load-grunt-tasks": "latest",
-    "time-grunt": "latest",
-    "babel-core": "latest",
-    "babel-preset-env": "latest",
-    "grunt-babel": "latest",
-    "grunt-contrib-uglify-es": "latest"
+    "time-grunt": "latest"
   }
 }
