@@ -29,10 +29,10 @@ public class formularios : IHttpHandler {
 
         HttpPostedFile arquivo = context.Request.Files["file"];
 
-        string retorno = string.Empty;
+        string retorno = "type-> " + type + "<br>";
 
         foreach(string key in context.Request.Form){
-            retorno += String.Format("{0}\n", key, context.Request.Form[key]);
+            retorno += String.Format("{0} - {1}<br/>", key, context.Request.Form[key]);
         }
 
         context.Response.Write(retorno);
