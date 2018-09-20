@@ -1,4 +1,4 @@
-﻿module.exports = function (grunt) {
+module.exports = function (grunt) {
 
     const config = {
         host: 'localhost',
@@ -79,7 +79,7 @@
         /* BABEL */
         babel: {
             options: {
-                presets: ['env']
+                presets: ['@babel/preset-env']
             },
             jsfiles: {
                 files: [{
