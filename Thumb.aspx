@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Thumb.aspx.cs" ViewStateMode="Disabled" Inherits="Thumb" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Thumb.aspx.cs" ViewStateMode="Disabled" Inherits="Thumb" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,8 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-
+        <div>
         <!--
 
         Thumb.NET version 3.1, by wyllyan@wyllyan.com
@@ -28,8 +27,7 @@
             p: Precision
 
          -->
-
-    </div>
+        </div>
     </form>
 </body>
 </html>

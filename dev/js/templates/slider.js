@@ -1,6 +1,7 @@
-﻿const getSliderData = () => { };
+const getSliderData = () => { };
 
-getSliderData.prototype.init = function () {
+getSliderData.prototype.init = () => {
+
     const me = this,
         data = {
             type: me.type
@@ -12,29 +13,33 @@ getSliderData.prototype.init = function () {
         data: data
     });
 
-    r.then(function (data) {
+    r.then((data) => {
         if (Object.keys(data).length)
             me.doTemplate(data);
         else
             me.insertHtml(1);
-    }, function () {
+    }, () => {
         me.insertHtml(2);
     });
+
 };
 
-getSliderData.prototype.doTemplate = function (data) {
+getSliderData.prototype.doTemplate = (data) => {
+
     const me = this;
     let html = ``;
 
     $.each(data, function (key, value) {
-        const url = value.url ? 'href="' + (validaMail(value.url)? 'mailto:' + value.url : validaURL(value.url) ? value.url + '" target="_blank" rel="noreferrer' : value.url) + '\"' : '';
+        const url = value.url ? 'href="' + (validaMail(value.url) ? 'mailto:' + value.url : validaURL(value.url) ? value.url + '" target="_blank" rel="noreferrer' : value.url) + '\"' : '';
         html += `<a ${url} title="${value.title}" style="background-image:url(${value.img});"></a>`;
     });
 
     return me.insertHtml(html);
+
 };
 
 getSliderData.prototype.insertHtml = function (html) {
+
     const me = this;
 
     if (typeof html === 'number') {
@@ -49,11 +54,12 @@ getSliderData.prototype.insertHtml = function (html) {
                 break;
         }
 
-        console.warn(`${me.type} Slider >> ${msg}`);
+        console.warn(`${me.type} Slider => ${msg}`);
     } else {
         me.wrapper.html(html);
         me.callback();
     }
 
     return me;
+
 };

@@ -3,7 +3,9 @@ define(
         'cfw',
         'templates/flutuante.min'
     ],
-    function () {
+    () => {
+
+        const modalID = 'ceicom_promo_flutuante';
 
         // funcs module
         cfw.funcs.init();
@@ -11,8 +13,23 @@ define(
         // start
         const getBanner = new getBannerFlutuanteData();
 
-        $(document).one('cfw_funcs_loaded', function () {
+        getBanner.modalID = modalID;
+        getBanner.callback = () => {
+
+            cfw.cmodal.init();
+
+            const si = setInterval(() => {
+                if (typeof cModal === 'function') {
+                    clearInterval(si);
+                    $('body').find(`#${modalID}`).trigger('click');
+                }
+            }, 100);
+
+        };
+
+        $(document).one('cfw_funcs_loaded', () => {
             getBanner.init();
         });
+
     }
 );

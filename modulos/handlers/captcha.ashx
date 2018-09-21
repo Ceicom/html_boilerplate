@@ -1,12 +1,13 @@
-﻿<%@ WebHandler Language="C#" Class="captcha" %>
+<%@ WebHandler Language="C#" Class="captcha" %>
 
-using System;
 using System.Web;
 using System.Configuration;
 
-public class captcha : IHttpHandler {
+public class captcha : IHttpHandler
+{
 
-    public void ProcessRequest (HttpContext context) {
+    public void ProcessRequest(HttpContext context)
+    {
 
         /*
          * exemplo de código para o CAPTCHA
@@ -36,8 +37,10 @@ public class captcha : IHttpHandler {
         context.Response.Write(reply);
     }
 
-    public bool IsReusable {
-        get {
+    public bool IsReusable
+    {
+        get
+        {
             return false;
         }
     }

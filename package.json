@@ -1,12 +1,22 @@
 {
-  "name": "ceicom",
+  "name": "ceicom_boilerplate",
   "version": "1.0.0",
-  "description": "Html_BoilerPlate_Ceicom",
-  "main": "grunfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Boilerplate desenvolvido para projetos internos da Ceicom, utilizando como plataforma base WebForms do .NET.",
+  "keywords": [ "boilerplate", "html5", "css3", "less", "requirejs", "ogtags", "javascript" ],
+  "homepage": "https://github.com/Ceicom/html_boilerplate",
+  "bugs": {
+    "url": "https://github.com/Ceicom/html_boilerplate/issues",
+    "email": "keller@ceicom.com.br"
   },
-  "author": "ceicom",
+  "author": {
+    "name": "Ceicom Marketing & Tecnologia Digital",
+    "email": "suporte@ceicom.com.br",
+    "url": "http://wwww.ceicom.com.br"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ceicom/html_boilerplate.git"
+  },
   "license": "BSD-2-Clause",
   "devDependencies": {
     "@babel/core": "latest",

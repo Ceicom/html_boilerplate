@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 
 // ESSENCIAIS
 //------------------------------------
@@ -14,11 +14,11 @@
 *:before,
 *:after {
     box-sizing: inherit;
-    -moz-osx-font-smoothing: grayscale;     // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
-    -webkit-font-smoothing: antialiased;    // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    -moz-osx-font-smoothing: grayscale; // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    -webkit-font-smoothing: antialiased; // https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
 }
 
-html{
+html {
     font-size: @font-base * 1px;
     box-sizing: border-box;
 }
@@ -26,15 +26,18 @@ html{
 body {
     font-family: '??', sans-serif;
     font-size: @font-base*1px;
-    //&:extend(.color-xxx);
+    // color: @cor-xxxx;
 }
 
 a {
     //&:extend(.color-xxx);
-
     &,
-    &:hover{
+    &:hover {
         text-decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
     }
 }
 

@@ -1,11 +1,13 @@
-﻿<%@ WebHandler Language="C#" Class="formularios" %>
+<%@ WebHandler Language="C#" Class="formularios" %>
 
 using System;
 using System.Web;
 
-public class formularios : IHttpHandler {
+public class formularios : IHttpHandler
+{
 
-    public void ProcessRequest (HttpContext context) {
+    public void ProcessRequest(HttpContext context)
+    {
 
         //System.Threading.Thread.Sleep(1000);
 
@@ -31,15 +33,18 @@ public class formularios : IHttpHandler {
 
         string retorno = "type-> " + type + "<br>";
 
-        foreach(string key in context.Request.Form){
+        foreach (string key in context.Request.Form)
+        {
             retorno += String.Format("{0} - {1}<br/>", key, context.Request.Form[key]);
         }
 
         context.Response.Write(retorno);
     }
 
-    public bool IsReusable {
-        get {
+    public bool IsReusable
+    {
+        get
+        {
             return false;
         }
     }

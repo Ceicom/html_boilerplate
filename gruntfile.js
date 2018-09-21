@@ -5,8 +5,7 @@ module.exports = function (grunt) {
         port: null
     };
 
-    if (!config.port)
-        throw new Error('obrigatório configurar porta de conexão com o website');
+    if (!config.port) throw new Error('obrigatório configurar porta de conexão com o website');
 
     //dependencies
     require('load-grunt-tasks')(grunt);
@@ -19,7 +18,8 @@ module.exports = function (grunt) {
             lessfiles: {
                 files: {
                     "dev/tmp/less/main.css": "dev/less/main.less"
-                }
+                },
+                ieCompat: false
             }
         },
 
@@ -200,7 +200,8 @@ module.exports = function (grunt) {
         /* WATCH, VERIFICA ALTERAÇÕES NOS ARQUIVOS */
         watch: {
             options: {
-                spawn: false
+                spawn: false,
+                interrupt: true
             },
             lessfiles: {
                 files: ['dev/less/**/*.less'],

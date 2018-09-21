@@ -1,8 +1,6 @@
-@import '../mix/variables';
 @import '../mix/functions';
 
 .formee{
-
     input[type="datetime"],
     input[type="file"],
     input[type="month"],
@@ -132,6 +130,21 @@
     @media (max-width: 364px){
         .w-captcha {
             padding:0 !important;
+        }
+    }
+
+    @media (max-width: 879px){
+        .w-captcha > div > div{
+            margin:0 auto;
+        }
+
+        // button, input submit, input reset
+        input[type="submit"],
+        input[type="button"],
+        input[type="reset"],
+        button {
+            margin-left:auto;
+            margin-right:auto;
         }
     }
 

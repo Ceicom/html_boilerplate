@@ -2,23 +2,30 @@ define(
     [
         'cfw'
     ],
-    function () {
+    () => {
 
         // sweet alert
         cfw.sweetalert.init();
 
         // evento submit
-        $(document).on('cfw_submitform', function (e, retorno, $form) {
+        $(document).on('cfw_submitform', (e, retorno, $form) => {
 
-            let msg,
-                cb = function () { };
+            let msg = ``,
+                cb = () => { };
 
             switch (+retorno) {
                 case 0:
                     msg = { title: `Ops`, text: `Preencha todos os campos, tente novamente.`, type: `info` };
                     break;
                 case 1:
-                    msg = { title: `Sucesso`, text: `Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!`, type: `success` };
+                    let msgTXT = `Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!`;
+
+                    if ($form.attr('data-data-submitform') === 'xxxx') {
+                        msgTXT = `xxxx`;
+                        cb = () => alert('xxxx');
+                    }
+
+                    msg = { title: `Sucesso`, text: msgTXT, type: `success` };
 
                     // zera form
                     $form.find('input:not([type="submit"]):not([type="radio"]):not([type="checkbox"]), textarea').val(``);

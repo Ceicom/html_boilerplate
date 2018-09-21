@@ -1,4 +1,4 @@
-﻿define(
+define(
     [
         'cfw',
         'templates/slider.min'
@@ -6,15 +6,15 @@
     () => {
 
         // vars
-        const wrapper = '#wrapper',
-              sliderInfo = new getSliderData();
+        const wrapper = '#js-xxxx-wrapper',
+            sliderInfo = new getSliderData();
 
         // funcs module
         cfw.funcs.init();
 
         // start
         sliderInfo.wrapper = $(wrapper);
-        sliderInfo.type = 'slider';
+        sliderInfo.type = $(wrapper).attr('data-type');
         sliderInfo.callback = () => {
 
             cfw.owlcarousel.init({

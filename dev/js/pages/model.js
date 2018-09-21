@@ -1,18 +1,16 @@
-﻿define(
+define(
     [
         'cfw',
         'templates/model.min'
     ],
     () => {
 
-        // vars
-        const wrapper = '#wrapper',
-              getInfo = new getData();
-
         // funcs module
         cfw.funcs.init();
 
-        // start
+        const wrapper = '#js-xxxx-wrapper',
+            getInfo = new getData();
+
         getInfo.wrapper = $(wrapper);
         getInfo.type = $(wrapper).attr('data-type');
         getInfo.limit = $(wrapper).attr('data-limit');
@@ -40,13 +38,12 @@
             });
 
             cfw.fancybox.init({
-                element: '[data-fancybox]' // default
+                element: '[data-fancybox]' // default, se for esse seletor pode remover essa linha
             });
 
             require(['addthis']);
         };
 
-        // callback
         $(document).one('cfw_funcs_loaded', () => {
             getInfo.init();
         });

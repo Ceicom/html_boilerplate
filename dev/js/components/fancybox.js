@@ -1,8 +1,10 @@
-﻿define(
+define(
     [
         'cfw'
     ],
     () => {
+
         cfw.fancybox.init();
+
     }
 );

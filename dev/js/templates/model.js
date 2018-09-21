@@ -1,6 +1,7 @@
-﻿const getData = () => {};
+const getData = () => { };
 
-getData.prototype.init = function () {
+getData.prototype.init = () => {
+
     const me = this,
         data = {
             limit: me.limit || undefined,
@@ -14,30 +15,33 @@ getData.prototype.init = function () {
         data: data
     });
 
-    r.then(function (data) {
+    r.then((data) => {
         if (Object.keys(data).length)
             me.doTemplate(data);
         else
             me.insertHtml(1);
-    }, function () {
+    }, () => {
         me.insertHtml(2);
     });
+
 };
 
-getData.prototype.doTemplate = function (data) {
+getData.prototype.doTemplate = (data) => {
+
     const me = this;
     let html = ``;
 
     console.info(data);
 
-    $.each(data, function (key, value) {
-        html += ``; // use es6 templates
+    $.each(data, (key, value) => {
+        html += ``;
     });
 
     return me.insertHtml(html);
+
 };
 
-getData.prototype.insertHtml = function (html) {
+getData.prototype.insertHtml = (html) => {
     const me = this;
     let error = false;
 
@@ -60,4 +64,5 @@ getData.prototype.insertHtml = function (html) {
         me.callback(me.type);
 
     return me;
+
 };

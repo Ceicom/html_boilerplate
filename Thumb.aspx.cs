@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
@@ -268,8 +259,8 @@ public partial class Thumb : System.Web.UI.Page
         cachePolicy.VaryByParams["i"] = true;
         cachePolicy.VaryByParams["p"] = true;
         cachePolicy.SetOmitVaryStar(true);
-        //cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(7));
-        cachePolicy.SetExpires(DateTime.Now);
+        cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(1));
+        //cachePolicy.SetExpires(DateTime.Now);
         cachePolicy.SetValidUntilExpires(true);
         cachePolicy.SetLastModified(lastModified);
     }
