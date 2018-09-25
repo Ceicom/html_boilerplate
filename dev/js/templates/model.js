@@ -1,4 +1,4 @@
-const getData = () => { };
+﻿const getData = () => { };
 
 getData.prototype.init = () => {
 

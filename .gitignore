@@ -1,4 +1,4 @@
-*.suo
+﻿*.suo
 .vs/
 [Bb]uild[Ll]og.*
 project.lock.json

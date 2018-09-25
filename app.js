@@ -1,4 +1,4 @@
-const nivel = process.argv.length > 2 ? process.argv.slice(2)[0].split('=')[1] : 1,
+﻿const nivel = process.argv.length > 2 ? process.argv.slice(2)[0].split('=')[1] : 1,
 	dotdotslash = '../'.repeat(nivel),
     express = require(dotdotslash + 'midia-server/node_modules/express'),
     dir = require(dotdotslash + 'midia-server/node_modules/node-dir'),

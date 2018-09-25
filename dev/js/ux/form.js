@@ -1,4 +1,4 @@
-define(
+﻿define(
     [
         'cfw',
         'ux/msgForm.min'

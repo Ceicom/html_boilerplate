@@ -1,4 +1,4 @@
-User-agent: Googlebot
+﻿User-agent: Googlebot
 Disallow:
 
 User-agent: Slurp

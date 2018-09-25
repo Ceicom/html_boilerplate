@@ -1,4 +1,4 @@
-const getBannerFlutuanteData = () => { };
+﻿const getBannerFlutuanteData = () => { };
 
 getBannerFlutuanteData.prototype.init = () => {
 

@@ -1,4 +1,4 @@
-const getSliderData = () => { };
+﻿const getSliderData = () => { };
 
 getSliderData.prototype.init = () => {
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ## ARQUIVO PRINCIPAL DE CONFIGURAÇÕES DO REQUIREJS ##
  *
  * unico arquivo referenciado no html, todas demais chamadas de arquivo js deverão

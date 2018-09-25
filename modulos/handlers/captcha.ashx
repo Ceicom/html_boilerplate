@@ -1,4 +1,4 @@
-<%@ WebHandler Language="C#" Class="captcha" %>
+﻿<%@ WebHandler Language="C#" Class="captcha" %>
 
 using System.Web;
 using System.Configuration;
