@@ -139,12 +139,17 @@
         }
 
         // button, input submit, input reset
-        input[type="submit"],
-        input[type="button"],
-        input[type="reset"],
-        button {
-            margin-left:auto;
-            margin-right:auto;
+        .formee{
+            input[type="submit"],
+            input[type="button"],
+            input[type="reset"],
+            button {
+                &,
+                &.is-right{
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+            }
         }
     }
 
