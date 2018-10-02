@@ -20,7 +20,7 @@
                 case 1:
                     let msgTXT = `Mensagem enviada com sucesso, aguarde, em breve retornaremos o contato!`;
 
-                    if ($form.attr('data-data-submitform') === 'xxxx') {
+                    if ($form.attr('data-submitform') === 'form-xxxx') {
                         msgTXT = `xxxx`;
                         cb = () => alert('xxxx');
                     }
