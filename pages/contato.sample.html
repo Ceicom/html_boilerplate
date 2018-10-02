@@ -1,5 +1,6 @@
-﻿<div class="formee at-aaaaaaaaaaaaaaaaaa" role="form" data-submitform="aaaaaaaaaaaaaaaaaa" data-validate="form">
+﻿<div class="formee" role="form" data-submitform="form-xxxx" data-validate="form">
 
+    <!-- essenciais -->
     <div class="col12">
         <label for="txtNome">Nome Completo</label>
         <input id="txtNome" name="txtNome" data-validate="fullname" type="text" placeholder="Seu nome completo" />
@@ -8,7 +9,19 @@
         <label for="txtEmail">E-mail</label>
         <input id="txtEmail" name="txtEmail" data-validate="email" type="email" placeholder="email@dominio.com.br" />
     </div>
+    <div class="col6">
+        <label for="txtTelefone">Telefone</label>
+        <input id="txtTelefone" name="txtTelefone" data-mask="phone" data-validate="required" type="tel" placeholder="(00) 00000-0000" />
+    </div>
 
+    <!-- outros -->
+    <div class="col6 select-seta">
+        <label for="ddSetor">Estado</label>
+        <select id="ddSetor" name="ddSetor" data-validate="required">
+            <option value="">Selecione um Setor</option>
+            <option value="1">Setor 1</option>
+        </select>
+    </div>
     <div class="col6">
         <label for="txtCPF">CPF</label>
         <input id="txtCPF" name="txtCPF" type="text" data-validate="cpf" data-mask="cpf" placeholder="000.000.000-00" />
@@ -17,17 +30,14 @@
         <label for="txtCNPJ">CNPJ</label>
         <input id="txtCNPJ" name="txtCNPJ" type="text" data-validate="cnpj" data-mask="cnpj" placeholder="00.000.000/0000-00" />
     </div>
-
     <div class="col6">
         <label for="txtNome">Site/Link</label>
         <input id="txtURL" name="txtURL" type="url" data-validate="url" placeholder="http://www.seusite.com.br" />
     </div>
-
     <div class="col6">
         <label for="ffFile">Arquivo - extensão .jpg, rar e zip - tamanho máximo 5mb</label>
         <input id="ffFile" name="ffFile" type="file" data-validate="file" data-validate-size="5412" data-validate-ext="jpg,rar,zip" />
     </div>
-
     <div class="col6">
         <label>
             <input type="checkbox" name="cbTest" value="1" data-validate="checkbox" data-validate-qtd="2,2" />
@@ -43,14 +53,7 @@
         </label>
     </div>
 
-    <div class="col6">
-        <label for="txtTelefone">Telefone</label>
-        <input id="txtTelefone" name="txtTelefone" data-mask="phone" data-validate="required" type="tel" placeholder="(00) 00000-0000" />
-    </div>
-    <div class="col12">
-        <label for="txtMensagem">Mensagem</label>
-        <textarea id="txtMensagem" name="txtMensagem" data-validate="required" placeholder="Escreva sua mensagem"></textarea>
-    </div>
+    <!-- endereço -->
     <div class="col4">
         <label for="txtCEP">CEP</label>
         <input id="txtCEP" name="txtCEP" data-validate="required" data-mask="zip" data-zipcode="zip" data-zipcode-group="1" type="text" placeholder="00000-000" />
@@ -78,6 +81,12 @@
         <select id="ddCidade" name="ddCidade" data-list="cities" data-list-group="1" data-zipcode="city" data-zipcode-group="1" data-validate="required">
             <option value="">carregando..</option>
         </select>
+    </div>
+
+    <!-- mensagem -->
+    <div class="col12">
+        <label for="txtMensagem">Mensagem</label>
+        <textarea id="txtMensagem" name="txtMensagem" data-validate="required" placeholder="Escreva sua mensagem"></textarea>
     </div>
     <div class="col6 w-captcha">
         <div class="g-recaptcha" data-sitekey="<%=sitekey%>"></div>

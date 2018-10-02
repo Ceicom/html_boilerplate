@@ -26,3 +26,4 @@ node_modules/
 *.webinfo
 vwd.webinfo
 yarn.lock
+*.refresh

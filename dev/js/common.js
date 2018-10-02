@@ -5,11 +5,7 @@
  * ser feitas através da tag "meta#jsPageID" com o "data-value" referenciando o script
  *
  *      @ ex meta
- *          <meta id="jsPageID" data-value="home" />
- *      @ ex chamada js
- *          if (item == 'home') require(['pages/home.min']);
- *
- * estas chamadas de js deverão ser posicionadas dentro do callback do 'require(['actualPage'])'
+ *          <meta id="jsPageID" data-value="pages/produtos" />
  *
  */
 
@@ -58,5 +54,5 @@ require(
 );
 
 /*
-<meta id="jsPageID" data-value="home" />
+<meta id="jsPageID" data-value="pages/produtos" />
 */
