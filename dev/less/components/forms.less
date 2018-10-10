@@ -1,6 +1,6 @@
 ﻿@import '../mix/functions';
 
-.formee{
+.formee {
     input[type="datetime"],
     input[type="file"],
     input[type="month"],
@@ -42,19 +42,18 @@
         padding-bottom: 11px;
     }
 
-    label{
-        display:block;
-        margin:0 0 4px;
-        font-size:12px;
-        line-height:.9em;
-        text-transform:uppercase;
+    label {
+        display: block;
+        margin: 0 0 4px;
+        font-size: 12px;
+        line-height: .9em;
+        text-transform: uppercase;
     }
 
     textarea {
         height: 8em;
         resize: vertical;
     }
-
     // float label
     .float-label {
 
@@ -71,8 +70,8 @@
 
         select,
         input:focus,
-        &.floating input,
         textarea:focus,
+        &.floating input,
         &.floating textarea {
             & + label {
                 color: @input--placeholder;
@@ -80,27 +79,86 @@
             }
         }
     }
-
     // placeholder -> mensgem de erro
-    .cfw-input-invalid input::-webkit-input-placeholder             { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid textarea::-webkit-input-placeholder          { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid input:-ms-input-placeholder                  { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid textarea:-ms-input-placeholder               { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid input::-moz-placeholder                      { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid textarea::-moz-placeholder                   { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid input:-moz-placeholder                       { color: @input-error--placeholder; opacity:1; }
-    .cfw-input-invalid textarea:-moz-placeholder                    { color: @input-error--placeholder; opacity:1; }
+    .cfw-input-invalid input::-webkit-input-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
 
+    .cfw-input-invalid textarea::-webkit-input-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid input:-ms-input-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid textarea:-ms-input-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid input::-moz-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid textarea::-moz-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid input:-moz-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
+
+    .cfw-input-invalid textarea:-moz-placeholder {
+        color: @input-error--placeholder;
+        opacity: 1;
+    }
     // placeholders -> default input´s
-    input::-webkit-input-placeholder                                { color: @input--placeholder; opacity: 1; }
-    textarea::-webkit-input-placeholder                             { color: @input--placeholder; opacity: 1; }
-    input:-ms-input-placeholder                                     { color: @input--placeholder; opacity: 1; }
-    textarea:-ms-input-placeholder                                  { color: @input--placeholder; opacity: 1; }
-    input::-moz-placeholder                                         { color: @input--placeholder; opacity: 1; }
-    textarea::-moz-placeholder                                      { color: @input--placeholder; opacity: 1; }
-    input:-moz-placeholder                                          { color: @input--placeholder; opacity: 1; }
-    textarea:-moz-placeholder                                       { color: @input--placeholder; opacity: 1; }
+    input::-webkit-input-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
 
+    textarea::-webkit-input-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-ms-input-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input::-moz-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea::-moz-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    input:-moz-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
+
+    textarea:-moz-placeholder {
+        color: @input--placeholder;
+        opacity: 1;
+    }
     // button, input submit, input reset
     input[type="submit"],
     input[type="button"],
@@ -117,12 +175,12 @@
         border: 0;
         background: @input-color;
 
-        &.is-centered{
+        &.is-centered {
             margin-left: auto;
             margin-right: auto;
         }
 
-        &.is-right{
+        &.is-right {
             margin-left: auto;
             margin-right: 0;
         }
@@ -131,7 +189,6 @@
             cursor: not-allowed;
         }
     }
-
     // grid
     .col1,
     .col2,
@@ -144,12 +201,11 @@
     .col9,
     .col10,
     .col11,
-    .col12{
+    .col12 {
         .column(12);
-        margin:10px 0;
+        margin: 10px 0;
         position: relative;
     }
-
 }
 
 @media screen {
