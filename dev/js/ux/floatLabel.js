@@ -3,7 +3,7 @@
         'jquery'
     ],
     () => {
-        $('.float-label input, .float-label textarea').blur(({ currentTarget }) => {
+        $('.float-label :input').blur(({ currentTarget }) => {
             if ($(currentTarget).val()) {
                 $(currentTarget).parent().addClass('floating');
                 return;
