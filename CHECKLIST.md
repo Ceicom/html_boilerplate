@@ -20,7 +20,8 @@ Tipo | Link
 # Cuidar
 - [ ] Og:tags
 - [ ] Title das páginas
-- [ ] Imagem de Compartilhamento
+- [ ] Imagem de compartilhamento
+- [ ] Verificar links das páginas (internas, facebook, instagram, etc...)
 
 # Não enviar para o FTP
 - [ ] /Arquivos (enviar media e thumbs)
