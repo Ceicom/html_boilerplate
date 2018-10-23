@@ -16,6 +16,7 @@ Tipo | Link
 - [ ] Schema
 - [ ] [Favicon](http://realfavicongenerator.net/)
 - [ ] [Analytics](https://analytics.google.com/analytics/web/)
+- [ ] Adicionar flutuante
 
 # Cuidar
 - [ ] Og:tags
