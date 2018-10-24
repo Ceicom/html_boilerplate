@@ -1,4 +1,4 @@
-﻿class getData[name] {
+﻿class getData {
     init() {
         const me = this,
             data = {
