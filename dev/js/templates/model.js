@@ -1,4 +1,4 @@
-﻿class getData {
+﻿class getData[name] {
     init() {
         const me = this,
             data = {
@@ -9,7 +9,7 @@
 
         const r = $.ajax({
             method: 'GET',
-            url: '/modulos/handlers/xxxxxxxxxxxxxx.ashx',
+            url: '/modulos/handlers/[name].ashx',
             data: data
         });
 
