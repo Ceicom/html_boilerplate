@@ -1,8 +1,16 @@
 {
   "name": "ceicom_boilerplate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Boilerplate desenvolvido para projetos internos da Ceicom, utilizando como plataforma base WebForms do .NET.",
-  "keywords": [ "boilerplate", "html5", "css3", "less", "requirejs", "ogtags", "javascript" ],
+  "keywords": [
+    "boilerplate",
+    "html5",
+    "css3",
+    "less",
+    "requirejs",
+    "ogtags",
+    "javascript"
+  ],
   "homepage": "https://github.com/Ceicom/html_boilerplate",
   "bugs": {
     "url": "https://github.com/Ceicom/html_boilerplate/issues",
