@@ -1,14 +1,14 @@
 ﻿define(
     [
         'cfw',
-        'templates/model.min'
+        'templates/[name].min'
     ],
     () => {
 
         // funcs module
         cfw.funcs.init();
 
-        const wrapper = '#js-xxxx-wrapper',
+        const wrapper = '#js-[name]-wrapper',
             getInfo = new getData();
 
         getInfo.wrapper = $(wrapper);
