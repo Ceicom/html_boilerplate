@@ -1,8 +1,6 @@
 ﻿![alt text](http://www.ceicom.com.br/img/logo.png "Ceicom Marketing & Tecnologia Digital")
 # Checklist de finalização de projeto
 
-- [ ] Cache no CSS
-- [ ] Cache no JS
 - [ ] [Tinyficar Imagens](https://tinypng.com/)
 - [ ] Remover imagens de exemplo
 - [ ] Sitemap:

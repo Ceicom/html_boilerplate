@@ -32,5 +32,5 @@ class getBannerFlutuanteData {
         me.callback();
 
         return me;
-    };
+    }
 }

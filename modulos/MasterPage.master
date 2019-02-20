@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
-<head runat="server" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -30,15 +30,13 @@
     <meta name="google" content="notranslate">
     <meta name="author" content="Ceicom® www.ceicom.com.br">
 
-    <%-- sem cache --%>
-    <link href="/css/main.min.css<%= "?v=" + DateTime.Now.ToString("ddmmyyyyhhmmss") %>" rel="stylesheet" />
-    <%-- <link href="/css/main.min.css" rel="stylesheet"> --%>
-
+    <link href="/css/main.min.css?v=<%=cacheVersion %>" rel="stylesheet" />
+    
     <%-- container head --%>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 
-    <%-- favicon => gerar utilizando http://realfavicongenerator.net/ --%>
-    <%-- sitemap => gerar utilizando https://www.xml-sitemaps.com --%>
+    <%-- favicon --%>
+    <%-- sitemap --%>
 
     <%--<script type='application/ld+json'>
         {
@@ -75,7 +73,7 @@
     </form>
 
     <script type="text/javascript"> var addthis_pub = ''; </script>
-    <script async defer data-main="/js/common.min" src="//src.inf.br/vendor/require/require.min.js"></script>
+    <script async defer data-main="/js/common.min.js?v=<%=cacheVersion %>" src="//src.inf.br/vendor/require/require.min.js"></script>
 
 </body>
 </html>

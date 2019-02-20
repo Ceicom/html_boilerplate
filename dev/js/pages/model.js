@@ -8,8 +8,8 @@
         // funcs module
         cfw.funcs.init();
 
-        const wrapper = '#js-[name]-wrapper',
-            getInfo = new getData();
+        const wrapper = '#js-[name]-wrapper';
+        const getInfo = new getData();
 
         getInfo.wrapper = $(wrapper);
         getInfo.type = $(wrapper).attr('data-type');
@@ -44,9 +44,7 @@
             require(['addthis']);
         };
 
-        $(document).one('cfw_funcs_loaded', () => {
-            getInfo.init();
-        });
+        $(document).one('cfw_funcs_loaded', () => getInfo.init() );
 
     }
 );

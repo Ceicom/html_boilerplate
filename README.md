@@ -1,14 +1,20 @@
 ﻿# Ceicom Boilerplate
-
-[![devDependency Status](https://david-dm.org/h5bp/html5-boilerplate/dev-status.svg)](https://david-dm.org/h5bp/html5-boilerplate#info=devDependencies)
+[![ceicom](http://www.ceicom.com.br/img/logo.png?v=1.0)](//www.ceicom.com.br)
 
 Boilerplate desenvolvido para projetos internos da Ceicom, utilizando como plataforma base **WebForms do .NET**.
 
-Foi utilizado como base o [HTML5 Boilerplate](https://html5boilerplate.com/)
+> Handlers
+> Javascript
+> Less
+> MasterPage
+> WebUserControl
+> WebConfig
 
----
+### Recomendações
+* [CeicomCli](https://github.com/Ceicom/ceicom-cli) - CeicomCli para criar js/less/aspx para o boilerplate
+* [CeicomCfw](https://github.com/Ceicom/cFw) - Diversos plugins/utilitários para complementar o projeto.
 
-## Browser support
+#### Browser support
 ### Oficial
 * Chrome *(latest 2)*
 * Edge *(latest 2)*
@@ -20,5 +26,3 @@ Foi utilizado como base o [HTML5 Boilerplate](https://html5boilerplate.com/)
 
 ### Our Sin
 * Internet Explorer 10+
-
----

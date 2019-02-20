@@ -33,10 +33,15 @@
     .full-cont();
 }
 
+.width(@totalColunas){
+    width: @larguraColuna*@totalColunas;
+}
+
 // mis grid flex
 .flex(@totalColunas, @grow: false, @shrink: false) {
-    width: @larguraColuna*@totalColunas;
     flex-basis: @larguraColuna*@totalColunas;
+    
+    .width(@totalColunas);
 
     .grow() when not(@grow = false) {
         flex-grow: @grow;

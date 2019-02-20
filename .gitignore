@@ -25,5 +25,4 @@ node_modules/
 /[Aa]rquivos/
 *.webinfo
 vwd.webinfo
-yarn.lock
 *.refresh

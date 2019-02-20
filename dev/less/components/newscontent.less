@@ -1,9 +1,21 @@
 ﻿@import '../mix/variables';
 
 .news-content  {
-    a:not(.btn){
-        text-decoration:underline;
-        color:@color-link;
+    a{
+        &:not(.btn){
+            text-decoration:underline;
+            color:@color-link;
+        }
+
+        &[data-fancybox]{
+            img{
+                transition:.3s opacity;
+            }
+
+            &:hover img{
+                opacity:.7;
+            }
+        }
     }
 
     img,

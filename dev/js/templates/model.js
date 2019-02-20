@@ -14,13 +14,12 @@
         });
 
         r.then((data) => {
-            if (Object.keys(data).length)
-                me.doTemplate(data);
-            else
+            if (!Object.keys(data).length){
                 me.insertHtml(1);
-        }, () => {
-            me.insertHtml(2);
-        });
+                return;
+            }
+            me.doTemplate(data);
+        }, () => me.insertHtml(2) );
     }
 
     doTemplate(data) {

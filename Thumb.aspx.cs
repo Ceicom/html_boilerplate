@@ -259,8 +259,8 @@ public partial class Thumb : System.Web.UI.Page
         cachePolicy.VaryByParams["i"] = true;
         cachePolicy.VaryByParams["p"] = true;
         cachePolicy.SetOmitVaryStar(true);
-        cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(1));
-        //cachePolicy.SetExpires(DateTime.Now);
+        //cachePolicy.SetExpires(DateTime.Now + TimeSpan.FromDays(1));
+        cachePolicy.SetExpires(DateTime.Now);
         cachePolicy.SetValidUntilExpires(true);
         cachePolicy.SetLastModified(lastModified);
     }

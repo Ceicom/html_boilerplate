@@ -19,8 +19,7 @@ requirejs.config({
         addthis: `//s7.addthis.com/js/300/addthis_widget.js`                    // addthis
     },
 
-    //urlArgs: `v=1.0`,                         // produção
-    urlArgs: `ve=${new Date().getTime()}`,    // desenvolvimento
+    urlArgs: document.currentScript.src.split('?')[1],
 
     shim: {
         'cfw': ['jquery']
@@ -40,11 +39,12 @@ define('actualPage', () => {
     return modulos;
 });
 
-// chamada analytics + scripts pagina
+// chamada tagmanager + scripts pagina
 require(
     [
         'actualPage',
-        'components/analytics.min'
+        //'components/ajaxStop.min',
+        'components/tagmanager.min'
     ],
     (modulos) => {
         for (let i = 0; i < modulos.length; i++) {
