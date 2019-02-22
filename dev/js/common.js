@@ -19,7 +19,15 @@ requirejs.config({
         addthis: `//s7.addthis.com/js/300/addthis_widget.js`                    // addthis
     },
 
-    urlArgs: document.currentScript.src.split('?')[1],
+    urlArgs: () => {
+        const script = document.currentScript;
+        let version = script ? script.src.split('?')[1] : null;
+
+        if (!script || !version)
+            version = document.getElementsByTagName('script')[document.getElementsByTagName('script').length - 1].getAttribute('data-main').split('?')[1];
+
+        return `?${version}`;
+    },
 
     shim: {
         'cfw': ['jquery']
