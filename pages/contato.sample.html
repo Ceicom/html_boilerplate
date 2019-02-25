@@ -80,10 +80,8 @@
         <label for="txtMensagem">Mensagem</label>
         <textarea id="txtMensagem" name="txtMensagem" data-validate="required" placeholder="Escreva sua mensagem"></textarea>
     </div>
-    <div class="col6 w-captcha">
-        <div class="g-recaptcha" data-sitekey="<%=sitekey%>"></div>
-    </div>
-    <div class="col6">
+    <div class="col12">
+        <div id="gcaptcha1" class="g-recaptcha" data-sitekey="<%=sitekey%>"></div>
         <button type="submit" class="is-right" disabled>Enviar</button>
     </div>
 </div>

@@ -5,10 +5,9 @@
     ],
     () => {
 
-        if ($('.g-recaptcha').length)
-            require(['recaptcha']);
-
-        cfw.form.init();
+        cfw.form.init({
+            invisiblecaptcha: true
+        });
 
     }
 );

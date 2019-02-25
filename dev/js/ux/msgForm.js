@@ -43,12 +43,7 @@
                     break;
             }
 
-            // reseta captcha
-            if (typeof grecaptcha !== 'undefined')
-                grecaptcha.reset();
-
             swal(msg, cb);
         });
-
     }
 );

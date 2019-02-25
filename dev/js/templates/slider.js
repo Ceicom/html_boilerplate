@@ -1,5 +1,4 @@
 ﻿class getSliderData {
-
     constructor() {
         const me = this;
 
