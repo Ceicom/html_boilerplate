@@ -17,6 +17,8 @@ public partial class modulos_ucs_ogtags : System.Web.UI.UserControl
             description = "Descrição Página.";
 
         if (string.IsNullOrEmpty(image))
-            image = Request.Url.Scheme + "://" + Request.Url.Authority + "/images/social/share.jpg";
+            image = Uri.EscapeUriString(Request.Url.Scheme + "://" + Request.Url.Authority + "/images/social/share.jpg");
+        else
+            image = Uri.EscapeUriString(image);
     }
 }
